@@ -3,12 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		FA1932BA24C45F62000A8B8A /* ViewController4.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1932B924C45F62000A8B8A /* ViewController4.m */; };
 		FA1CC66A2479133400906BFA /* ViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1CC6692479133400906BFA /* ViewController3.m */; };
+		FA33AF0E2577B6670004B876 /* ViewController8.m in Sources */ = {isa = PBXBuildFile; fileRef = FA33AF0D2577B6670004B876 /* ViewController8.m */; };
+		FA33AF1E257898D30004B876 /* product_detail_skeleton_screen_dark@3x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA33AF1C257898D30004B876 /* product_detail_skeleton_screen_dark@3x.jpg */; };
+		FA33AF1F257898D30004B876 /* product_detail_skeleton@3x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA33AF1D257898D30004B876 /* product_detail_skeleton@3x.jpg */; };
+		FA33AF252578B30A0004B876 /* 画板@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA33AF232578B3090004B876 /* 画板@2x.jpg */; };
+		FA33AF262578B30A0004B876 /* 画板@3x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA33AF242578B3090004B876 /* 画板@3x.jpg */; };
+		FA33AF2B2578B6280004B876 /* 画板@1x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA33AF2A2578B6280004B876 /* 画板@1x.jpg */; };
 		FA4FC2F22435B2970023B10C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4FC2F12435B2970023B10C /* ViewController.m */; };
 		FA546F9B24C3E45A005D9E07 /* NSTimer+_9.m in Sources */ = {isa = PBXBuildFile; fileRef = FA546F9A24C3E45A005D9E07 /* NSTimer+_9.m */; };
 		FA5745AE2429FAE800D36D28 /* SCSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5745AD2429FAE800D36D28 /* SCSpec.m */; };
@@ -59,6 +65,13 @@
 		FA1932B924C45F62000A8B8A /* ViewController4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController4.m; sourceTree = "<group>"; };
 		FA1CC6682479133400906BFA /* ViewController3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController3.h; sourceTree = "<group>"; };
 		FA1CC6692479133400906BFA /* ViewController3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController3.m; sourceTree = "<group>"; };
+		FA33AF0C2577B6670004B876 /* ViewController8.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController8.h; sourceTree = "<group>"; };
+		FA33AF0D2577B6670004B876 /* ViewController8.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController8.m; sourceTree = "<group>"; };
+		FA33AF1C257898D30004B876 /* product_detail_skeleton_screen_dark@3x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "product_detail_skeleton_screen_dark@3x.jpg"; sourceTree = "<group>"; };
+		FA33AF1D257898D30004B876 /* product_detail_skeleton@3x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "product_detail_skeleton@3x.jpg"; sourceTree = "<group>"; };
+		FA33AF232578B3090004B876 /* 画板@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "画板@2x.jpg"; sourceTree = "<group>"; };
+		FA33AF242578B3090004B876 /* 画板@3x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "画板@3x.jpg"; sourceTree = "<group>"; };
+		FA33AF2A2578B6280004B876 /* 画板@1x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "画板@1x.jpg"; sourceTree = "<group>"; };
 		FA4FC2F02435B2970023B10C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		FA4FC2F12435B2970023B10C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FA546F9924C3E45A005D9E07 /* NSTimer+_9.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTimer+_9.h"; sourceTree = "<group>"; };
@@ -187,15 +200,22 @@
 				FA5A65C3251DD5F000A183E2 /* ViewController5.m */,
 				FAB21685256FB1C700AD338F /* ViewController7.h */,
 				FAB21686256FB1C700AD338F /* ViewController7.m */,
+				FA33AF0C2577B6670004B876 /* ViewController8.h */,
+				FA33AF0D2577B6670004B876 /* ViewController8.m */,
 				FA6E7BF424FE355B00B05096 /* VVCell.h */,
 				FA6E7BF524FE355B00B05096 /* VVCell.m */,
 				FAB4D21723C6FF5D00EAC732 /* ScrolllView.h */,
 				FAB4D21823C6FF5D00EAC732 /* ScrolllView.m */,
 				FAB2168B256FB1FB00AD338F /* 1.png */,
 				FAB2168C256FB1FB00AD338F /* product_detail_skeleton_screen.png */,
+				FA33AF2A2578B6280004B876 /* 画板@1x.jpg */,
 				FAB75ADF24839CD200FA76E2 /* newuser.js */,
 				FAB75ADE24839B4A00FA76E2 /* Header.js */,
 				FA5745AD2429FAE800D36D28 /* SCSpec.m */,
+				FA33AF232578B3090004B876 /* 画板@2x.jpg */,
+				FA33AF242578B3090004B876 /* 画板@3x.jpg */,
+				FA33AF1C257898D30004B876 /* product_detail_skeleton_screen_dark@3x.jpg */,
+				FA33AF1D257898D30004B876 /* product_detail_skeleton@3x.jpg */,
 				FA9ED33123C03C1800591A54 /* product_detail_spike_bubble@2x.png */,
 				FA9ED33223C03C1800591A54 /* product_detail_spike_bubble@3x.png */,
 				FA6748D42358A4A1003A268A /* Main.storyboard */,
@@ -236,6 +256,7 @@
 				FA6748C72358A4A0003A268A /* Sources */,
 				FA6748C82358A4A0003A268A /* Frameworks */,
 				FA6748C92358A4A0003A268A /* Resources */,
+				3A1A08EADF9E1BB92A7423C3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -331,9 +352,14 @@
 			files = (
 				FA9ED33323C03C1800591A54 /* product_detail_spike_bubble@2x.png in Resources */,
 				FA9ED33423C03C1800591A54 /* product_detail_spike_bubble@3x.png in Resources */,
+				FA33AF252578B30A0004B876 /* 画板@2x.jpg in Resources */,
 				FA6748DB2358A4A4003A268A /* LaunchScreen.storyboard in Resources */,
+				FA33AF1F257898D30004B876 /* product_detail_skeleton@3x.jpg in Resources */,
+				FA33AF262578B30A0004B876 /* 画板@3x.jpg in Resources */,
+				FA33AF2B2578B6280004B876 /* 画板@1x.jpg in Resources */,
 				FA6748D82358A4A4003A268A /* Assets.xcassets in Resources */,
 				FAB75AE024839CD200FA76E2 /* newuser.js in Resources */,
+				FA33AF1E257898D30004B876 /* product_detail_skeleton_screen_dark@3x.jpg in Resources */,
 				FA6748D62358A4A1003A268A /* Main.storyboard in Resources */,
 				FAB2168D256FB1FB00AD338F /* 1.png in Resources */,
 				FAB2168E256FB1FB00AD338F /* product_detail_skeleton_screen.png in Resources */,
@@ -357,6 +383,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3A1A08EADF9E1BB92A7423C3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TEXT/Pods-TEXT-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TEXT/Pods-TEXT-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TEXT/Pods-TEXT-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DA3C918BC240C2067A7947EB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -387,6 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA4FC2F22435B2970023B10C /* ViewController.m in Sources */,
+				FA33AF0E2577B6670004B876 /* ViewController8.m in Sources */,
 				FA6748D32358A4A1003A268A /* ViewController2.m in Sources */,
 				FA6748DE2358A4A4003A268A /* main.m in Sources */,
 				FAB4D21923C6FF5D00EAC732 /* ScrolllView.m in Sources */,

@@ -11,6 +11,7 @@
 #import "ViewController.h"
 #import "ViewController4.h"
 #import "ViewController6.h"
+#import "ViewController8.h"
 #import "ViewController5.h"
 
 @interface AppDelegate ()
@@ -23,7 +24,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    // self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    ViewController5 *vc = [[ViewController5 alloc] init];
+    ViewController8 *vc = [[ViewController8 alloc] init];
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = navi;
     [self.window makeKeyAndVisible];

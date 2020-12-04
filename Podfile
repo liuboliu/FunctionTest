@@ -5,5 +5,6 @@ target 'TEXT' do
 
      pod 'Kiwi'
      pod 'Masonry'
+     pod 'MJRefresh', '3.1.16'
 
 end
