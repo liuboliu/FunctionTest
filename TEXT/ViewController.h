@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *name;
 
+- (NSInteger)addA:(NSInteger)a andB:(NSInteger)b;
+
 
 @end
 

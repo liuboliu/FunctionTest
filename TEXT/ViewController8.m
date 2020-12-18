@@ -141,7 +141,7 @@
         UIImage *image2 = [UIImage imageWithCGImage:imageref2];
         CGImageRelease(imageref2);
           CFRelease(imageref);
-    self.imgView.image = image2;
+     self.imgView.image = image2;
 
 }
 

@@ -41,9 +41,27 @@
     return self;
 }
 
+- (NSInteger)addA:(NSInteger)a andB:(NSInteger)b
+{
+    return a+b;
+}
+
+
+- (void)kkk
+{
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+   // [self.timer invalidate];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.name = @"ff";
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(kkk) userInfo:nil repeats:YES];
 //    [self requestWithCompletion:^(NSInteger num) {
 //        return 4;
 //    }];;

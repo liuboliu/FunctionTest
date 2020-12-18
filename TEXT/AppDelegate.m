@@ -13,6 +13,8 @@
 #import "ViewController6.h"
 #import "ViewController8.h"
 #import "ViewController5.h"
+#import "ViewController2.h"
+#import "ViewControllerEnumObject.h"
 
 @interface AppDelegate ()
 
@@ -24,7 +26,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    // self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    ViewController8 *vc = [[ViewController8 alloc] init];
+    ViewControllerEnumObject *vc = [[ViewControllerEnumObject alloc] init];
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = navi;
     [self.window makeKeyAndVisible];

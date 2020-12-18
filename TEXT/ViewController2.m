@@ -9,6 +9,7 @@
 #import "ViewController2.h"
 #import "ScrolllView.h"
 #import "ScrolllView.h"
+#import "ViewController.h"
 #define VVIs_iPhoneXSeries \
 ({BOOL isPhoneX = NO;\
 if (@available(iOS 11.0, *)) {\
@@ -23,6 +24,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (strong, nonatomic) dispatch_queue_t launchQueue;
+
 
 @end
 
@@ -275,5 +277,12 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 -(float)roundFloat:(float)price{
     return (floorf(price*100 + 0.5))/100;
 }
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    ViewController *vc = [[ViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 @end
 
