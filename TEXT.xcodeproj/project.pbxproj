@@ -33,6 +33,9 @@
 		FA6E7BF624FE355B00B05096 /* VVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6E7BF524FE355B00B05096 /* VVCell.m */; };
 		FA7C0710536655E916DAC280 /* libPods-TEXT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC04E0C96FC3FFD9C8BE3A0D /* libPods-TEXT.a */; };
 		FA9965DD258B054F004FCF10 /* ViewControllerEnumObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9965DC258B054F004FCF10 /* ViewControllerEnumObject.m */; };
+		FA9965E7258C7B7A004FCF10 /* ViewControllerNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9965E6258C7B7A004FCF10 /* ViewControllerNotification.m */; };
+		FA9965ED258C8861004FCF10 /* SPPageMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9965EC258C8861004FCF10 /* SPPageMenu.m */; };
+		FA9965F4258C8891004FCF10 /* ViewControllerSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9965F3258C8891004FCF10 /* ViewControllerSegment.m */; };
 		FA9ED33323C03C1800591A54 /* product_detail_spike_bubble@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9ED33123C03C1800591A54 /* product_detail_spike_bubble@2x.png */; };
 		FA9ED33423C03C1800591A54 /* product_detail_spike_bubble@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA9ED33223C03C1800591A54 /* product_detail_spike_bubble@3x.png */; };
 		FAB21687256FB1C700AD338F /* ViewController7.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB21686256FB1C700AD338F /* ViewController7.m */; };
@@ -105,6 +108,12 @@
 		FA6E7BF524FE355B00B05096 /* VVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VVCell.m; sourceTree = "<group>"; };
 		FA9965DB258B054F004FCF10 /* ViewControllerEnumObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerEnumObject.h; sourceTree = "<group>"; };
 		FA9965DC258B054F004FCF10 /* ViewControllerEnumObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewControllerEnumObject.m; sourceTree = "<group>"; };
+		FA9965E5258C7B7A004FCF10 /* ViewControllerNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerNotification.h; sourceTree = "<group>"; };
+		FA9965E6258C7B7A004FCF10 /* ViewControllerNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewControllerNotification.m; sourceTree = "<group>"; };
+		FA9965EC258C8861004FCF10 /* SPPageMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPageMenu.m; sourceTree = "<group>"; };
+		FA9965F1258C886A004FCF10 /* SPPageMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPPageMenu.h; sourceTree = "<group>"; };
+		FA9965F2258C8891004FCF10 /* ViewControllerSegment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerSegment.h; sourceTree = "<group>"; };
+		FA9965F3258C8891004FCF10 /* ViewControllerSegment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewControllerSegment.m; sourceTree = "<group>"; };
 		FA9ED33123C03C1800591A54 /* product_detail_spike_bubble@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "product_detail_spike_bubble@2x.png"; sourceTree = "<group>"; };
 		FA9ED33223C03C1800591A54 /* product_detail_spike_bubble@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "product_detail_spike_bubble@3x.png"; sourceTree = "<group>"; };
 		FAB21685256FB1C700AD338F /* ViewController7.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController7.h; sourceTree = "<group>"; };
@@ -187,6 +196,7 @@
 		FA6748CD2358A4A0003A268A /* TEXT */ = {
 			isa = PBXGroup;
 			children = (
+				FA9965EB258C883F004FCF10 /* Segment */,
 				FA6748CE2358A4A0003A268A /* AppDelegate.h */,
 				FA6748CF2358A4A0003A268A /* AppDelegate.m */,
 				FA6748D12358A4A1003A268A /* ViewController2.h */,
@@ -210,6 +220,8 @@
 				FA33AF0D2577B6670004B876 /* ViewController8.m */,
 				FA9965DB258B054F004FCF10 /* ViewControllerEnumObject.h */,
 				FA9965DC258B054F004FCF10 /* ViewControllerEnumObject.m */,
+				FA9965E5258C7B7A004FCF10 /* ViewControllerNotification.h */,
+				FA9965E6258C7B7A004FCF10 /* ViewControllerNotification.m */,
 				FA6E7BF424FE355B00B05096 /* VVCell.h */,
 				FA6E7BF524FE355B00B05096 /* VVCell.m */,
 				FAB4D21723C6FF5D00EAC732 /* ScrolllView.h */,
@@ -251,6 +263,17 @@
 				FA6748F42358A4A4003A268A /* Info.plist */,
 			);
 			path = TEXTUITests;
+			sourceTree = "<group>";
+		};
+		FA9965EB258C883F004FCF10 /* Segment */ = {
+			isa = PBXGroup;
+			children = (
+				FA9965F1258C886A004FCF10 /* SPPageMenu.h */,
+				FA9965EC258C8861004FCF10 /* SPPageMenu.m */,
+				FA9965F2258C8891004FCF10 /* ViewControllerSegment.h */,
+				FA9965F3258C8891004FCF10 /* ViewControllerSegment.m */,
+			);
+			path = Segment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,12 +460,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA9965F4258C8891004FCF10 /* ViewControllerSegment.m in Sources */,
+				FA9965ED258C8861004FCF10 /* SPPageMenu.m in Sources */,
 				FA9965DD258B054F004FCF10 /* ViewControllerEnumObject.m in Sources */,
 				FA4FC2F22435B2970023B10C /* ViewController.m in Sources */,
 				FA33AF0E2577B6670004B876 /* ViewController8.m in Sources */,
 				FA6748D32358A4A1003A268A /* ViewController2.m in Sources */,
 				FA6748DE2358A4A4003A268A /* main.m in Sources */,
 				FAB4D21923C6FF5D00EAC732 /* ScrolllView.m in Sources */,
+				FA9965E7258C7B7A004FCF10 /* ViewControllerNotification.m in Sources */,
 				FAB21687256FB1C700AD338F /* ViewController7.m in Sources */,
 				FA546F9B24C3E45A005D9E07 /* NSTimer+_9.m in Sources */,
 				FA6B42DE24CABC3D00D291AD /* ViewController6.m in Sources */,

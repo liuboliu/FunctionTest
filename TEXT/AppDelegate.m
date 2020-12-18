@@ -15,6 +15,8 @@
 #import "ViewController5.h"
 #import "ViewController2.h"
 #import "ViewControllerEnumObject.h"
+#import "ViewControllerNotification.h"
+#import "ViewControllerSegment.h"
 
 @interface AppDelegate ()
 
@@ -26,7 +28,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    // self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    ViewControllerEnumObject *vc = [[ViewControllerEnumObject alloc] init];
+    ViewController *vc = [[ViewControllerSegment alloc] init];
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = navi;
     [self.window makeKeyAndVisible];

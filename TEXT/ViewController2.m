@@ -10,6 +10,7 @@
 #import "ScrolllView.h"
 #import "ScrolllView.h"
 #import "ViewController.h"
+#import "ViewControllerNotification.h"
 #define VVIs_iPhoneXSeries \
 ({BOOL isPhoneX = NO;\
 if (@available(iOS 11.0, *)) {\
@@ -280,7 +281,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    ViewController *vc = [[ViewController alloc] init];
+    ViewControllerNotification *vc = [[ViewControllerNotification alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
