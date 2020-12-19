@@ -16,6 +16,8 @@
 		FA33AF252578B30A0004B876 /* 画板@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA33AF232578B3090004B876 /* 画板@2x.jpg */; };
 		FA33AF262578B30A0004B876 /* 画板@3x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA33AF242578B3090004B876 /* 画板@3x.jpg */; };
 		FA33AF2B2578B6280004B876 /* 画板@1x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA33AF2A2578B6280004B876 /* 画板@1x.jpg */; };
+		FA3DB152258DF4E200994962 /* PersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3DB151258DF4E200994962 /* PersonModel.m */; };
+		FA3DB15B258DF55900994962 /* ViewControllerUserSaveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3DB15A258DF55900994962 /* ViewControllerUserSaveModel.m */; };
 		FA4FC2F22435B2970023B10C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4FC2F12435B2970023B10C /* ViewController.m */; };
 		FA546F9B24C3E45A005D9E07 /* NSTimer+_9.m in Sources */ = {isa = PBXBuildFile; fileRef = FA546F9A24C3E45A005D9E07 /* NSTimer+_9.m */; };
 		FA5745AE2429FAE800D36D28 /* SCSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5745AD2429FAE800D36D28 /* SCSpec.m */; };
@@ -78,6 +80,10 @@
 		FA33AF232578B3090004B876 /* 画板@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "画板@2x.jpg"; sourceTree = "<group>"; };
 		FA33AF242578B3090004B876 /* 画板@3x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "画板@3x.jpg"; sourceTree = "<group>"; };
 		FA33AF2A2578B6280004B876 /* 画板@1x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "画板@1x.jpg"; sourceTree = "<group>"; };
+		FA3DB150258DF4E200994962 /* PersonModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonModel.h; sourceTree = "<group>"; };
+		FA3DB151258DF4E200994962 /* PersonModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonModel.m; sourceTree = "<group>"; };
+		FA3DB159258DF55900994962 /* ViewControllerUserSaveModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerUserSaveModel.h; sourceTree = "<group>"; };
+		FA3DB15A258DF55900994962 /* ViewControllerUserSaveModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewControllerUserSaveModel.m; sourceTree = "<group>"; };
 		FA4FC2F02435B2970023B10C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		FA4FC2F12435B2970023B10C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FA546F9924C3E45A005D9E07 /* NSTimer+_9.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTimer+_9.h"; sourceTree = "<group>"; };
@@ -171,6 +177,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FA3DB14F258DF4A900994962 /* ModelSave */ = {
+			isa = PBXGroup;
+			children = (
+				FA3DB150258DF4E200994962 /* PersonModel.h */,
+				FA3DB151258DF4E200994962 /* PersonModel.m */,
+				FA3DB159258DF55900994962 /* ViewControllerUserSaveModel.h */,
+				FA3DB15A258DF55900994962 /* ViewControllerUserSaveModel.m */,
+			);
+			path = ModelSave;
+			sourceTree = "<group>";
+		};
 		FA6748C22358A4A0003A268A = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +213,7 @@
 		FA6748CD2358A4A0003A268A /* TEXT */ = {
 			isa = PBXGroup;
 			children = (
+				FA3DB14F258DF4A900994962 /* ModelSave */,
 				FA9965EB258C883F004FCF10 /* Segment */,
 				FA6748CE2358A4A0003A268A /* AppDelegate.h */,
 				FA6748CF2358A4A0003A268A /* AppDelegate.m */,
@@ -460,6 +478,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA3DB152258DF4E200994962 /* PersonModel.m in Sources */,
 				FA9965F4258C8891004FCF10 /* ViewControllerSegment.m in Sources */,
 				FA9965ED258C8861004FCF10 /* SPPageMenu.m in Sources */,
 				FA9965DD258B054F004FCF10 /* ViewControllerEnumObject.m in Sources */,
@@ -469,6 +488,7 @@
 				FA6748DE2358A4A4003A268A /* main.m in Sources */,
 				FAB4D21923C6FF5D00EAC732 /* ScrolllView.m in Sources */,
 				FA9965E7258C7B7A004FCF10 /* ViewControllerNotification.m in Sources */,
+				FA3DB15B258DF55900994962 /* ViewControllerUserSaveModel.m in Sources */,
 				FAB21687256FB1C700AD338F /* ViewController7.m in Sources */,
 				FA546F9B24C3E45A005D9E07 /* NSTimer+_9.m in Sources */,
 				FA6B42DE24CABC3D00D291AD /* ViewController6.m in Sources */,

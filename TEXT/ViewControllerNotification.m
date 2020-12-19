@@ -7,8 +7,11 @@
 //
 
 #import "ViewControllerNotification.h"
+#import "VVCell.h"
 
 @interface ViewControllerNotification ()
+
+@property (nonatomic, strong) VVCell *cell;
 
 @end
 
@@ -20,7 +23,21 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(kkkk) name:@"ll" object:nil];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ll" object:nil];
+    
+    VVCell *cel = [[VVCell alloc] init];
+    [cel addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:nil];
+    cel.name = @"名字名字名之后";
+    self.cell = cel;
     // Do any additional setup after loading the view.
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"name"]) {
+        NSLog(@"哈哈哈哈哈哈");
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 - (void)kkkk
