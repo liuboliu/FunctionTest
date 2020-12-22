@@ -13,28 +13,26 @@
 
 @property (nonatomic, strong) VVCell *cell;
 
+@property (nonatomic, copy) NSString *test;
+
 @end
 
 @implementation ViewControllerNotification
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor redColor];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(kkkk) name:@"ll" object:nil];
-
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ll" object:nil];
-    
-    VVCell *cel = [[VVCell alloc] init];
-    [cel addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:nil];
-    cel.name = @"名字名字名之后";
-    self.cell = cel;
+    self.view.backgroundColor = [UIColor magentaColor];
+    self.test = @"";
+    if (self.test) {
+        NSLog(@"不为空不为空不为空");
+    }
     // Do any additional setup after loading the view.
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([keyPath isEqualToString:@"name"]) {
-        NSLog(@"哈哈哈哈哈哈");
+       // NSLog(@"哈哈哈哈哈哈");
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
@@ -42,7 +40,7 @@
 
 - (void)kkkk
 {
-    NSLog(@"通知了通知了统统汉子了通天之类通知了通知了");
+   // NSLog(@"通知了通知了统统汉子了通天之类通知了通知了");
 }
 
 - (void)dealloc

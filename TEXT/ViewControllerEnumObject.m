@@ -31,8 +31,9 @@
     [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj isEqualToString:@"kkkk"]) {
             kk = obj;
-            *stop = YES;
+//            *stop = YES;
             return;
+            *stop = YES;
         }
         NSLog(@"哈哈哈哈哈哈哈%@",obj);
     }];

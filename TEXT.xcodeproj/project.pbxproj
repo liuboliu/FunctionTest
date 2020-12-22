@@ -19,6 +19,12 @@
 		FA3DB152258DF4E200994962 /* PersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3DB151258DF4E200994962 /* PersonModel.m */; };
 		FA3DB15B258DF55900994962 /* ViewControllerUserSaveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3DB15A258DF55900994962 /* ViewControllerUserSaveModel.m */; };
 		FA4FC2F22435B2970023B10C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4FC2F12435B2970023B10C /* ViewController.m */; };
+		FA5134FD2591CC2F00B6D611 /* ViewControllerDecorationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5134FC2591CC2F00B6D611 /* ViewControllerDecorationView.m */; };
+		FA5135062591CC8000B6D611 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5135052591CC8000B6D611 /* TableViewController.m */; };
+		FA51350C2591CE8000B6D611 /* VVCollectionDecorationLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FA51350B2591CE8000B6D611 /* VVCollectionDecorationLayout.m */; };
+		FA5135122591CEB600B6D611 /* VVBaseCollectionDecorationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5135112591CEB600B6D611 /* VVBaseCollectionDecorationView.m */; };
+		FA51351A2591CED400B6D611 /* VVCategoryDecorationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5135172591CED300B6D611 /* VVCategoryDecorationView.m */; };
+		FA51351B2591CED400B6D611 /* VVCategoryBannerDecorationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5135182591CED300B6D611 /* VVCategoryBannerDecorationView.m */; };
 		FA546F9B24C3E45A005D9E07 /* NSTimer+_9.m in Sources */ = {isa = PBXBuildFile; fileRef = FA546F9A24C3E45A005D9E07 /* NSTimer+_9.m */; };
 		FA5745AE2429FAE800D36D28 /* SCSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5745AD2429FAE800D36D28 /* SCSpec.m */; };
 		FA5A65C4251DD5F000A183E2 /* ViewController5.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5A65C3251DD5F000A183E2 /* ViewController5.m */; };
@@ -86,6 +92,18 @@
 		FA3DB15A258DF55900994962 /* ViewControllerUserSaveModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewControllerUserSaveModel.m; sourceTree = "<group>"; };
 		FA4FC2F02435B2970023B10C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		FA4FC2F12435B2970023B10C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FA5134FB2591CC2F00B6D611 /* ViewControllerDecorationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerDecorationView.h; sourceTree = "<group>"; };
+		FA5134FC2591CC2F00B6D611 /* ViewControllerDecorationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewControllerDecorationView.m; sourceTree = "<group>"; };
+		FA5135042591CC8000B6D611 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		FA5135052591CC8000B6D611 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		FA51350A2591CE8000B6D611 /* VVCollectionDecorationLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVCollectionDecorationLayout.h; sourceTree = "<group>"; };
+		FA51350B2591CE8000B6D611 /* VVCollectionDecorationLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVCollectionDecorationLayout.m; sourceTree = "<group>"; };
+		FA5135102591CEB600B6D611 /* VVBaseCollectionDecorationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVBaseCollectionDecorationView.h; sourceTree = "<group>"; };
+		FA5135112591CEB600B6D611 /* VVBaseCollectionDecorationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVBaseCollectionDecorationView.m; sourceTree = "<group>"; };
+		FA5135162591CED300B6D611 /* VVCategoryBannerDecorationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVCategoryBannerDecorationView.h; sourceTree = "<group>"; };
+		FA5135172591CED300B6D611 /* VVCategoryDecorationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVCategoryDecorationView.m; sourceTree = "<group>"; };
+		FA5135182591CED300B6D611 /* VVCategoryBannerDecorationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVCategoryBannerDecorationView.m; sourceTree = "<group>"; };
+		FA5135192591CED400B6D611 /* VVCategoryDecorationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVCategoryDecorationView.h; sourceTree = "<group>"; };
 		FA546F9924C3E45A005D9E07 /* NSTimer+_9.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTimer+_9.h"; sourceTree = "<group>"; };
 		FA546F9A24C3E45A005D9E07 /* NSTimer+_9.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+_9.m"; sourceTree = "<group>"; };
 		FA5745AD2429FAE800D36D28 /* SCSpec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCSpec.m; sourceTree = "<group>"; };
@@ -188,6 +206,23 @@
 			path = ModelSave;
 			sourceTree = "<group>";
 		};
+		FA5134FA2591CC1200B6D611 /* DecorationView */ = {
+			isa = PBXGroup;
+			children = (
+				FA5135162591CED300B6D611 /* VVCategoryBannerDecorationView.h */,
+				FA5135182591CED300B6D611 /* VVCategoryBannerDecorationView.m */,
+				FA5135192591CED400B6D611 /* VVCategoryDecorationView.h */,
+				FA5135172591CED300B6D611 /* VVCategoryDecorationView.m */,
+				FA51350A2591CE8000B6D611 /* VVCollectionDecorationLayout.h */,
+				FA5135102591CEB600B6D611 /* VVBaseCollectionDecorationView.h */,
+				FA5135112591CEB600B6D611 /* VVBaseCollectionDecorationView.m */,
+				FA51350B2591CE8000B6D611 /* VVCollectionDecorationLayout.m */,
+				FA5134FB2591CC2F00B6D611 /* ViewControllerDecorationView.h */,
+				FA5134FC2591CC2F00B6D611 /* ViewControllerDecorationView.m */,
+			);
+			path = DecorationView;
+			sourceTree = "<group>";
+		};
 		FA6748C22358A4A0003A268A = {
 			isa = PBXGroup;
 			children = (
@@ -213,10 +248,13 @@
 		FA6748CD2358A4A0003A268A /* TEXT */ = {
 			isa = PBXGroup;
 			children = (
+				FA5134FA2591CC1200B6D611 /* DecorationView */,
 				FA3DB14F258DF4A900994962 /* ModelSave */,
 				FA9965EB258C883F004FCF10 /* Segment */,
 				FA6748CE2358A4A0003A268A /* AppDelegate.h */,
 				FA6748CF2358A4A0003A268A /* AppDelegate.m */,
+				FA5135042591CC8000B6D611 /* TableViewController.h */,
+				FA5135052591CC8000B6D611 /* TableViewController.m */,
 				FA6748D12358A4A1003A268A /* ViewController2.h */,
 				FA6748D22358A4A1003A268A /* ViewController2.m */,
 				FA4FC2F02435B2970023B10C /* ViewController.h */,
@@ -478,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA5135062591CC8000B6D611 /* TableViewController.m in Sources */,
 				FA3DB152258DF4E200994962 /* PersonModel.m in Sources */,
 				FA9965F4258C8891004FCF10 /* ViewControllerSegment.m in Sources */,
 				FA9965ED258C8861004FCF10 /* SPPageMenu.m in Sources */,
@@ -489,8 +528,10 @@
 				FAB4D21923C6FF5D00EAC732 /* ScrolllView.m in Sources */,
 				FA9965E7258C7B7A004FCF10 /* ViewControllerNotification.m in Sources */,
 				FA3DB15B258DF55900994962 /* ViewControllerUserSaveModel.m in Sources */,
+				FA5134FD2591CC2F00B6D611 /* ViewControllerDecorationView.m in Sources */,
 				FAB21687256FB1C700AD338F /* ViewController7.m in Sources */,
 				FA546F9B24C3E45A005D9E07 /* NSTimer+_9.m in Sources */,
+				FA51350C2591CE8000B6D611 /* VVCollectionDecorationLayout.m in Sources */,
 				FA6B42DE24CABC3D00D291AD /* ViewController6.m in Sources */,
 				FA6748D02358A4A0003A268A /* AppDelegate.m in Sources */,
 				FA5745AE2429FAE800D36D28 /* SCSpec.m in Sources */,
@@ -499,6 +540,9 @@
 				FA1CC66A2479133400906BFA /* ViewController3.m in Sources */,
 				FA6E7BF624FE355B00B05096 /* VVCell.m in Sources */,
 				FA1932BA24C45F62000A8B8A /* ViewController4.m in Sources */,
+				FA51351B2591CED400B6D611 /* VVCategoryBannerDecorationView.m in Sources */,
+				FA51351A2591CED400B6D611 /* VVCategoryDecorationView.m in Sources */,
+				FA5135122591CEB600B6D611 /* VVBaseCollectionDecorationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
