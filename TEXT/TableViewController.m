@@ -8,6 +8,7 @@
 
 #import "TableViewController.h"
 #import "ViewControllerDecorationView.h"
+#import "CollectionViewAutoLayoutController.h"
 
 @interface TableViewController ()
 
@@ -21,9 +22,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.dataSource = @[@"装饰视图"];
+    self.dataSource = @[@"装饰视图",@"collectionView自适应宽度"];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     [self configDecoration];
+    [self configAutoSize];
     [self.tableView reloadData];
     self.tableView.backgroundColor = [UIColor cyanColor];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -37,6 +39,15 @@
         [self.navigationController pushViewController:vc animated:YES];
     };
     [self.blockArray addObject:pushDecoration];
+}
+
+- (void)configAutoSize
+{
+    void (^autoSize) (void) = ^() {
+        CollectionViewAutoLayoutController *vc = [[CollectionViewAutoLayoutController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self.blockArray addObject:autoSize];
 }
 
 

@@ -25,6 +25,8 @@
 		FA5135122591CEB600B6D611 /* VVBaseCollectionDecorationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5135112591CEB600B6D611 /* VVBaseCollectionDecorationView.m */; };
 		FA51351A2591CED400B6D611 /* VVCategoryDecorationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5135172591CED300B6D611 /* VVCategoryDecorationView.m */; };
 		FA51351B2591CED400B6D611 /* VVCategoryBannerDecorationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5135182591CED300B6D611 /* VVCategoryBannerDecorationView.m */; };
+		FA51363B2595952500B6D611 /* CollectionViewAutoLayoutController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA51363A2595952500B6D611 /* CollectionViewAutoLayoutController.m */; };
+		FA513641259595B800B6D611 /* SIZECollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA513640259595B800B6D611 /* SIZECollectionViewCell.m */; };
 		FA546F9B24C3E45A005D9E07 /* NSTimer+_9.m in Sources */ = {isa = PBXBuildFile; fileRef = FA546F9A24C3E45A005D9E07 /* NSTimer+_9.m */; };
 		FA5745AE2429FAE800D36D28 /* SCSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5745AD2429FAE800D36D28 /* SCSpec.m */; };
 		FA5A65C4251DD5F000A183E2 /* ViewController5.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5A65C3251DD5F000A183E2 /* ViewController5.m */; };
@@ -104,6 +106,10 @@
 		FA5135172591CED300B6D611 /* VVCategoryDecorationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVCategoryDecorationView.m; sourceTree = "<group>"; };
 		FA5135182591CED300B6D611 /* VVCategoryBannerDecorationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVCategoryBannerDecorationView.m; sourceTree = "<group>"; };
 		FA5135192591CED400B6D611 /* VVCategoryDecorationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVCategoryDecorationView.h; sourceTree = "<group>"; };
+		FA5136392595952500B6D611 /* CollectionViewAutoLayoutController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewAutoLayoutController.h; sourceTree = "<group>"; };
+		FA51363A2595952500B6D611 /* CollectionViewAutoLayoutController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewAutoLayoutController.m; sourceTree = "<group>"; };
+		FA51363F259595B800B6D611 /* SIZECollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SIZECollectionViewCell.h; sourceTree = "<group>"; };
+		FA513640259595B800B6D611 /* SIZECollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SIZECollectionViewCell.m; sourceTree = "<group>"; };
 		FA546F9924C3E45A005D9E07 /* NSTimer+_9.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTimer+_9.h"; sourceTree = "<group>"; };
 		FA546F9A24C3E45A005D9E07 /* NSTimer+_9.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+_9.m"; sourceTree = "<group>"; };
 		FA5745AD2429FAE800D36D28 /* SCSpec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCSpec.m; sourceTree = "<group>"; };
@@ -223,6 +229,17 @@
 			path = DecorationView;
 			sourceTree = "<group>";
 		};
+		FA51362F259594ED00B6D611 /* CollectionViewAutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				FA5136392595952500B6D611 /* CollectionViewAutoLayoutController.h */,
+				FA51363A2595952500B6D611 /* CollectionViewAutoLayoutController.m */,
+				FA51363F259595B800B6D611 /* SIZECollectionViewCell.h */,
+				FA513640259595B800B6D611 /* SIZECollectionViewCell.m */,
+			);
+			path = CollectionViewAutoLayout;
+			sourceTree = "<group>";
+		};
 		FA6748C22358A4A0003A268A = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +265,7 @@
 		FA6748CD2358A4A0003A268A /* TEXT */ = {
 			isa = PBXGroup;
 			children = (
+				FA51362F259594ED00B6D611 /* CollectionViewAutoLayout */,
 				FA5134FA2591CC1200B6D611 /* DecorationView */,
 				FA3DB14F258DF4A900994962 /* ModelSave */,
 				FA9965EB258C883F004FCF10 /* Segment */,
@@ -529,6 +547,7 @@
 				FA9965E7258C7B7A004FCF10 /* ViewControllerNotification.m in Sources */,
 				FA3DB15B258DF55900994962 /* ViewControllerUserSaveModel.m in Sources */,
 				FA5134FD2591CC2F00B6D611 /* ViewControllerDecorationView.m in Sources */,
+				FA51363B2595952500B6D611 /* CollectionViewAutoLayoutController.m in Sources */,
 				FAB21687256FB1C700AD338F /* ViewController7.m in Sources */,
 				FA546F9B24C3E45A005D9E07 /* NSTimer+_9.m in Sources */,
 				FA51350C2591CE8000B6D611 /* VVCollectionDecorationLayout.m in Sources */,
@@ -543,6 +562,7 @@
 				FA51351B2591CED400B6D611 /* VVCategoryBannerDecorationView.m in Sources */,
 				FA51351A2591CED400B6D611 /* VVCategoryDecorationView.m in Sources */,
 				FA5135122591CEB600B6D611 /* VVBaseCollectionDecorationView.m in Sources */,
+				FA513641259595B800B6D611 /* SIZECollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
