@@ -13,23 +13,27 @@
 
 @property (nonatomic,strong) NSArray <NSString *> *dataSource;
 
+@property (nonatomic,strong) UICollectionView *collectionView;
+
 @end
 
 @implementation CollectionViewAutoLayoutController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.view.backgroundColor = [UIColor redColor];
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.estimatedItemSize = CGSizeMake(100, 200);
+    layout.estimatedItemSize = CGSizeMake(10, 200);
+     //   layout.estimatedItemSize = CGSizeZero;
+
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 100, CGRectGetWidth(self.view.bounds), 200) collectionViewLayout:layout];
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 100, CGRectGetWidth(self.view.bounds), 50) collectionViewLayout:layout];
     collectionView.backgroundColor = [UIColor greenColor];
     collectionView.delegate = self;
     collectionView.dataSource = self;
     [collectionView registerClass:[SIZECollectionViewCell class] forCellWithReuseIdentifier:@"size"];
-    self.dataSource = @[@"hah", @"啦啦花", @"没有没有", @"斤斤计较军发送的", @"meiyou没有美欧没有灭有没有没有没有",@"啦",@"啦",@"啦",@"啦",@"234i12u34iu12p3io4u12p3oi4u12p3oi4u1p23oiu4"];
+    self.collectionView = collectionView;
+    self.dataSource = @[@"hah", @"啦啦花", @"没有没有", @"斤斤计较军发送的", @"meiyou没有美欧没有灭有没有没有没有",@"啦",@"啦",@"啦",@"啦",@"234i12u34iu12p3io4u12p3oi4u12p3oi4u1p23oiu4",@"啦啦花",@"啦啦花",@"啦啦花",@"啦啦花",@"啦啦花",@"啦啦花",@"啦啦花",@"啦啦花",@"fsjakf",@"uuuuuu",@"oooooo",@"iuuuuuu",@"最后一个最后一个"];
     [self.view addSubview:collectionView];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -39,9 +43,15 @@
 }
 
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:self.dataSource.count - 1 inSection:0] animated:YES scrollPosition:UICollectionViewScrollPositionRight];
+}
+
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;;
+    return self.dataSource.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath

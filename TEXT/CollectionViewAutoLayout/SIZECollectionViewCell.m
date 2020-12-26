@@ -24,6 +24,9 @@
         [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(10);
             make.right.mas_equalTo(-10);
+            make.top.bottom.mas_equalTo(0);
+            make.width.mas_lessThanOrEqualTo((500 - 76));
+            make.height.mas_equalTo(40);
         }];
     }
     return self;
@@ -34,7 +37,7 @@
     if (!_title) {
         _title = [[UILabel alloc] init];
         _title.font = [UIFont systemFontOfSize:15];
-        _title.textColor = [UIColor greenColor];
+        _title.textColor = [UIColor blackColor];
     }
     return _title;
 }
