@@ -1,24 +1,28 @@
 PODS:
+  - Aspects (1.4.1)
   - Kiwi (3.0.0)
   - Masonry (1.1.0)
   - MJRefresh (3.1.16)
 
 DEPENDENCIES:
+  - Aspects (= 1.4.1)
   - Kiwi
   - Masonry
   - MJRefresh (= 3.1.16)
 
 SPEC REPOS:
   trunk:
+    - Aspects
     - Kiwi
     - Masonry
     - MJRefresh
 
 SPEC CHECKSUMS:
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   Kiwi: fbeafef0f00e4d8f7dcb3420a4930afe70af77f7
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 7798e16e53a5ef7f332dd05b27664db4e29530fd
 
-PODFILE CHECKSUM: b37d4f68370ae757e3edf1c039a077f96f4fd840
+PODFILE CHECKSUM: 80a933c2828bd69f0c5d78396d4877a62ed0c0a4
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1

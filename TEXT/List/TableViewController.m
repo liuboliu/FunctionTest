@@ -10,6 +10,7 @@
 #import "ViewControllerDecorationView.h"
 #import "CollectionViewAutoLayoutController.h"
 #import "ViewControllerLayoutSubViews.h"
+#import "HeaderExpandViewController.h"
 
 @interface TableViewController ()
 
@@ -23,15 +24,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.dataSource = @[@"装饰视图",@"collectionView自适应宽度",@"layoutsubviews"];
+    self.dataSource = @[@"装饰视图",@"collectionView自适应宽度",@"layoutsubviews", @"头部放大"];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
-    [self configDecoration];
-    [self configAutoSize];
-    [self configLayoutSubviews];
+    [self configActions];
     [self.tableView reloadData];
     self.tableView.backgroundColor = [UIColor cyanColor];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)configActions
+{
+    [self configDecoration];
+    [self configAutoSize];
+    [self configLayoutSubviews];
+    [self configExpandHeader];
+    
 }
 
 - (void)configDecoration
@@ -61,6 +69,14 @@
     [self.blockArray addObject:layoutSubViews];
 }
 
+- (void)configExpandHeader
+{
+    void (^expand) (void) = ^(){
+        HeaderExpandViewController *expand = [[HeaderExpandViewController alloc] init];
+        [self.navigationController pushViewController:expand animated:YES];
+    };
+    [self.blockArray addObject:expand];
+}
 
 #pragma mark - Table view data source
 
