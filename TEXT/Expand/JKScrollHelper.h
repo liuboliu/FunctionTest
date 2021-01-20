@@ -29,7 +29,7 @@
 
 + (instancetype)initWithScrollView:(UIScrollView *)scrollView
                   headerViewCofnig:(JKScrollExtraViewConfig *)headerConfig
-                   commonSuperView:(__kindof UIView *)commonSuperView;
+                      headerOffset:(CGFloat)offset;
 /**
  滚动时透视图执行相关的放大操作
 

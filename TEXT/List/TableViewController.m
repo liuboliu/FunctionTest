@@ -11,6 +11,7 @@
 #import "CollectionViewAutoLayoutController.h"
 #import "ViewControllerLayoutSubViews.h"
 #import "HeaderExpandViewController.h"
+#import "HeaderExpandViewControllerTableView.h"
 
 @interface TableViewController ()
 
@@ -24,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.dataSource = @[@"装饰视图",@"collectionView自适应宽度",@"layoutsubviews", @"头部放大"];
+    self.dataSource = @[@"装饰视图",@"collectionView自适应宽度",@"layoutsubviews", @"collectionView头部放大", @"tableView头部放大"];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     [self configActions];
     [self.tableView reloadData];
@@ -39,6 +40,7 @@
     [self configAutoSize];
     [self configLayoutSubviews];
     [self configExpandHeader];
+    [self configExpandHeaderTable];
     
 }
 
@@ -74,6 +76,15 @@
     void (^expand) (void) = ^(){
         HeaderExpandViewController *expand = [[HeaderExpandViewController alloc] init];
         [self.navigationController pushViewController:expand animated:YES];
+    };
+    [self.blockArray addObject:expand];
+}
+
+- (void)configExpandHeaderTable
+{
+    void (^expand) (void) = ^() {
+        HeaderExpandViewControllerTableView *vc = [[HeaderExpandViewControllerTableView alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     };
     [self.blockArray addObject:expand];
 }

@@ -6,13 +6,13 @@
 //  Copyright © 2021 刘博. All rights reserved.
 //
 
-#import "HeaderExpandViewController.h"
+#import "HeaderExpandViewControllerTableView.h"
 #import "VVCustomCollectionViewLayout.h"
 #import "JKScrollHelper.h"
 #import <Masonry/Masonry.h>
 #import "VVUIMacros.h"
 
-@interface HeaderExpandViewController () <UICollectionViewDelegate, UICollectionViewDataSource,VVCustomCollectionViewLayoutDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface HeaderExpandViewControllerTableView () <UICollectionViewDelegate, UICollectionViewDataSource,VVCustomCollectionViewLayoutDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 
@@ -30,14 +30,15 @@
 
 @end
 
-@implementation HeaderExpandViewController
+@implementation HeaderExpandViewControllerTableView
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.translucent = NO;
 
-    [self.view addSubview:self.collectionView];
+    //[self.view addSubview:self.collectionView];
     //self.collectionView = nil;
+    [self.view addSubview:self.tableView];
 
     [self.header_frontView addSubview:self.topContentView];
     [self.topContentView addSubview:self.topButton];
@@ -52,17 +53,21 @@
     headerViewConfig.frontView = self.header_frontView;
     headerViewConfig.backgroundView = self.header_backgroundView;
     
-    self.scrollHelper  = [JKScrollHelper initWithScrollView:self.collectionView headerViewCofnig:headerViewConfig headerOffset:18];
+    self.scrollHelper  = [JKScrollHelper initWithScrollView:self.tableView headerViewCofnig:headerViewConfig headerOffset:18];
 
-//    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.mas_equalTo(UIEdgeInsetsZero);
-//    }];
-    
-    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
-    [self.collectionView reloadData];
+    
+//    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.mas_equalTo(UIEdgeInsetsZero);
+//    }];
+    [self.tableView reloadData];
 
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self.tableView insertSubview:self.header_backgroundView atIndex:0];
+    });
     // Do any additional setup after loading the view.
 }
 
@@ -221,7 +226,7 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //[tableView bringSubviewToFront:cell];
+   // [tableView bringSubviewToFront:cell];
 }
 
 
