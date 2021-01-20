@@ -1,4 +1,4 @@
-﻿"MJRefreshHeaderIdleText" = "Pull down to refresh";
+"MJRefreshHeaderIdleText" = "Pull down to refresh";
 "MJRefreshHeaderPullingText" = "Release to refresh";
 "MJRefreshHeaderRefreshingText" = "Loading...";
 
@@ -14,3 +14,4 @@
 "MJRefreshHeaderLastTimeText" = "Last updated: ";
 "MJRefreshHeaderDateTodayText" = "Today";
 "MJRefreshHeaderNoneLastDateText" = "No record";
+"app_tracking_website" = "Query Website";
