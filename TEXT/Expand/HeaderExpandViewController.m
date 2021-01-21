@@ -62,6 +62,11 @@
         make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
     [self.collectionView reloadData];
+    
+    for (int i = 1; i < 100; i ++) {
+//        [self.view insertSubview:self.collectionView atIndex:0];
+        [self.view addSubview:self.collectionView];
+    }
 
     // Do any additional setup after loading the view.
 }
