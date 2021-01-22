@@ -8,7 +8,7 @@
 
 #import "HeaderExpandViewController.h"
 #import "VVCustomCollectionViewLayout.h"
-#import "JKScrollHelper.h"
+#import "VVScrollHelper.h"
 #import <Masonry/Masonry.h>
 #import "VVUIMacros.h"
 
@@ -16,11 +16,11 @@
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 
-@property (nonatomic, strong) JKScrollHelperView *header_backgroundView;
+@property (nonatomic, strong) UIView *header_backgroundView;
 
-@property (nonatomic, strong) JKScrollHelperView *header_frontView;
+@property (nonatomic, strong) UIView *header_frontView;
 
-@property (nonatomic, strong) JKScrollHelper *scrollHelper;
+@property (nonatomic, strong) VVScrollHelper *scrollHelper;
 
 @property (nonatomic, strong) UIView *topContentView;
 
@@ -47,23 +47,20 @@
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(40);
     }];
+
     self.view.backgroundColor = [UIColor magentaColor];
-    JKScrollExtraViewConfig *headerViewConfig = [JKScrollExtraViewConfig new];
+    VVScrollExtraViewConfig *headerViewConfig = [VVScrollExtraViewConfig new];
     headerViewConfig.frontView = self.header_frontView;
     headerViewConfig.backgroundView = self.header_backgroundView;
-    
-    self.scrollHelper  = [JKScrollHelper initWithScrollView:self.collectionView headerViewCofnig:headerViewConfig headerOffset:18];
-
-//    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.mas_equalTo(UIEdgeInsetsZero);
-//    }];
+    headerViewConfig.headerStyle = VVHeaderBackStyleFixed;
+    self.scrollHelper = [VVScrollHelper initWithScrollView:self.collectionView
+                                          headerViewConfig:headerViewConfig
+                                          headerOverHeight:40];
     
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
     [self.collectionView reloadData];
-
-    // Do any additional setup after loading the view.
 }
 
 #pragma mark - action
@@ -75,10 +72,10 @@
 #pragma mark - lazy load
 
 
-- (JKScrollHelperView *)header_backgroundView
+- (UIView *)header_backgroundView
 {
     if (!_header_backgroundView) {
-        _header_backgroundView = [[JKScrollHelperView alloc] initWithFrame:CGRectMake(0, - (SCREEN_W * 54/75), SCREEN_W, SCREEN_W * 54/75)];
+        _header_backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, - (SCREEN_W * 54/75), SCREEN_W, SCREEN_W * 54/75)];
         _header_backgroundView.backgroundColor = [UIColor clearColor];
         UIImageView *imageView = [UIImageView new];
         imageView.image = [UIImage imageNamed:@"me_background_expanding"];
@@ -111,10 +108,10 @@
     return _topButton;
 }
 
-- (JKScrollHelperView *)header_frontView
+- (UIView *)header_frontView
 {
     if (!_header_frontView) {
-        _header_frontView = [[JKScrollHelperView alloc] initWithFrame:CGRectMake(0, - SCREEN_W * 54/75, SCREEN_W, SCREEN_W * 54/75)];
+        _header_frontView = [[UIView alloc] initWithFrame:CGRectMake(0, - SCREEN_W * 54/75, SCREEN_W, SCREEN_W * 54/75)];
         _header_frontView.backgroundColor = [UIColor clearColor];
     }
     return _header_frontView;
@@ -192,6 +189,11 @@
 - (CGFloat)overlapHeightAtIndexPath:(NSIndexPath *)indexPath
 {
     return 20;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 #pragma mark - talbeviewDelegte tableDatasource
