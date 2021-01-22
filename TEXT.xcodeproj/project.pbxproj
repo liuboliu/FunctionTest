@@ -672,6 +672,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA0A8CD8259737F800226E0E /* ViewControllerLayoutSubViews.m in Sources */,
 				FA5135062591CC8000B6D611 /* TableViewController.m in Sources */,
 				FA64B06325B6D5B200E048AD /* NSObject+Swizzle.m in Sources */,
 				FA3DB152258DF4E200994962 /* PersonModel.m in Sources */,
@@ -693,7 +694,6 @@
 				FA3DB15B258DF55900994962 /* ViewControllerUserSaveModel.m in Sources */,
 				FA5134FD2591CC2F00B6D611 /* ViewControllerDecorationView.m in Sources */,
 				FA51363B2595952500B6D611 /* CollectionViewAutoLayoutController.m in Sources */,
-				FA0A8CD8259737F800226E0E /* ViewControllerLayoutSubViews.m in Sources */,
 				FA64B05A25B6D4FF00E048AD /* NSMutableArray+VVKVOHelper.m in Sources */,
 				FA64B05925B6D4FF00E048AD /* VVKVOItem.m in Sources */,
 				FA4ECC9625B6BC8F0015E5A8 /* VVScrollHelper.m in Sources */,

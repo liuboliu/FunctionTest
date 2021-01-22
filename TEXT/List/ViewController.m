@@ -30,6 +30,8 @@
 
 @property (nonatomic) dispatch_queue_t queue;
 
+@property (nonatomic, strong) CALayer *layer;
+
 @end
 
 @implementation ViewController
@@ -62,6 +64,10 @@
     [super viewDidLoad];
     self.name = @"ff";
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(kkk) userInfo:nil repeats:YES];
+    self.layer = [[CALayer alloc] init];
+    self.layer.frame = CGRectMake(100, 100, 100, 100);
+    self.layer.backgroundColor = [UIColor redColor].CGColor;
+    [self.view.layer addSublayer:self.layer];
 //    [self requestWithCompletion:^(NSInteger num) {
 //        return 4;
 //    }];;
@@ -101,6 +107,11 @@
 //    //[self createWebView];
 //    [self createwk_WebView];
     // Do any additional setup after loading the view.
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    self.layer.backgroundColor = [UIColor greenColor].CGColor;
 }
 
 - (void)createWebView {
