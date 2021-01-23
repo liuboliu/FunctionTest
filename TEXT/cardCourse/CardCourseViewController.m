@@ -7,12 +7,13 @@
 //
 
 #import "CardCourseViewController.h"
+#import "HittestView.h"
 
 @interface CardCourseViewController () <UIScrollViewDelegate>
 
 
 @property (nonatomic, strong) UIView *contentView;
-@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) HittestView *scrollView;
 
 @end
 
@@ -49,6 +50,11 @@ return color;
 
 }
 
+#pragma mark - action
+- (void)tapclick:(UITapGestureRecognizer *)tap
+{
+    NSLog(@"点击地啊你点击点击点击s数量数量%ld",tap.view.tag);
+}
 
 #pragma mark  - lazy load
 
@@ -62,19 +68,25 @@ return color;
     return _contentView;
 }
 
-- (UIScrollView *)scrollView
+- (HittestView *)scrollView
 {
     if (!_scrollView) {
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width - 60, 100)];
+        _scrollView = [[HittestView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width - 60, 100)];
         _scrollView.backgroundColor = [UIColor greenColor];
         _scrollView.contentSize = CGSizeMake(CGRectGetWidth(_scrollView.frame) * 6, 100);
         _scrollView.pagingEnabled = YES;
         _scrollView.delegate = self;
         _scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, - 40);
         for (int i = 0; i < 6; i ++) {
-            UIView *view = [[UIView alloc] init];
+            UILabel *view = [[UILabel alloc] init];
             view.frame = CGRectMake(i * (self.view.bounds.size.width - 60) , 0, self.view.bounds.size.width - 60, 90);
             view.backgroundColor = [self arndomColor];
+            view.text = [NSString stringWithFormat:@"你好你好你好你好%ld",i];
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];
+            tap.numberOfTapsRequired = 1;
+            [tap addTarget:self action:@selector(tapclick:)];
+            [view addGestureRecognizer:tap];
+            view.tag = 100  + i;
             [_scrollView addSubview:view];
         }
         _scrollView.clipsToBounds = NO;

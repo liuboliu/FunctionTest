@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		182CB0A525BC648C0069E613 /* CardCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB0A425BC648B0069E613 /* CardCourseViewController.m */; };
+		182CB0A825BC707F0069E613 /* HittestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB0A725BC707F0069E613 /* HittestView.m */; };
 		FA0A8CD8259737F800226E0E /* ViewControllerLayoutSubViews.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0A8CD7259737F800226E0E /* ViewControllerLayoutSubViews.m */; };
 		FA0A8CDE259738FC00226E0E /* KKScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0A8CDD259738FC00226E0E /* KKScrollView.m */; };
 		FA0E30DF257F9C1200BB9501 /* ViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0E30DE257F9C1200BB9501 /* ViewControllerSpec.m */; };
@@ -95,6 +96,8 @@
 		046BE94170FA33979A4AA72B /* Pods-TEXT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TEXT.debug.xcconfig"; path = "Target Support Files/Pods-TEXT/Pods-TEXT.debug.xcconfig"; sourceTree = "<group>"; };
 		182CB0A325BC648B0069E613 /* CardCourseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardCourseViewController.h; sourceTree = "<group>"; };
 		182CB0A425BC648B0069E613 /* CardCourseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardCourseViewController.m; sourceTree = "<group>"; };
+		182CB0A625BC707F0069E613 /* HittestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HittestView.h; sourceTree = "<group>"; };
+		182CB0A725BC707F0069E613 /* HittestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HittestView.m; sourceTree = "<group>"; };
 		2A4C0AB2B40F00DA5DB886D7 /* Pods-TEXT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TEXT.release.xcconfig"; path = "Target Support Files/Pods-TEXT/Pods-TEXT.release.xcconfig"; sourceTree = "<group>"; };
 		EC04E0C96FC3FFD9C8BE3A0D /* libPods-TEXT.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TEXT.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA0A8CD6259737F800226E0E /* ViewControllerLayoutSubViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerLayoutSubViews.h; sourceTree = "<group>"; };
@@ -264,6 +267,8 @@
 			children = (
 				182CB0A325BC648B0069E613 /* CardCourseViewController.h */,
 				182CB0A425BC648B0069E613 /* CardCourseViewController.m */,
+				182CB0A625BC707F0069E613 /* HittestView.h */,
+				182CB0A725BC707F0069E613 /* HittestView.m */,
 			);
 			path = cardCourse;
 			sourceTree = "<group>";
@@ -700,6 +705,7 @@
 				FA64B05B25B6D4FF00E048AD /* NSObject+VVKVOHelper.m in Sources */,
 				FA6748DE2358A4A4003A268A /* main.m in Sources */,
 				182CB0A525BC648C0069E613 /* CardCourseViewController.m in Sources */,
+				182CB0A825BC707F0069E613 /* HittestView.m in Sources */,
 				FA4ECC9C25B6BCB10015E5A8 /* HeaderExpandViewController.m in Sources */,
 				FAB4D21923C6FF5D00EAC732 /* ScrolllView.m in Sources */,
 				FA9965E7258C7B7A004FCF10 /* ViewControllerNotification.m in Sources */,
