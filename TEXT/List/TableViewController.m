@@ -12,6 +12,7 @@
 #import "ViewControllerLayoutSubViews.h"
 #import "HeaderExpandViewController.h"
 #import "HeaderExpandViewControllerTableView.h"
+#import "HeaderExpandViewControllerSrollview.h"
 
 #import "CardCourseViewController.h"
 
@@ -27,7 +28,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.dataSource = @[@"装饰视图",@"collectionView自适应宽度",@"layoutsubviews", @"collectionView头部放大", @"tableView头部放大", @"卡片式轮播"];
+    self.dataSource = @[
+        @"装饰视图",
+        @"collectionView自适应宽度",
+        @"layoutsubviews",
+        @"collectionView头部放大",
+        @"tableView头部放大",
+        @"scrollView头部放大",
+        @"卡片式轮播"
+    ];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     [self configActions];
     [self.tableView reloadData];
@@ -43,7 +52,9 @@
     [self configLayoutSubviews];
     [self configExpandHeader];
     [self configExpandHeaderTable];
+    [self configExpandScrollView];
     [self configCardCourse];
+    
 }
 
 - (void)configDecoration
@@ -86,6 +97,15 @@
 {
     void (^expand) (void) = ^() {
         HeaderExpandViewControllerTableView *vc = [[HeaderExpandViewControllerTableView alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self.blockArray addObject:expand];
+}
+
+- (void)configExpandScrollView
+{
+    void (^expand) (void) = ^() {
+        HeaderExpandViewControllerSrollview *vc = [[HeaderExpandViewControllerSrollview alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     };
     [self.blockArray addObject:expand];

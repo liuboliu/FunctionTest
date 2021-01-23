@@ -6,13 +6,13 @@
 //  Copyright © 2021 刘博. All rights reserved.
 //
 
-#import "HeaderExpandViewControllerTableView.h"
+#import "HeaderExpandViewControllerSrollview.h"
 #import "VVCustomCollectionViewLayout.h"
 #import "VVScrollHelper.h"
 #import <Masonry/Masonry.h>
 #import "VVUIMacros.h"
 
-@interface HeaderExpandViewControllerTableView () <UICollectionViewDelegate, UICollectionViewDataSource,VVCustomCollectionViewLayoutDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface HeaderExpandViewControllerSrollview () <UICollectionViewDelegate, UICollectionViewDataSource,VVCustomCollectionViewLayoutDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 
@@ -20,23 +20,29 @@
 
 @property (nonatomic, strong) UIView *header_frontView;
 
+@property (nonatomic, strong) VVScrollHelper *scrollHelper;
+
 @property (nonatomic, strong) UIView *topContentView;
 
 @property (nonatomic, strong) UIButton *topButton;
 
 @property (nonatomic, strong) UITableView *tableView;
 
+@property (nonatomic, strong) UIScrollView *scrollView;
+
+@property (nonatomic, strong) UIView *contentView;
+
 @end
 
-@implementation HeaderExpandViewControllerTableView
+@implementation HeaderExpandViewControllerSrollview
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.translucent = NO;
 
-    //[self.view addSubview:self.collectionView];
+    [self.view addSubview:self.scrollView];
+    [self.scrollView addSubview:self.contentView];
     //self.collectionView = nil;
-    [self.view addSubview:self.tableView];
 
     [self.header_frontView addSubview:self.topContentView];
     [self.topContentView addSubview:self.topButton];
@@ -50,21 +56,16 @@
     VVScrollExtraViewConfig *headerViewConfig = [VVScrollExtraViewConfig new];
     headerViewConfig.frontView = self.header_frontView;
     headerViewConfig.backgroundView = self.header_backgroundView;
-    
-    [VVScrollHelper initWithScrollView:self.tableView
+    headerViewConfig.headerStyle = VVHeaderBackStyleFixed;
+    [VVScrollHelper initWithScrollView:self.scrollView
                       headerViewConfig:headerViewConfig
-                      headerOverHeight:18];
-
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+                      headerOverHeight:0];
+    
+    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
-    
-//    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.mas_equalTo(UIEdgeInsetsZero);
-//    }];
-    [self.tableView reloadData];
+    [self.collectionView reloadData];
 
-  
     // Do any additional setup after loading the view.
 }
 
@@ -158,6 +159,32 @@
     return _tableView;
 }
 
+- (UIScrollView *)scrollView
+{
+    if (!_scrollView) {
+        _scrollView = [[UIScrollView alloc] init];
+        _scrollView.backgroundColor = [UIColor magentaColor];
+        _scrollView.contentSize = CGSizeMake(0, 1000);
+    }
+    return _scrollView;
+}
+
+- (UIView *)contentView
+{
+    if (!_contentView) {
+        _contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, 100)];
+        _contentView.backgroundColor = [UIColor clearColor];
+        UIView *view = [[UIView alloc] init];
+        view.backgroundColor = [UIColor greenColor];
+        [_contentView addSubview:view];
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(UIEdgeInsetsMake(0, 15, 0, 15));
+        }];
+    }
+    return _contentView;
+}
+
+#pragma mark - delegate
 
 // 每个区多少列
 - (NSInteger)collectionView:(UICollectionView *)collectionView layout:(VVCustomCollectionViewLayout *)collectionViewLayout columnNumberAtSection:(NSInteger )section
@@ -223,8 +250,9 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   // [tableView bringSubviewToFront:cell];
+    //[tableView bringSubviewToFront:cell];
 }
+
 
 
 //- (void)scrollViewDidScroll:(UIScrollView *)scrollView
