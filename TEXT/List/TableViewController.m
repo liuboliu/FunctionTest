@@ -35,7 +35,7 @@
         @"collectionView头部放大",
         @"tableView头部放大",
         @"scrollView头部放大",
-        @"卡片式轮播"
+        @"卡片式轮播和点击范围扩大"
     ];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     [self configActions];

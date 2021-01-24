@@ -12,6 +12,7 @@
 typedef NS_ENUM(NSUInteger, VVHeaderBackStyle) {
     VVHeaderBackStyleExpand = 0, ///< 默认样式，头部放大
     VVHeaderBackStyleFixed = 1, /// < 头部固定大小（不放大）
+    VVHeaderBackStyleScrollDeviation = 2 , /// 头部滚动偏差
 };
 
 @interface VVScrollExtraViewConfig : NSObject

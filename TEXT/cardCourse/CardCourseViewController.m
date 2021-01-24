@@ -61,7 +61,7 @@ return color;
 #pragma mark - action
 - (void)tapclick:(UITapGestureRecognizer *)tap
 {
-   // NSLog(@"点击地啊你点击点击点击s数量数量%ld",tap.view.tag);
+    NSLog(@"点击地啊你点击点击点击s数量数量%ld",tap.view.tag);
 }
 
 #pragma mark  - lazy load
@@ -93,6 +93,7 @@ return color;
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];
             tap.numberOfTapsRequired = 1;
             [tap addTarget:self action:@selector(tapclick:)];
+            view.userInteractionEnabled = YES;
             [view addGestureRecognizer:tap];
             view.tag = 100  + i;
             [_scrollView addSubview:view];
@@ -108,6 +109,11 @@ return color;
         _bigTestView = [[BigTestView alloc] initWithFrame:CGRectMake(10, 300, 300, 100)];
         _bigTestView.backgroundColor = [UIColor cyanColor];
         _bigTestView.text = @"            a视图";
+        _bigTestView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];
+              tap.numberOfTapsRequired = 1;
+              [tap addTarget:self action:@selector(kkkk)];
+              [_bigTestView addGestureRecognizer:tap];
     }
     return _bigTestView;
 }
@@ -118,8 +124,18 @@ return color;
         _testView = [[TestView alloc] initWithFrame:CGRectMake(0, 10, 350, 80)];
         _testView.backgroundColor = [[UIColor magentaColor] colorWithAlphaComponent:0.3];;
         _testView.text = @"b视图";
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];
+        tap.numberOfTapsRequired = 1;
+        [tap addTarget:self action:@selector(kkkk)];
+        _testView.userInteractionEnabled = YES;
+        [_testView addGestureRecognizer:tap];
     }
     return _testView;
+}
+
+- (void)kkkk
+{
+    NSLog(@"卡卡哪款");
 }
 
 /*

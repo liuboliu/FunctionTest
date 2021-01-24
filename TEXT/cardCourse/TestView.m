@@ -10,13 +10,19 @@
 
 @implementation TestView
 
-
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
 {
-    
-    NSLog(@"b视图点击");
-    return [super hitTest:point withEvent:event];
+   // NSLog(@"晓得晓得inside inside inside");
+    return [super pointInside:point withEvent:event];
 }
+
+
+//- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+//{
+//    
+//    //NSLog(@"b视图点击");
+//    return [super hitTest:point withEvent:event];
+//}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

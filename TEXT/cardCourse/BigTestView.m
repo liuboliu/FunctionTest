@@ -10,11 +10,17 @@
 
 @implementation BigTestView
 
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
 {
-    NSLog(@"a视图点击");
-    return [super hitTest:point withEvent:event];
+    //NSLog(@"打的inside大的inside");
+   return  [super pointInside:point withEvent:event];
 }
+
+//- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+//{
+//    //NSLog(@"a视图点击");
+//    return [super hitTest:point withEvent:event];
+//}
 
 /*
 // Only override drawRect: if you perform custom drawing.

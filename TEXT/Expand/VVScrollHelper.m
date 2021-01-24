@@ -111,6 +111,11 @@
             size.height = - scrollView.contentOffset.y + insetHeight;
             
         }
+        
+        BOOL deviation = self.extraHeaderViewConfig.headerStyle == VVHeaderBackStyleScrollDeviation;
+        if (!downPull && deviation) {
+            origin.y =  - (CGRectGetHeight(frame) - insetHeight) + (scrollView.contentOffset.y  +   (CGRectGetHeight(frame) - insetHeight) )/2;
+        }
         frame.origin = origin;
         frame.size = size;
         self.extraHeaderViewConfig.backgroundView.frame = frame;

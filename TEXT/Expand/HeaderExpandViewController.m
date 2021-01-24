@@ -53,6 +53,7 @@
     headerViewConfig.frontView = self.header_frontView;
     headerViewConfig.backgroundView = self.header_backgroundView;
     headerViewConfig.headerStyle = VVHeaderBackStyleFixed;
+    headerViewConfig.headerStyle = VVHeaderBackStyleScrollDeviation;
     self.scrollHelper = [VVScrollHelper initWithScrollView:self.collectionView
                                           headerViewConfig:headerViewConfig
                                           headerOverHeight:40];
@@ -61,11 +62,11 @@
         make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
     [self.collectionView reloadData];
-    
-    for (int i = 1; i < 100; i ++) {
-//        [self.view insertSubview:self.collectionView atIndex:0];
-        [self.view addSubview:self.collectionView];
-    }
+//
+//    for (int i = 1; i < 100; i ++) {
+////        [self.view insertSubview:self.collectionView atIndex:0];
+//        [self.view addSubview:self.collectionView];
+//    }
 
     // Do any additional setup after loading the view.
 }
