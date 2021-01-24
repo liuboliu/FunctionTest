@@ -8,6 +8,8 @@
 
 #import "CardCourseViewController.h"
 #import "HittestView.h"
+#import "TestView.h"
+#import "BigTestView.h"
 
 @interface CardCourseViewController () <UIScrollViewDelegate>
 
@@ -15,14 +17,20 @@
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) HittestView *scrollView;
 
+@property (nonatomic, strong) BigTestView *bigTestView;
+@property (nonatomic, strong) TestView *testView;
+
 @end
 
 @implementation CardCourseViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.contentView];
     [self.contentView addSubview:self.scrollView];
+    [self.view addSubview:self.bigTestView];
+    [self.bigTestView addSubview:self.testView];
     // Do any additional setup after loading the view.
 }
 
@@ -53,7 +61,7 @@ return color;
 #pragma mark - action
 - (void)tapclick:(UITapGestureRecognizer *)tap
 {
-    NSLog(@"点击地啊你点击点击点击s数量数量%ld",tap.view.tag);
+   // NSLog(@"点击地啊你点击点击点击s数量数量%ld",tap.view.tag);
 }
 
 #pragma mark  - lazy load
@@ -93,6 +101,27 @@ return color;
     }
     return _scrollView;
 }
+
+- (BigTestView *)bigTestView
+{
+    if (!_bigTestView) {
+        _bigTestView = [[BigTestView alloc] initWithFrame:CGRectMake(10, 300, 300, 100)];
+        _bigTestView.backgroundColor = [UIColor cyanColor];
+        _bigTestView.text = @"            a视图";
+    }
+    return _bigTestView;
+}
+
+- (TestView *)testView
+{
+    if (!_testView) {
+        _testView = [[TestView alloc] initWithFrame:CGRectMake(0, 10, 350, 80)];
+        _testView.backgroundColor = [[UIColor magentaColor] colorWithAlphaComponent:0.3];;
+        _testView.text = @"b视图";
+    }
+    return _testView;
+}
+
 /*
 #pragma mark - Navigation
 

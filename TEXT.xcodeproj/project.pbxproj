@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		182CB0A525BC648C0069E613 /* CardCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB0A425BC648B0069E613 /* CardCourseViewController.m */; };
 		182CB0A825BC707F0069E613 /* HittestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB0A725BC707F0069E613 /* HittestView.m */; };
+		182CB0AB25BCFE400069E613 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB0AA25BCFE400069E613 /* TestView.m */; };
+		182CB0AE25BCFE570069E613 /* BigTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB0AD25BCFE570069E613 /* BigTestView.m */; };
 		FA0A8CD8259737F800226E0E /* ViewControllerLayoutSubViews.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0A8CD7259737F800226E0E /* ViewControllerLayoutSubViews.m */; };
 		FA0A8CDE259738FC00226E0E /* KKScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0A8CDD259738FC00226E0E /* KKScrollView.m */; };
 		FA0E30DF257F9C1200BB9501 /* ViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0E30DE257F9C1200BB9501 /* ViewControllerSpec.m */; };
@@ -98,6 +100,10 @@
 		182CB0A425BC648B0069E613 /* CardCourseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardCourseViewController.m; sourceTree = "<group>"; };
 		182CB0A625BC707F0069E613 /* HittestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HittestView.h; sourceTree = "<group>"; };
 		182CB0A725BC707F0069E613 /* HittestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HittestView.m; sourceTree = "<group>"; };
+		182CB0A925BCFE400069E613 /* TestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
+		182CB0AA25BCFE400069E613 /* TestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
+		182CB0AC25BCFE570069E613 /* BigTestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BigTestView.h; sourceTree = "<group>"; };
+		182CB0AD25BCFE570069E613 /* BigTestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BigTestView.m; sourceTree = "<group>"; };
 		2A4C0AB2B40F00DA5DB886D7 /* Pods-TEXT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TEXT.release.xcconfig"; path = "Target Support Files/Pods-TEXT/Pods-TEXT.release.xcconfig"; sourceTree = "<group>"; };
 		EC04E0C96FC3FFD9C8BE3A0D /* libPods-TEXT.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TEXT.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA0A8CD6259737F800226E0E /* ViewControllerLayoutSubViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerLayoutSubViews.h; sourceTree = "<group>"; };
@@ -269,6 +275,10 @@
 				182CB0A425BC648B0069E613 /* CardCourseViewController.m */,
 				182CB0A625BC707F0069E613 /* HittestView.h */,
 				182CB0A725BC707F0069E613 /* HittestView.m */,
+				182CB0A925BCFE400069E613 /* TestView.h */,
+				182CB0AA25BCFE400069E613 /* TestView.m */,
+				182CB0AC25BCFE570069E613 /* BigTestView.h */,
+				182CB0AD25BCFE570069E613 /* BigTestView.m */,
 			);
 			path = cardCourse;
 			sourceTree = "<group>";
@@ -723,6 +733,7 @@
 				FA51350C2591CE8000B6D611 /* VVCollectionDecorationLayout.m in Sources */,
 				FA4ECCA925B6BE480015E5A8 /* VVCustomCollectionViewLayout.m in Sources */,
 				FA6B42DE24CABC3D00D291AD /* ViewController6.m in Sources */,
+				182CB0AE25BCFE570069E613 /* BigTestView.m in Sources */,
 				FA6748D02358A4A0003A268A /* AppDelegate.m in Sources */,
 				FA5745AE2429FAE800D36D28 /* SCSpec.m in Sources */,
 				FA5A65C4251DD5F000A183E2 /* ViewController5.m in Sources */,
@@ -734,6 +745,7 @@
 				FA64B07D25B82F0F00E048AD /* HeaderExpandViewControllerSrollview.m in Sources */,
 				FA51351A2591CED400B6D611 /* VVCategoryDecorationView.m in Sources */,
 				FA5135122591CEB600B6D611 /* VVBaseCollectionDecorationView.m in Sources */,
+				182CB0AB25BCFE400069E613 /* TestView.m in Sources */,
 				FA513641259595B800B6D611 /* SIZECollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
