@@ -114,7 +114,7 @@
         
         BOOL deviation = self.extraHeaderViewConfig.headerStyle == VVHeaderBackStyleScrollDeviation;
         if (!downPull && deviation) {
-            origin.y =  - (CGRectGetHeight(frame) - insetHeight) + (scrollView.contentOffset.y  +   (CGRectGetHeight(frame) - insetHeight) )/2;
+            origin.y =  - (CGRectGetHeight(frame) - insetHeight) + (scrollView.contentOffset.y - (-(CGRectGetHeight(frame) - insetHeight)))/2;
         }
         frame.origin = origin;
         frame.size = size;
