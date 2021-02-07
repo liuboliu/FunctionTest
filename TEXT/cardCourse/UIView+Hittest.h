@@ -1,17 +1,19 @@
 //
-//  HittestView.h
+//  UIView+Hittest.h
 //  TEXT
 //
-//  Created by Apple on 2021/1/23.
+//  Created by Apple on 2021/1/25.
 //  Copyright © 2021 刘博. All rights reserved.
 //
 
+
 #import <UIKit/UIKit.h>
-#import "CardCourseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HittestView : UIScrollView
+@interface UIView (Hittest)
+
+@property (nonatomic, assign) BOOL expand;
 
 @end
 

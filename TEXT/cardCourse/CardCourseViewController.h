@@ -10,6 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NSString *const kk = @"FASDF";
+
 @interface CardCourseViewController : UIViewController
 
 @end

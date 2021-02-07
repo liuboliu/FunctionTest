@@ -15,7 +15,8 @@
 
 
 @property (nonatomic, strong) UIView *contentView;
-@property (nonatomic, strong) HittestView *scrollView;
+@property (nonatomic, strong) UIScrollView
+*scrollView;
 
 @property (nonatomic, strong) BigTestView *bigTestView;
 @property (nonatomic, strong) TestView *testView;
@@ -76,10 +77,10 @@ return color;
     return _contentView;
 }
 
-- (HittestView *)scrollView
+- (UIScrollView *)scrollView
 {
     if (!_scrollView) {
-        _scrollView = [[HittestView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width - 60, 100)];
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width - 60, 100)];
         _scrollView.backgroundColor = [UIColor greenColor];
         _scrollView.contentSize = CGSizeMake(CGRectGetWidth(_scrollView.frame) * 6, 100);
         _scrollView.pagingEnabled = YES;
