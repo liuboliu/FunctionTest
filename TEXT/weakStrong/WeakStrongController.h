@@ -1,19 +1,16 @@
 //
-//  UIView+Hittest.h
+//  WeakStrongController.h
 //  TEXT
 //
-//  Created by Apple on 2021/1/25.
+//  Created by Apple on 2021/2/8.
 //  Copyright © 2021 刘博. All rights reserved.
 //
-
 
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIView (Hittest)
-
-@property (nonatomic, assign) BOOL expand;
+@interface WeakStrongController : UIViewController
 
 @end
 

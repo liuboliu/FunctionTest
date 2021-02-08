@@ -15,6 +15,7 @@
 #import "HeaderExpandViewControllerSrollview.h"
 
 #import "CardCourseViewController.h"
+#import "WeakStrongController.h"
 
 @interface TableViewController ()
 
@@ -35,13 +36,21 @@
         @"collectionView头部放大",
         @"tableView头部放大",
         @"scrollView头部放大",
-        @"卡片式轮播和点击范围扩大"
+        @"卡片式轮播和点击范围扩大",
+        @"weak Strong",
     ];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     [self configActions];
     [self.tableView reloadData];
     self.tableView.backgroundColor = [UIColor cyanColor];
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+//    
+//    NSMutableArray *array = [NSMutableArray array];
+//    void (^block) (void) = ^(){
+//        [array addObject:@"asdf"];
+//    };
+//    block();
+//    NSLog(@"数组数组%@",array);
+     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
@@ -54,7 +63,7 @@
     [self configExpandHeaderTable];
     [self configExpandScrollView];
     [self configCardCourse];
-    
+    [self configBlock];
 }
 
 - (void)configDecoration
@@ -120,6 +129,14 @@
     [self.blockArray addObject:cardCourse];
 }
 
+- (void)configBlock
+{
+    void (^block) (void) = ^ {
+        WeakStrongController *vc = [[WeakStrongController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self.blockArray addObject:block];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -129,6 +146,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
+    NSLog(@"苏亮数量数量%ld",self.dataSource.count);
     return self.dataSource.count;
 }
 
@@ -137,12 +155,14 @@
     NSString *text = self.dataSource[indexPath.row];
         
     cell.textLabel.text = text;
+    cell.textLabel.userInteractionEnabled = YES;
     cell.backgroundColor = [UIColor redColor];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"点击");
     void (^block) (void) = self.blockArray[indexPath.row];
     if (block) {
         block();

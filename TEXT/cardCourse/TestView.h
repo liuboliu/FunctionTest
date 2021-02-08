@@ -13,6 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TestView : UILabel
 
+@property (copy, nonatomic) void (^block) (void);
+@property (copy, nonatomic) NSString *string;
+
 @end
 
 NS_ASSUME_NONNULL_END
