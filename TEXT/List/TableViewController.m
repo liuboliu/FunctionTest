@@ -16,6 +16,7 @@
 
 #import "CardCourseViewController.h"
 #import "WeakStrongController.h"
+#import "MultiThreadViewController.h"
 
 @interface TableViewController ()
 
@@ -38,6 +39,7 @@
         @"scrollView头部放大",
         @"卡片式轮播和点击范围扩大",
         @"weak Strong",
+        @"多线程优先级"
     ];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     [self configActions];
@@ -64,6 +66,7 @@
     [self configExpandScrollView];
     [self configCardCourse];
     [self configBlock];
+    [self configMultiThread];
 }
 
 - (void)configDecoration
@@ -137,6 +140,16 @@
     };
     [self.blockArray addObject:block];
 }
+
+- (void)configMultiThread
+{
+    void (^block) (void) = ^ {
+        MultiThreadViewController *VC = [[MultiThreadViewController alloc] init];
+        [self.navigationController pushViewController:VC animated:YES];
+    };
+    [self.blockArray addObject:block];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -146,7 +159,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    NSLog(@"苏亮数量数量%ld",self.dataSource.count);
+   // NSLog(@"苏亮数量数量%ld",self.dataSource.count);
     return self.dataSource.count;
 }
 
