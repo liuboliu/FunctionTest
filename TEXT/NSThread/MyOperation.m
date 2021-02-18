@@ -12,6 +12,8 @@
 
 - (void)main
 {
+    NSLog(@"run operation: %@",self.name);
+
     [NSThread sleepForTimeInterval:3];
 
     NSLog(@"run operation: %@",self.name);

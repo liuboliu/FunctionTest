@@ -18,7 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self gcdPriority];
+   // [self gcdPriority];
+    [self operationDepency];
    // [self operationPriority];
    //[self operationprioritytest];
     // Do any additional setup after loading the view.
@@ -132,6 +133,32 @@
          [o4 setQueuePriority:NSOperationQueuePriorityHigh];
          [queue addOperation:o4];
 }
+
+- (void)operationDepency
+{
+    NSOperationQueue *queue=[[NSOperationQueue alloc] init];
+        [queue setMaxConcurrentOperationCount:1];
+        
+        MyOperation *o1= [[MyOperation alloc] init];
+        o1.name=@"o1";
+        [queue addOperation:o1];
+        
+        MyOperation *o2= [[MyOperation alloc] init];
+        o2.name=@"o2";
+    [o1 addDependency:o2];
+         MyOperation *o3= [[MyOperation alloc] init];
+         o3.name=@"o3";
+    //     [o3 setQueuePriority:NSOperationQueuePriorityHigh];
+         [queue addOperation:o3];
+    [o2 addDependency:o3];
+         MyOperation *o4 = [[MyOperation alloc] init];
+             o4.name=@"o4";
+//             [o4 setQueuePriority:NSOperationQueuePriorityHigh];
+    [o3 addDependency:o4];
+             [queue addOperation:o4];
+    [queue addOperation:o2];
+}
+
 /*
 #pragma mark - Navigation
 
