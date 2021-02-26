@@ -64,7 +64,7 @@
       
     NSBlockOperation *o1= [NSBlockOperation blockOperationWithBlock:^{
         [NSThread sleepForTimeInterval:4];
-
+///
         NSLog(@"111111");
     }];
       o1.name=@"o1";
