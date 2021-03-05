@@ -26,6 +26,7 @@
     button.backgroundColor = [UIColor redColor];
     [button addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+    button.layer.transform = CATransform3DMakeScale(1.2, 1.2, 1);
 }
 
 - (void)click
