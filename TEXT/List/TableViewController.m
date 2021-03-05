@@ -17,6 +17,7 @@
 #import "CardCourseViewController.h"
 #import "WeakStrongController.h"
 #import "MultiThreadViewController.h"
+#import "TransitionViewController.h"
 
 @interface TableViewController ()
 
@@ -39,7 +40,8 @@
         @"scrollView头部放大",
         @"卡片式轮播和点击范围扩大",
         @"weak Strong",
-        @"多线程优先级"
+        @"多线程优先级",
+        @"转场动画"
     ];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     [self configActions];
@@ -67,6 +69,7 @@
     [self configCardCourse];
     [self configBlock];
     [self configMultiThread];
+    [self configTransition];
 }
 
 - (void)configDecoration
@@ -146,6 +149,15 @@
     void (^block) (void) = ^ {
         MultiThreadViewController *VC = [[MultiThreadViewController alloc] init];
         [self.navigationController pushViewController:VC animated:YES];
+    };
+    [self.blockArray addObject:block];
+}
+
+- (void)configTransition
+{
+    void ( ^block ) (void) = ^void (void) {
+        TransitionViewController *vc = [[TransitionViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     };
     [self.blockArray addObject:block];
 }

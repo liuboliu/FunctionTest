@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1033B3A625F1E17100B15E21 /* TDViewControllerPresentAndDismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = 1033B3A525F1E17100B15E21 /* TDViewControllerPresentAndDismiss.m */; };
+		1033B3AC25F1E19700B15E21 /* TransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1033B3AB25F1E19700B15E21 /* TransitionViewController.m */; };
+		1033B3B225F1E1ED00B15E21 /* PresentedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1033B3B125F1E1ED00B15E21 /* PresentedViewController.m */; };
+		1033B3B825F1FEED00B15E21 /* UIViewController+TDSafePresent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1033B3B725F1FEED00B15E21 /* UIViewController+TDSafePresent.m */; };
 		182CB0A525BC648C0069E613 /* CardCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB0A425BC648B0069E613 /* CardCourseViewController.m */; };
 		182CB0A825BC707F0069E613 /* HittestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB0A725BC707F0069E613 /* HittestView.m */; };
 		182CB0AB25BCFE400069E613 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB0AA25BCFE400069E613 /* TestView.m */; };
@@ -100,6 +104,14 @@
 
 /* Begin PBXFileReference section */
 		046BE94170FA33979A4AA72B /* Pods-TEXT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TEXT.debug.xcconfig"; path = "Target Support Files/Pods-TEXT/Pods-TEXT.debug.xcconfig"; sourceTree = "<group>"; };
+		1033B3A425F1E17100B15E21 /* TDViewControllerPresentAndDismiss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDViewControllerPresentAndDismiss.h; sourceTree = "<group>"; };
+		1033B3A525F1E17100B15E21 /* TDViewControllerPresentAndDismiss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDViewControllerPresentAndDismiss.m; sourceTree = "<group>"; };
+		1033B3AA25F1E19700B15E21 /* TransitionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransitionViewController.h; sourceTree = "<group>"; };
+		1033B3AB25F1E19700B15E21 /* TransitionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransitionViewController.m; sourceTree = "<group>"; };
+		1033B3B025F1E1ED00B15E21 /* PresentedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PresentedViewController.h; sourceTree = "<group>"; };
+		1033B3B125F1E1ED00B15E21 /* PresentedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PresentedViewController.m; sourceTree = "<group>"; };
+		1033B3B625F1FEEC00B15E21 /* UIViewController+TDSafePresent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TDSafePresent.h"; sourceTree = "<group>"; };
+		1033B3B725F1FEED00B15E21 /* UIViewController+TDSafePresent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TDSafePresent.m"; sourceTree = "<group>"; };
 		182CB0A325BC648B0069E613 /* CardCourseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardCourseViewController.h; sourceTree = "<group>"; };
 		182CB0A425BC648B0069E613 /* CardCourseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardCourseViewController.m; sourceTree = "<group>"; };
 		182CB0A625BC707F0069E613 /* HittestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HittestView.h; sourceTree = "<group>"; };
@@ -271,6 +283,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1033B3A325F1E16400B15E21 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				1033B3B625F1FEEC00B15E21 /* UIViewController+TDSafePresent.h */,
+				1033B3B725F1FEED00B15E21 /* UIViewController+TDSafePresent.m */,
+				1033B3A425F1E17100B15E21 /* TDViewControllerPresentAndDismiss.h */,
+				1033B3A525F1E17100B15E21 /* TDViewControllerPresentAndDismiss.m */,
+				1033B3AA25F1E19700B15E21 /* TransitionViewController.h */,
+				1033B3AB25F1E19700B15E21 /* TransitionViewController.m */,
+				1033B3B025F1E1ED00B15E21 /* PresentedViewController.h */,
+				1033B3B125F1E1ED00B15E21 /* PresentedViewController.m */,
+			);
+			path = Transition;
+			sourceTree = "<group>";
+		};
 		1049408FC4205C3E6BF18862 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +516,7 @@
 		FA6748CD2358A4A0003A268A /* TEXT */ = {
 			isa = PBXGroup;
 			children = (
+				1033B3A325F1E16400B15E21 /* Transition */,
 				182CB0FD25D2AF550069E613 /* NSThread */,
 				182CB0B825D17D860069E613 /* __block */,
 				182CB0B225D114520069E613 /* weakStrong */,
@@ -765,7 +793,9 @@
 				FAB4D21923C6FF5D00EAC732 /* ScrolllView.m in Sources */,
 				FA9965E7258C7B7A004FCF10 /* ViewControllerNotification.m in Sources */,
 				FA4ECCAF25B6BF840015E5A8 /* NSArray+DataProtect.m in Sources */,
+				1033B3B225F1E1ED00B15E21 /* PresentedViewController.m in Sources */,
 				FA64B07125B80FB700E048AD /* HeaderExpandViewControllerTableView.m in Sources */,
+				1033B3AC25F1E19700B15E21 /* TransitionViewController.m in Sources */,
 				FA3DB15B258DF55900994962 /* ViewControllerUserSaveModel.m in Sources */,
 				FA5134FD2591CC2F00B6D611 /* ViewControllerDecorationView.m in Sources */,
 				FA51363B2595952500B6D611 /* CollectionViewAutoLayoutController.m in Sources */,
@@ -785,10 +815,12 @@
 				FA5745AE2429FAE800D36D28 /* SCSpec.m in Sources */,
 				182CB0BB25D17EB20069E613 /* __BlockViewController.m in Sources */,
 				FA5A65C4251DD5F000A183E2 /* ViewController5.m in Sources */,
+				1033B3B825F1FEED00B15E21 /* UIViewController+TDSafePresent.m in Sources */,
 				FA0E30DF257F9C1200BB9501 /* ViewControllerSpec.m in Sources */,
 				FA1CC66A2479133400906BFA /* ViewController3.m in Sources */,
 				FA6E7BF624FE355B00B05096 /* VVCell.m in Sources */,
 				FA1932BA24C45F62000A8B8A /* ViewController4.m in Sources */,
+				1033B3A625F1E17100B15E21 /* TDViewControllerPresentAndDismiss.m in Sources */,
 				FA51351B2591CED400B6D611 /* VVCategoryBannerDecorationView.m in Sources */,
 				FA64B07D25B82F0F00E048AD /* HeaderExpandViewControllerSrollview.m in Sources */,
 				FA51351A2591CED400B6D611 /* VVCategoryDecorationView.m in Sources */,
