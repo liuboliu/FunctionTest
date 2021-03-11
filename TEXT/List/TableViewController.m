@@ -18,6 +18,8 @@
 #import "WeakStrongController.h"
 #import "MultiThreadViewController.h"
 #import "TransitionViewController.h"
+#import "KeyValueViewController.h"
+#import "AnimationViewController.h"
 
 @interface TableViewController ()
 
@@ -41,7 +43,9 @@
         @"卡片式轮播和点击范围扩大",
         @"weak Strong",
         @"多线程优先级",
-        @"转场动画"
+        @"转场动画",
+        @"setvalueForkey",
+        @"动画",
     ];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     [self configActions];
@@ -70,6 +74,8 @@
     [self configBlock];
     [self configMultiThread];
     [self configTransition];
+    [self setNilValueForKk];
+    [self configAnimcation];
 }
 
 - (void)configDecoration
@@ -160,6 +166,25 @@
         [self.navigationController pushViewController:vc animated:YES];
     };
     [self.blockArray addObject:block];
+}
+
+- (void)setNilValueForKk
+{
+    void (^block) (void) = ^void (void) {
+        KeyValueViewController *vc = [[KeyValueViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self.blockArray addObject:block];
+}
+
+- (void)configAnimcation
+{
+    void (^block) (void) = ^void (void) {
+        AnimationViewController *vc = [[AnimationViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self.blockArray addObject:block];
+
 }
 
 #pragma mark - Table view data source
