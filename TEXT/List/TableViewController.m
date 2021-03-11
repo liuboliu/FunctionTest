@@ -45,7 +45,7 @@
         @"多线程优先级",
         @"转场动画",
         @"setvalueForkey",
-        @"动画",
+        @"位移动画",
     ];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     [self configActions];
