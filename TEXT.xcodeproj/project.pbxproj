@@ -12,6 +12,7 @@
 		1033B3B225F1E1ED00B15E21 /* PresentedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1033B3B125F1E1ED00B15E21 /* PresentedViewController.m */; };
 		1033B3B825F1FEED00B15E21 /* UIViewController+TDSafePresent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1033B3B725F1FEED00B15E21 /* UIViewController+TDSafePresent.m */; };
 		104AFC6D25F9E3010024E2CC /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 104AFC6C25F9E3010024E2CC /* AnimationViewController.m */; };
+		104AFC7625FAFE170024E2CC /* ScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 104AFC7525FAFE170024E2CC /* ScaleViewController.m */; };
 		10832A0525F5F867008F64A1 /* KeyValueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10832A0425F5F867008F64A1 /* KeyValueViewController.m */; };
 		10832A0E25F5F878008F64A1 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 10832A0D25F5F878008F64A1 /* Student.m */; };
 		182CB0A525BC648C0069E613 /* CardCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB0A425BC648B0069E613 /* CardCourseViewController.m */; };
@@ -117,6 +118,8 @@
 		1033B3B725F1FEED00B15E21 /* UIViewController+TDSafePresent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TDSafePresent.m"; sourceTree = "<group>"; };
 		104AFC6B25F9E3010024E2CC /* AnimationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationViewController.h; sourceTree = "<group>"; };
 		104AFC6C25F9E3010024E2CC /* AnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationViewController.m; sourceTree = "<group>"; };
+		104AFC7425FAFE170024E2CC /* ScaleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScaleViewController.h; sourceTree = "<group>"; };
+		104AFC7525FAFE170024E2CC /* ScaleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScaleViewController.m; sourceTree = "<group>"; };
 		10832A0325F5F867008F64A1 /* KeyValueViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyValueViewController.h; sourceTree = "<group>"; };
 		10832A0425F5F867008F64A1 /* KeyValueViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyValueViewController.m; sourceTree = "<group>"; };
 		10832A0C25F5F878008F64A1 /* Student.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
@@ -321,6 +324,8 @@
 			children = (
 				104AFC6B25F9E3010024E2CC /* AnimationViewController.h */,
 				104AFC6C25F9E3010024E2CC /* AnimationViewController.m */,
+				104AFC7425FAFE170024E2CC /* ScaleViewController.h */,
+				104AFC7525FAFE170024E2CC /* ScaleViewController.m */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -811,6 +816,7 @@
 				FA9965ED258C8861004FCF10 /* SPPageMenu.m in Sources */,
 				FA9965DD258B054F004FCF10 /* ViewControllerEnumObject.m in Sources */,
 				FA64B05C25B6D4FF00E048AD /* VVKVOItemManager.m in Sources */,
+				104AFC7625FAFE170024E2CC /* ScaleViewController.m in Sources */,
 				FA64B05D25B6D4FF00E048AD /* VVKVOObserver.m in Sources */,
 				104AFC6D25F9E3010024E2CC /* AnimationViewController.m in Sources */,
 				FA4FC2F22435B2970023B10C /* ViewController.m in Sources */,

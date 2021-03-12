@@ -20,6 +20,7 @@
 #import "TransitionViewController.h"
 #import "KeyValueViewController.h"
 #import "AnimationViewController.h"
+#import "ScaleViewController.h"
 
 @interface TableViewController ()
 
@@ -46,6 +47,7 @@
         @"转场动画",
         @"setvalueForkey",
         @"位移动画",
+        @"放大动画"
     ];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     [self configActions];
@@ -76,6 +78,7 @@
     [self configTransition];
     [self setNilValueForKk];
     [self configAnimcation];
+    [self cofigScaleanimation];
 }
 
 - (void)configDecoration
@@ -185,6 +188,15 @@
     };
     [self.blockArray addObject:block];
 
+}
+
+- (void)cofigScaleanimation
+{
+    void (^block) (void) = ^ void (void) {
+        ScaleViewController *vc = [[ScaleViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self.blockArray addObject:block];
 }
 
 #pragma mark - Table view data source

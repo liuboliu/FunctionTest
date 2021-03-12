@@ -13,6 +13,8 @@
 
 @interface TransitionViewController ()
 
+@property (nonatomic, strong) UIView *contentView;
+
 @end
 
 @implementation TransitionViewController
@@ -27,12 +29,41 @@
     [button addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     button.layer.transform = CATransform3DMakeScale(1.2, 1.2, 1);
+    
+    UIButton *button2  = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button2 addTarget:self action:@selector(transition) forControlEvents:UIControlEventTouchUpInside];
+    button2.frame = CGRectMake(200, 100, 100, 100);
+    button2.backgroundColor = [UIColor cyanColor];
+    [self.view addSubview:button2];
+}
+
+- (void)transition
+{
+    [self.view addSubview:self.contentView];
+    CATransition *animation = [CATransition animation];
+    [animation setDuration:4.0f];
+    [animation setFillMode:kCAFillModeForwards];
+    [animation setTimingFunction:[CAMediaTimingFunction
+                                  
+                                  functionWithName:kCAMediaTimingFunctionLinear]];
+    [animation setType:kCATransitionReveal];
+    [animation setSubtype:kCATransitionFromTop];
+    [self.contentView.layer addAnimation:animation forKey:nil];
 }
 
 - (void)click
 {
     PresentedViewController *pre = [[PresentedViewController alloc] init];
     [self safePresentViewController:pre animated:YES completion:nil];
+}
+
+- (UIView *)contentView
+{
+    if (!_contentView) {
+        _contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 300, 300, 300)];
+        _contentView.backgroundColor = [UIColor cyanColor];
+    }
+    return _contentView;
 }
 
 /*
