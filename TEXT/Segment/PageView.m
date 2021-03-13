@@ -8,6 +8,7 @@
 
 #import "PageView.h"
 #import "SPPageMenu.h"
+#import "UIColor+TDHelp.h"
 
 @implementation PageViewConfiguration
 
@@ -15,6 +16,9 @@
 {
     if (self = [super init]) {
         self.segmentHeight = 40;
+        self.normalColor = [UIColor colorWithHex:0x999999];
+        self.selectColor = [UIColor colorWithHex:0x333333];
+        self.font = 16;
     }
     return self;
 }

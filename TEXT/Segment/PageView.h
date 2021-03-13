@@ -44,13 +44,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger detaultIndex;
 /// segment高度 默认为40
 @property (nonatomic, assign) CGFloat segmentHeight;
-/// 标题按钮的宽度相同， 默认为NO
-@property (nonatomic, assign) BOOL titleWidthSame;
 /*
- 标题按钮的宽度，在宽度(titleWithSame = YES)相同的情况下需要指定宽度，如果
- 不指定的话默认是分页视图的宽度除以标题数
+ 标题按钮的宽度,默认为0， 此时自适应文案宽度
  */
 @property (nonatomic, assign) CGFloat titleWidth;
+
+///字体大小 ,默认16
+@property (nonatomic, assign) CGFloat font;
+/// 未选中文案颜色  ///默认999999
+@property (nonatomic, strong) UIColor *normalColor;
+///选中文案颜色 /// 默认333333
+@property (nonatomic, strong) UIColor *selectColor;
 
 @end
 

@@ -7,6 +7,7 @@
 //
 
 #import "SPPageMenu.h"
+#import "UIColor+TDHelp.h"
 
 #define tagBaseValue 100
 #define scrollViewContentOffset @"contentOffset"
@@ -192,9 +193,9 @@
 
 - (void)initialize {
     
-    _itemTitleFont = [UIFont systemFontOfSize:16];
-    _selectedItemTitleColor = [UIColor redColor];
-    _unSelectedItemTitleColor = [UIColor blackColor];
+    _itemTitleFont = [UIFont systemFontOfSize:self.configuration.font];
+    _selectedItemTitleColor = self.configuration.selectColor;
+    _unSelectedItemTitleColor = self.configuration.normalColor;
     _trackerHeight = 3;
     _contentInset = UIEdgeInsetsZero;
     _selectedItemIndex = 0;
@@ -526,7 +527,7 @@
         _tracker = [[UIImageView alloc] init];
         _tracker.layer.cornerRadius = _trackerHeight * 0.5;
         _tracker.layer.masksToBounds = YES;
-        _tracker.backgroundColor = [UIColor cyanColor];
+        _tracker.backgroundColor = self.configuration.selectColor;
     }
     return _tracker;
 }
@@ -576,11 +577,14 @@
         CGFloat imageW = button.currentImage.size.width;
         if (button.currentTitle && !button.currentImage) {
             contentW = textW;
-            if (contentW < [UIScreen mainScreen].bounds.size.width / 3.0) {
-                contentW = [UIScreen mainScreen].bounds.size.width / 3.0;
+            if (contentW < [UIScreen mainScreen].bounds.size.width / 5.0) {
+                contentW = [UIScreen mainScreen].bounds.size.width / 5.0;
             }
         } else if(button.currentImage && !button.currentTitle) {
             contentW = imageW;
+        }
+        if (self.configuration.titleWidth) {
+            contentW = self.configuration.titleWidth;
         }
         if (setupButtonW) {
             contentW_sum += setupButtonW;

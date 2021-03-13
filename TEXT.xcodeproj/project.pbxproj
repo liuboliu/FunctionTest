@@ -18,6 +18,7 @@
 		18072C5725FC4ED9004AB992 /* ListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18072C5625FC4ED9004AB992 /* ListModel.m */; };
 		18072C5A25FC5362004AB992 /* PageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18072C5925FC5362004AB992 /* PageView.m */; };
 		18072C5D25FC726B004AB992 /* SubPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18072C5C25FC726B004AB992 /* SubPageView.m */; };
+		18072C6425FC9909004AB992 /* UIColor+TDHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 18072C6325FC9909004AB992 /* UIColor+TDHelp.m */; };
 		182CB0A525BC648C0069E613 /* CardCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB0A425BC648B0069E613 /* CardCourseViewController.m */; };
 		182CB0A825BC707F0069E613 /* HittestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB0A725BC707F0069E613 /* HittestView.m */; };
 		182CB0AB25BCFE400069E613 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB0AA25BCFE400069E613 /* TestView.m */; };
@@ -133,6 +134,8 @@
 		18072C5925FC5362004AB992 /* PageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageView.m; sourceTree = "<group>"; };
 		18072C5B25FC726B004AB992 /* SubPageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubPageView.h; sourceTree = "<group>"; };
 		18072C5C25FC726B004AB992 /* SubPageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubPageView.m; sourceTree = "<group>"; };
+		18072C6225FC9909004AB992 /* UIColor+TDHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TDHelp.h"; sourceTree = "<group>"; };
+		18072C6325FC9909004AB992 /* UIColor+TDHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TDHelp.m"; sourceTree = "<group>"; };
 		182CB0A325BC648B0069E613 /* CardCourseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardCourseViewController.h; sourceTree = "<group>"; };
 		182CB0A425BC648B0069E613 /* CardCourseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardCourseViewController.m; sourceTree = "<group>"; };
 		182CB0A625BC707F0069E613 /* HittestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HittestView.h; sourceTree = "<group>"; };
@@ -350,6 +353,15 @@
 			path = SetvalueForKey;
 			sourceTree = "<group>";
 		};
+		18072C6125FC9900004AB992 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				18072C6225FC9909004AB992 /* UIColor+TDHelp.h */,
+				18072C6325FC9909004AB992 /* UIColor+TDHelp.m */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
 		182CB0A225BC64650069E613 /* cardCourse */ = {
 			isa = PBXGroup;
 			children = (
@@ -561,6 +573,7 @@
 		FA6748CD2358A4A0003A268A /* TEXT */ = {
 			isa = PBXGroup;
 			children = (
+				18072C6125FC9900004AB992 /* lib */,
 				104AFC6A25F9E2EA0024E2CC /* Animation */,
 				10832A0225F5F853008F64A1 /* SetvalueForKey */,
 				1033B3A325F1E16400B15E21 /* Transition */,
@@ -881,6 +894,7 @@
 				1033B3A625F1E17100B15E21 /* TDViewControllerPresentAndDismiss.m in Sources */,
 				FA51351B2591CED400B6D611 /* VVCategoryBannerDecorationView.m in Sources */,
 				FA64B07D25B82F0F00E048AD /* HeaderExpandViewControllerSrollview.m in Sources */,
+				18072C6425FC9909004AB992 /* UIColor+TDHelp.m in Sources */,
 				FA51351A2591CED400B6D611 /* VVCategoryDecorationView.m in Sources */,
 				FA5135122591CEB600B6D611 /* VVBaseCollectionDecorationView.m in Sources */,
 				182CB0AB25BCFE400069E613 /* TestView.m in Sources */,
