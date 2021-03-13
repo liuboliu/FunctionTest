@@ -10,6 +10,7 @@
 #import "SPPageMenu.h"
 #import "PageView.h"
 #import "SubPageView.h"
+#import "SubViewController.h"
 
 @interface ViewControllerSegment () <PageViewDelegate , PageViewDatasource>
 
@@ -21,13 +22,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.translucent = NO;
     self.view.backgroundColor = [UIColor whiteColor];
     PageViewConfiguration *configuration = [[PageViewConfiguration alloc] init];
     configuration.titleArray = @[@"1qwuioiweqrpoiqwer分类分类分类",@"2",@"3",@"4",@"5",@"6"];
     configuration.titleWidth = CGRectGetWidth(self.view.bounds) / 2.0;
     configuration.normalColor = [UIColor redColor];
     configuration.selectColor = [UIColor magentaColor];
-    PageView *page = [[PageView alloc] initWithFrame:CGRectMake(0, 100, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)) config:configuration];
+    PageView *page = [[PageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)) config:configuration];
     [self.view addSubview:page];
     page.delegate = self;
     page.dataSource = self;
@@ -62,10 +64,15 @@
 
 - (UIView *)viewForPageView:(PageView *)pageView atIndex:(NSInteger)index
 {
-    SubPageView *subvie = [[SubPageView alloc] initWithFrame:CGRectZero];
-    subvie.titleLabel.text = [NSString stringWithFormat:@"%ld",index];
-    subvie.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];;
-    return subvie;
+    SubViewController *vc = [[SubViewController alloc] init];
+    vc.title = [NSString stringWithFormat:@"哈哈哈%ld",index];
+    vc.view.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];;
+    [self addChildViewController:vc];
+    return vc.view;
+//    SubPageView *subvie = [[SubPageView alloc] initWithFrame:CGRectZero];
+//    subvie.titleLabel.text = [NSString stringWithFormat:@"%ld",index];
+//    subvie.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];;
+//    return subvie;
 }
 
 #pragma lazyload

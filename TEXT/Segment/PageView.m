@@ -68,7 +68,6 @@
     self.segmentMenu.delegate = self;
     [self addSubview:segmentMenu];
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, segmentHeight, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) - segmentHeight)];
-    self.scrollView.backgroundColor = [UIColor cyanColor];
     [self addSubview:self.scrollView];
     self.segmentMenu.bridgeScrollView = self.scrollView;
     self.scrollView.delegate = self;

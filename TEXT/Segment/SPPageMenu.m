@@ -45,25 +45,12 @@
 @property (nonatomic, strong) UIImageView *tracker;
 @property (nonatomic, assign) CGFloat trackerHeight;
 @property (nonatomic, weak) UIView *backgroundView;
-@property (nonatomic, strong) UIImageView *dividingLine;
 @property (nonatomic, weak) UIScrollView *itemScrollView;
-@property (nonatomic, weak) UIButton *functionButton;
-@property (nonatomic, weak) CALayer *shadowLine;
 @property (nonatomic, strong) NSMutableArray *buttons;
 @property (nonatomic, strong) UIButton *selectedButton;
 @property (nonatomic, strong) NSMutableDictionary *setupWidths;
-@property (nonatomic, assign) BOOL insert;
 // 起始偏移量,为了判断滑动方向
 @property (nonatomic, assign) CGFloat beginOffsetX;
-
-/// 开始颜色, 取值范围 0~1
-@property (nonatomic, assign) CGFloat startR;
-@property (nonatomic, assign) CGFloat startG;
-@property (nonatomic, assign) CGFloat startB;
-/// 完成颜色, 取值范围 0~1
-@property (nonatomic, assign) CGFloat endR;
-@property (nonatomic, assign) CGFloat endG;
-@property (nonatomic, assign) CGFloat endB;
 
 @property (nonatomic, strong) PageViewConfiguration *configuration;
 
@@ -74,11 +61,6 @@
 
 #pragma mark - public
 
-+ (instancetype)pageMenuWithFrame:(CGRect)frame {
-    SPPageMenu *pageMenu = [[SPPageMenu alloc] initWithFrame:frame];
-    return pageMenu;
-}
-
 - (void)setItems:(NSArray *)items selectedItemIndex:(NSUInteger)selectedItemIndex {
     if ([UIApplication sharedApplication].userInterfaceLayoutDirection == UIUserInterfaceLayoutDirectionRightToLeft) {
         items = [[items reverseObjectEnumerator] allObjects];
@@ -87,7 +69,6 @@
     _items = items.copy;
     _selectedItemIndex = selectedItemIndex;
     
-    self.insert = NO;
     
     for (int i = 0; i < items.count; i++) {
         id object = items[i];
@@ -155,31 +136,8 @@
     } else {
         [button setImage:object forState:UIControlStateNormal];
     }
-    if (self.insert) {
-        [self.itemScrollView insertSubview:button atIndex:index+1];
-        if (!self.buttons.count) {
-            [self buttonInPageMenuClicked:button];
-        }
-    } else {
-        [self.itemScrollView insertSubview:button atIndex:index];
-    }
+    [self.itemScrollView insertSubview:button atIndex:index];
     [self.buttons insertObject:button atIndex:index];
-    
-    // setNeedsLayout会标记为需要刷新,layoutIfNeeded只有在有标记的情况下才会立即调用layoutSubViews,当然标记为刷新并非只有调用setNeedsLayout,如frame改变，addSubView等都会标记为刷新
-    
-    if (self.insert && animated) { // 是插入的新按钮,且需要动画
-        // 取出上一个按钮
-        UIButton *lastButton;
-        if (index > 0) {
-            lastButton = self.buttons[index-1];
-        }
-        // 先给给初始的origin，按钮将会从这个origin开始动画
-        button.frame = CGRectMake(CGRectGetMaxX(lastButton.frame), 0, 0, 0);
-        [UIView animateWithDuration:0.5 animations:^{
-            [self setNeedsLayout];
-            [self layoutIfNeeded];
-        }];
-    }
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -199,20 +157,7 @@
     _trackerHeight = 3;
     _contentInset = UIEdgeInsetsZero;
     _selectedItemIndex = 0;
-    _showFuntionButton = NO;
-    _needTextColorGradients = YES;
-    
-    // 必须先添加分割线，再添加backgroundView;假如先添加backgroundView,那也就意味着backgroundView是SPPageMenu的第一个子控件,而scrollView又是backgroundView的第一个子控件,当外界在由导航控制器管理的控制器中将SPPageMenu添加为第一个子控件时，控制器会不断的往下遍历第一个子控件的第一个子控件，直到找到为scrollView为止,一旦发现某子控件的第一个子控件为scrollView,会将scrollView的内容往下偏移64;这时控制器中必须设置self.automaticallyAdjustsScrollViewInsets = NO;为了避免这样做，这里将分割线作为第一个子控件
-    SPPageMenuLine *dividingLine = [[SPPageMenuLine alloc] init];
-    dividingLine.backgroundColor = [UIColor grayColor];
-    __weak typeof(self) weakSelf = self;
-    dividingLine.hideBlock = ^() {
-        [weakSelf
-         setNeedsLayout];
-    };
-    [self addSubview:dividingLine];
-    _dividingLine = dividingLine;
-    
+
     UIView *backgroundView = [[UIView alloc] init];
     backgroundView.layer.masksToBounds = YES;
     [self addSubview:backgroundView];
@@ -223,27 +168,6 @@
     itemScrollView.showsHorizontalScrollIndicator = NO;
     [backgroundView addSubview:itemScrollView];
     _itemScrollView = itemScrollView;
-    
-    UIButton *functionButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    functionButton.backgroundColor = [UIColor whiteColor];
-    [functionButton setTitle:@"＋" forState:UIControlStateNormal];
-    [functionButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [functionButton addTarget:self action:@selector(functionButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    functionButton.hidden = !_showFuntionButton;
-    [backgroundView addSubview:functionButton];
-    _functionButton = functionButton;
-    
-    // 这个layer的作用是为functionButton制造阴影效果,如果直接在functionButton上加阴影，无论怎么设置，至少都会2条边有阴影，这里要实现只要一条边(左边)有阴影,故在backgroundView上加一个layer，这样其余边可以通过backgroundView.layer.masksToBounds剪切掉
-    CALayer *shadowLine = [CALayer layer];
-    shadowLine.backgroundColor = [UIColor whiteColor].CGColor;
-    shadowLine.shadowColor = [UIColor blackColor].CGColor;
-    shadowLine.shadowOffset = CGSizeMake(0, 0);
-    shadowLine.shadowRadius = 2;
-    shadowLine.shadowOpacity = 0.5; // 默认是0,为0的话不会显示阴影
-    [backgroundView.layer insertSublayer:shadowLine below:functionButton.layer];
-    shadowLine.hidden = !_showFuntionButton;
-    _shadowLine = shadowLine;
-    
     [self layoutIfNeeded];
 }
 
@@ -256,7 +180,6 @@
     // 更新下item对应的下标,必须在代理之前，否则外界在代理方法中拿到的不是最新的,必须用下划线，用self.会造成死循环
     _selectedItemIndex = toIndex;
     [self delegatePerformMethodWithFromIndex:fromIndex toIndex:toIndex];
-
 
     if (fromIndex != toIndex) { // 如果相等，说明是第一次进来，或者2次点了同一个，此时不需要动画
         [self moveTrackerWithSelectedButton:sender];
@@ -312,13 +235,6 @@
         [self.delegate pageMenu:self itemSelectedFromIndex:fromIndex toIndex:toIndex];
     } else if (self.delegate && [self.delegate respondsToSelector:@selector(pageMenu:itemSelectedAtIndex:)]) {
         [self.delegate pageMenu:self itemSelectedAtIndex:toIndex];
-    }
-}
-
-// 功能按钮的点击方法
-- (void)functionButtonClicked:(UIButton *)sender {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(pageMenu:functionButtonClicked:)]) {
-        [self.delegate pageMenu:self functionButtonClicked:sender];
     }
 }
 
@@ -542,25 +458,12 @@
     CGFloat backgroundViewW = self.bounds.size.width-(_contentInset.left+_contentInset.right);
     CGFloat backgroundViewH = self.bounds.size.height-(_contentInset.top+_contentInset.bottom);
     self.backgroundView.frame = CGRectMake(backgroundViewX, backgroundViewY, backgroundViewW, backgroundViewH);
-    
-    CGFloat dividingLineW = self.bounds.size.width;
-    CGFloat dividingLineH = (self.dividingLine.hidden || self.dividingLine.alpha < 0.01) ? 0 : 0.5;
-    CGFloat dividingLineX = 0;
-    CGFloat dividingLineY = self.bounds.size.height-dividingLineH;
-    self.dividingLine.frame = CGRectMake(dividingLineX, dividingLineY, dividingLineW, dividingLineH);
 
-    CGFloat functionButtonH = backgroundViewH-dividingLineH;
-    CGFloat functionButtonW = functionButtonH;
-    CGFloat functionButtonX = backgroundViewW-functionButtonW;
-    CGFloat functionButtonY = 0;
-    self.functionButton.frame = CGRectMake(functionButtonX, functionButtonY, functionButtonW, functionButtonH);
-    self.shadowLine.frame = CGRectMake(functionButtonX, functionButtonY+functionButtonH/5, functionButtonW, functionButtonH-functionButtonH/5*2);
-    
     CGFloat itemScrollViewX = 0;
     CGFloat itemScrollViewY = 0;
-    CGFloat itemScrollViewW = self.showFuntionButton ? backgroundViewW-functionButtonW : backgroundViewW;
-    CGFloat itemScrollViewH = backgroundViewH-dividingLineH;
-    self.itemScrollView.frame = CGRectMake(itemScrollViewX, itemScrollViewY, itemScrollViewW, itemScrollViewH);
+    CGFloat itemScrollViewW =  backgroundViewW;
+    CGFloat itemScrollViewH = backgroundViewH - _trackerHeight;
+    self.itemScrollView.frame = CGRectMake(itemScrollViewX, itemScrollViewY, itemScrollViewW, CGRectGetHeight(self.bounds));
     
     __block CGFloat buttonW = 0.0;
     __block CGFloat lastButtonMaxX = 0.0;
@@ -596,7 +499,6 @@
     }
     
     [self.buttons enumerateObjectsUsingBlock:^(UIButton *button, NSUInteger idx, BOOL * _Nonnull stop) {
-        CGFloat setupButtonW = [[self.setupWidths objectForKey:[NSString stringWithFormat:@"%zd",idx]] floatValue];
       
         buttonW = [buttonWidths[idx] floatValue];
         if (idx == 0) {

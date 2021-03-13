@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol SPPageMenuDelegate <NSObject>
 
 @optional
-- (void)pageMenu:(SPPageMenu *)pageMenu functionButtonClicked:(UIButton *)functionButton;
+
 // 若以下2个代理方法同时实现了，那么只会走第2个代理方法
 - (void)pageMenu:(SPPageMenu *)pageMenu itemSelectedAtIndex:(NSInteger)index;
 - (void)pageMenu:(SPPageMenu *)pageMenu itemSelectedFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex;
@@ -25,9 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface SPPageMenu : UIView
-
-// 创建pagMenu
-+ (instancetype)pageMenuWithFrame:(CGRect)frame;
 
 - (instancetype)initWithCoder:(NSCoder *)coder NS_UNAVAILABLE;
 
@@ -49,16 +46,11 @@ NS_ASSUME_NONNULL_BEGIN
 /** 选中的item下标 */
 @property (nonatomic) NSUInteger selectedItemIndex;
 
-/** 是否需要文字渐变,默认为YES */
-@property (nonatomic, assign) BOOL needTextColorGradients;
-
 /** 外界的srollView，pageMenu会监听该scrollView的滚动状况，让跟踪器时刻跟随此scrollView滑动 */
 @property (nonatomic, strong) UIScrollView *bridgeScrollView;
 /** 关闭跟踪器的跟随效果,在外界传了scrollView进来或者调用了moveTrackerFollowScrollView的情况下,如果为YES，则当外界滑动scrollView时，跟踪器不会时刻跟随,只有滑动结束才会跟踪; 如果为NO，跟踪器会时刻跟随scrollView */
 @property (nonatomic, assign) BOOL closeTrackerFollowingMode;
 
-/** 是否显示功能按钮(功能按钮显示在最右侧),默认为NO */
-@property (nonatomic, assign) BOOL showFuntionButton;
 /** item之间的间距,当permutationWay为‘SPPageMenuPermutationWayNotScrollAdaptContent’时此属性无效 */
 //@property (nonatomic, assign) CGFloat itemPadding;
 /** item的标题字体 */
@@ -69,8 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIColor *unSelectedItemTitleColor;
 /** 跟踪器 */
 @property (nonatomic, readonly) UIImageView *tracker;
-/** 分割线 */
-@property (nonatomic, readonly) UIImageView *dividingLine;
+
 /** 代理 */
 @property (nonatomic, weak) id<SPPageMenuDelegate> delegate;
 
@@ -82,28 +73,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 获取指定item的图片
 - (nullable UIImage *)imageForItemAtIndex:(NSUInteger)itemIndex;
-
-/**
- *  同时为指定item设置标题和图片
- *
- *  @param title    标题
- *  @param image    图片
- *  @param ratio            图片所占item的比例,默认0.5,如果给0,同样会自动默认为0.5
- *  @param itemIndex        item的下标
- */
-- (void)setTitle:(nullable NSString *)title image:(nullable UIImage *)image imageRatio:(CGFloat)ratio forItemIndex:(NSUInteger)itemIndex;
-
-/* 1.让跟踪器时刻跟随外界scrollView滑动,实现了让跟踪器的宽度逐渐适应item宽度的功能;
-   2.这个方法用于scrollViewDidScroll代理方法中，如
- 
-    - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-        [self.pageMenu moveTrackerFollowScrollView:scrollView];
-    }
- 
-    3.如果外界对SPPageMenu的属性"bridgeScrollView"赋了值，那么外界就可以不用在scrollViewDidScroll方法中调用这个方法来实现跟踪器时刻跟随外界scrollView的效果,内部会自动处理; 外界对SPPageMenu的属性"bridgeScrollView"赋值是实现此效果的最简便的操作
-    4.如果不想要此效果,可设置closeTrackerFollowingMode==YES
- */
-- (void)moveTrackerFollowScrollView:(UIScrollView *)scrollView;
 
 @end
 
