@@ -23,7 +23,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     PageViewConfiguration *configuration = [[PageViewConfiguration alloc] init];
-    configuration.titleArray = @[@"1",@"2",@"3",@"4",@"5",@"6"];
+    configuration.titleArray = @[@"1qwuioiweqrpoiqwer分类分类分类",@"2",@"3",@"4",@"5",@"6"];
+    configuration.titleWidthSame = NO;
     PageView *page = [[PageView alloc] initWithFrame:CGRectMake(0, 100, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)) config:configuration];
     [self.view addSubview:page];
     page.delegate = self;

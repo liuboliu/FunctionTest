@@ -14,7 +14,8 @@
 #define maxTextScale 0.3
 
 @interface SPPageMenuLine : UIImageView
-@property (nonatomic, copy) void(^hideBlock)();
+
+@property (nonatomic, copy) void(^hideBlock)(void);
 
 @end
 
@@ -62,6 +63,9 @@
 @property (nonatomic, assign) CGFloat endR;
 @property (nonatomic, assign) CGFloat endG;
 @property (nonatomic, assign) CGFloat endB;
+
+@property (nonatomic, strong) PageViewConfiguration *configuration;
+
 @end
 
 @implementation SPPageMenu
@@ -105,89 +109,6 @@
     }
 }
 
-- (void)insertItemWithTitle:(NSString *)title atIndex:(NSUInteger)itemIndex animated:(BOOL)animated {
-    self.insert = YES;
-    if (itemIndex > self.items.count) {return;}
-    NSMutableArray *titleArr = self.items.mutableCopy;
-    [titleArr insertObject:title atIndex:itemIndex];
-    self.items = titleArr;
-    [self addButton:itemIndex object:title animated:animated];
-    if (itemIndex <= self.selectedItemIndex) {
-        _selectedItemIndex += 1;
-    }
-}
-
-- (void)insertItemWithImage:(UIImage *)image atIndex:(NSUInteger)itemIndex animated:(BOOL)animated {
-    self.insert = YES;
-    if (itemIndex > self.items.count) {return;}
-    NSMutableArray *objects = self.items.mutableCopy;
-    [objects insertObject:image atIndex:itemIndex];
-    self.items = objects;
-    [self addButton:itemIndex object:image animated:animated];
-    if (itemIndex <= self.selectedItemIndex) {
-        _selectedItemIndex += 1;
-    }
-}
-
-- (void)removeItemAtIndex:(NSUInteger)itemIndex animated:(BOOL)animated {
-    if (itemIndex > self.items.count) {return;}
-    // 被删除的按钮之后的按钮需要修改tag值
-    for (UIButton *button in self.buttons) {
-        if (button.tag-tagBaseValue > itemIndex) {
-            button.tag = button.tag - 1;
-        }
-    }
-    if (self.items.count) {
-        NSMutableArray *objects = self.items.mutableCopy;
-        id object = [objects objectAtIndex:itemIndex];
-        [objects removeObject:object];
-        self.items = objects;
-    }
-    if (itemIndex < self.buttons.count) {
-        UIButton *button = [self.buttons objectAtIndex:itemIndex];
-        if (button == self.selectedButton) { // 如果删除的正是选中的item，删除之后，选中的按钮切换为上一个item
-            self.selectedItemIndex = itemIndex > 0 ? itemIndex-1 : itemIndex;
-        }
-        [self.buttons removeObject:button];
-        [button removeFromSuperview];
-    }
-    if (animated) {
-        [UIView animateWithDuration:0.5 animations:^{
-            [self setNeedsLayout];
-            [self layoutIfNeeded];
-        }];
-    } else {
-        [self setNeedsLayout];
-    }
-    
-}
-
-- (void)removeAllItems {
-    NSMutableArray *objects = self.items.mutableCopy;
-    [objects removeAllObjects];
-    self.items = objects;
-    self.items = nil;
-    
-    for (int i = 0; i < self.buttons.count; i++) {
-        UIButton *button = self.buttons[i];
-        [button removeFromSuperview];
-    }
-    
-    [self.buttons removeAllObjects];
-    
-    self.selectedButton = nil;
-    self.selectedItemIndex = 0;
-    
-    [self setNeedsLayout];
-}
-
-- (void)setTitle:(NSString *)title forItemAtIndex:(NSUInteger)itemIndex {
-    if (itemIndex < self.buttons.count) {
-        UIButton *button = [self.buttons objectAtIndex:itemIndex];
-        [button setTitle:title forState:UIControlStateNormal];
-    }
-}
-
 - (NSString *)titleForItemAtIndex:(NSUInteger)itemIndex {
     if (itemIndex < self.buttons.count) {
         UIButton *button = [self.buttons objectAtIndex:itemIndex];
@@ -196,78 +117,12 @@
     return nil;
 }
 
-- (void)setImage:(UIImage *)image forItemAtIndex:(NSUInteger)itemIndex {
-    if (itemIndex < self.buttons.count) {
-        UIButton *button = [self.buttons objectAtIndex:itemIndex];
-        [button setTitle:nil forState:UIControlStateNormal];
-        [button setImage:image forState:UIControlStateNormal];
-    }
-}
-
 - (UIImage *)imageForItemAtIndex:(NSUInteger)itemIndex {
     if (itemIndex < self.buttons.count) {
         UIButton *button = [self.buttons objectAtIndex:itemIndex];
         return button.currentImage;
     }
     return nil;
-}
-
-- (void)setTitle:(NSString *)title image:(UIImage *)image imageRatio:(CGFloat)ratio forItemIndex:(NSUInteger)itemIndex {
-    if (itemIndex < self.buttons.count) {
-        UIButton *button = [self.buttons objectAtIndex:itemIndex];
-        [button setTitle:title forState:UIControlStateNormal];
-        [button setImage:image forState:UIControlStateNormal];
-    }
-}
-
-- (void)setFunctionButtonTitle:(NSString *)title image:(UIImage *)image imageRatio:(CGFloat)ratio forState:(UIControlState)state {
-    [self.functionButton setTitle:title forState:state];
-    [self.functionButton setImage:image forState:state];
-}
-
-- (void)setFunctionButtonTitleTextAttributes:(nullable NSDictionary *)attributes forState:(UIControlState)state {
-    if (attributes[NSFontAttributeName]) {
-        self.functionButton.titleLabel.font = attributes[NSFontAttributeName];
-    }
-    if (attributes[NSForegroundColorAttributeName]) {
-        [self.functionButton setTitleColor:attributes[NSForegroundColorAttributeName] forState:state];
-    }
-    if (attributes[NSBackgroundColorAttributeName]) {
-        self.functionButton.backgroundColor = attributes[NSBackgroundColorAttributeName];
-    }
-}
-
-
-- (void)setEnabled:(BOOL)enaled forItemAtIndex:(NSUInteger)itemIndex {
-    if (itemIndex < self.buttons.count) {
-        UIButton *button = [self.buttons objectAtIndex:itemIndex];
-        [button setEnabled:enaled];
-    }
-}
-
-- (BOOL)enabledForItemAtIndex:(NSUInteger)itemIndex {
-    if (self.buttons.count) {
-        UIButton *button = [self.buttons objectAtIndex:itemIndex];
-        return button.enabled;
-    }
-    return YES;
-}
-
-- (void)setWidth:(CGFloat)width forItemAtIndex:(NSUInteger)itemIndex {
-    [self.setupWidths setObject:@(width) forKey:[NSString stringWithFormat:@"%zd",itemIndex]];
-}
-
-- (CGFloat)widthForItemAtIndex:(NSUInteger)itemIndex {
-    CGFloat setupWidth = [[self.setupWidths objectForKey:[NSString stringWithFormat:@"%zd",itemIndex]] floatValue];
-    if (setupWidth) {
-        return setupWidth;
-    } else {
-        if (itemIndex < self.buttons.count) {
-            UIButton *button = [self.buttons objectAtIndex:itemIndex];
-            return button.bounds.size.width;
-        }
-    }
-    return 0;
 }
 
 - (void)moveTrackerFollowScrollView:(UIScrollView *)scrollView {
@@ -279,7 +134,7 @@
 }
  
 
-#pragma amrk - private
+#pragma mark  - private
 
 - (void)addButton:(NSInteger)index object:(id)object animated:(BOOL)animated {
     
@@ -326,15 +181,10 @@
     }
 }
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame
+                       config:(nonnull PageViewConfiguration *)config {
     if (self = [super initWithFrame:frame]) {
-        [self initialize];
-    }
-    return self;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    if (self = [super initWithCoder:aDecoder]) {
+        self.configuration = config;
         [self initialize];
     }
     return self;
@@ -584,16 +434,6 @@
     }
 }
 
-- (void)setShowFuntionButton:(BOOL)showFuntionButton {
-    _showFuntionButton = showFuntionButton;
-    self.functionButton.hidden = !showFuntionButton;
-    self.shadowLine.hidden = !showFuntionButton;
-    [self setNeedsLayout];
-    [self layoutIfNeeded];
-    // 修正scrollView偏移
-    [self moveItemScrollViewWithSelectedButton:self.selectedButton];
-}
-
 - (void)setItemPadding:(CGFloat)itemPadding {
     [self setNeedsLayout];
     [self layoutIfNeeded];
@@ -691,7 +531,6 @@
     return _tracker;
 }
 
-
 #pragma mark - 布局
 
 - (void)layoutSubviews {
@@ -732,7 +571,7 @@
     for (int i= 0 ; i < self.buttons.count; i++) {
         UIButton *button = self.buttons[i];
         
-        CGFloat setupButtonW = [[self.setupWidths objectForKey:[NSString stringWithFormat:@"%zd",i]] floatValue];
+        CGFloat setupButtonW = [[self.setupWidths objectForKey:[NSString stringWithFormat:@"%d",i]] floatValue];
         CGFloat textW = [button.titleLabel.text boundingRectWithSize:CGSizeMake(MAXFLOAT, itemScrollViewH) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:_itemTitleFont} context:nil].size.width + 10;
         CGFloat imageW = button.currentImage.size.width;
         if (button.currentTitle && !button.currentImage) {

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PageView.h"
+
 //NS_DEPRECATED(2_0, 2_0, 2_0, 2_0, instead)
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,7 +28,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 创建pagMenu
 + (instancetype)pageMenuWithFrame:(CGRect)frame;
-- (instancetype)initWithFrame:(CGRect)frame;
+
+- (instancetype)initWithCoder:(NSCoder *)coder NS_UNAVAILABLE;
+
+- (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
+/// 初始化
+/// @param frame frame
+/// @param config 配置
+- (instancetype)initWithFrame:(CGRect)frame
+                       config:(PageViewConfiguration *)config NS_DESIGNATED_INITIALIZER;
 
 /**
  *  传递数组(数组元素只能是NSString或UIImage类型)
@@ -67,32 +77,11 @@ NS_ASSUME_NONNULL_BEGIN
 /** 内容的四周内边距(内容不包括分割线) */
 @property (nonatomic, assign) UIEdgeInsets contentInset;
 
-// 插入item,插入和删除操作时,如果itemIndex超过了了items的个数,则不做任何操作
-- (void)insertItemWithTitle:(nullable NSString *)title atIndex:(NSUInteger)itemIndex animated:(BOOL)animated;
-- (void)insertItemWithImage:(nullable UIImage *)image  atIndex:(NSUInteger)itemIndex animated:(BOOL)animated;
-// 如果移除的正是当前选中的item(当前选中的item下标不为0),删除之后,选中的item会切换为上一个item
-- (void)removeItemAtIndex:(NSUInteger)itemIndex animated:(BOOL)animated;
-- (void)removeAllItems;
-
-// 设置指定item的标题,设置后，如果原先的item为image，则image会被title替换
-- (void)setTitle:(nullable NSString *)title forItemAtIndex:(NSUInteger)itemIndex;
 // 获取指定item的标题
 - (nullable NSString *)titleForItemAtIndex:(NSUInteger)itemIndex;
 
-// 设置指定item的图片,设置后，如果原先的item为title，则title会被图片替换
-- (void)setImage:(nullable UIImage *)image forItemAtIndex:(NSUInteger)itemIndex;
 // 获取指定item的图片
 - (nullable UIImage *)imageForItemAtIndex:(NSUInteger)itemIndex;
-
-// 设置指定item的enabled状态
-- (void)setEnabled:(BOOL)enaled forItemAtIndex:(NSUInteger)itemIndex;
-// 获取指定item的enabled状态
-- (BOOL)enabledForItemAtIndex:(NSUInteger)itemIndex;
-
-// 设置指定item的宽度(如果width为0,则item将自动计算)
-- (void)setWidth:(CGFloat)width forItemAtIndex:(NSUInteger)itemIndex;
-// 获取指定item的宽度
-- (CGFloat)widthForItemAtIndex:(NSUInteger)itemIndex;
 
 /**
  *  同时为指定item设置标题和图片
@@ -103,21 +92,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param itemIndex        item的下标
  */
 - (void)setTitle:(nullable NSString *)title image:(nullable UIImage *)image imageRatio:(CGFloat)ratio forItemIndex:(NSUInteger)itemIndex;
-
-/**
- *  同时为functionButton设置标题和图片
- *
- *  @param title    标题
- *  @param image    图片
- *  @param ratio            图片所占item的比例,默认0.5,如果给0,同样会自动默认为0.5
- *  @param state            控件状态
- */
-- (void)setFunctionButtonTitle:(nullable NSString *)title image:(nullable UIImage *)image imageRatio:(CGFloat)ratio forState:(UIControlState)state;
-
-/* 为functionButton配置相关属性，如设置字体、文字颜色等
-   在此,attributes中,只有NSFontAttributeName、NSForegroundColorAttributeName、NSBackgroundColorAttributeName有效
- */
-- (void)setFunctionButtonTitleTextAttributes:(nullable NSDictionary *)attributes forState:(UIControlState)state;
 
 /* 1.让跟踪器时刻跟随外界scrollView滑动,实现了让跟踪器的宽度逐渐适应item宽度的功能;
    2.这个方法用于scrollViewDidScroll代理方法中，如

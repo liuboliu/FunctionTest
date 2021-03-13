@@ -40,8 +40,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///标题数组
 @property (nonatomic, strong) NSArray <NSString *> *titleArray;
-/// 默认展示页面索引
+/// 默认展示页面索引, 默认为0
 @property (nonatomic, assign) NSInteger detaultIndex;
+/// segment高度 默认为40
+@property (nonatomic, assign) CGFloat segmentHeight;
+/// 标题按钮的宽度相同， 默认为NO
+@property (nonatomic, assign) BOOL titleWidthSame;
+/*
+ 标题按钮的宽度，在宽度(titleWithSame = YES)相同的情况下需要指定宽度，如果
+ 不指定的话默认是分页视图的宽度除以标题数
+ */
+@property (nonatomic, assign) CGFloat titleWidth;
 
 @end
 

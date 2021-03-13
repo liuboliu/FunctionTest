@@ -11,9 +11,21 @@
 
 @implementation PageViewConfiguration
 
+- (instancetype)init
+{
+    if (self = [super init]) {
+        self.segmentHeight = 40;
+    }
+    return self;
+}
+
 @end
 
 @interface PageView ()<UIScrollViewDelegate,SPPageMenuDelegate>
+
+{
+    CGFloat segmentHeight;
+}
 
 ///承载子视图的主scrollView
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -27,6 +39,8 @@
 ///配置实例
 @property (nonatomic, strong) PageViewConfiguration *configuration;
 
+@property (nonatomic, assign) NSInteger currentIndex;
+
 @end
 
 @implementation PageView
@@ -36,6 +50,7 @@
     if (self = [super initWithFrame:frame]) {
         self.pageDic = [NSMutableDictionary dictionary];
         self.configuration = config;
+        segmentHeight = config.segmentHeight;
         [self setUpUI];
     }
     return self;
@@ -43,17 +58,17 @@
 
 - (void)setUpUI
 {
-    SPPageMenu *segmentMenu = [[SPPageMenu alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), 40)];
+    SPPageMenu *segmentMenu = [[SPPageMenu alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), 40) config:self.configuration];
     [segmentMenu setItems:self.configuration.titleArray selectedItemIndex:0];
     self.segmentMenu = segmentMenu;
     self.segmentMenu.delegate = self;
     [self addSubview:segmentMenu];
-    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 40, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) - 40)];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, segmentHeight, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) - segmentHeight)];
+    self.scrollView.backgroundColor = [UIColor cyanColor];
     [self addSubview:self.scrollView];
     self.segmentMenu.bridgeScrollView = self.scrollView;
     self.scrollView.delegate = self;
     self.scrollView.pagingEnabled = YES;
-    [self configSubViews];
     [self showViewAtIndex:self.configuration.detaultIndex];
 }
 
@@ -64,7 +79,7 @@
         [self.dataSource respondsToSelector:@selector(numberOfViewForPageview:)]) {
         numberOfSubpage = [self.dataSource numberOfViewForPageview:self];
     }
-    self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds) * numberOfSubpage, CGRectGetHeight(self.scrollView.bounds) - 40);
+    self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds) * numberOfSubpage, CGRectGetHeight(self.scrollView.bounds) - segmentHeight);
     
 }
 
@@ -91,10 +106,11 @@
         self.dataSource &&
         [self.dataSource respondsToSelector:@selector(viewForPageView:atIndex:)]) {
         view = [self.dataSource viewForPageView:self atIndex:index];
-        view.frame = CGRectMake(CGRectGetWidth(self.scrollView.bounds) * index, 40, CGRectGetWidth(self.scrollView.bounds), CGRectGetHeight(self.scrollView.bounds) - 40);
+        view.frame = CGRectMake(CGRectGetWidth(self.scrollView.bounds) * index,0, CGRectGetWidth(self.scrollView.bounds), CGRectGetHeight(self.scrollView.bounds) - segmentHeight);
         [self.scrollView addSubview:view];
         self.pageDic[key] = view;
     }
+    self.currentIndex = index;
     [self.scrollView setContentOffset:CGPointMake(CGRectGetWidth(self.scrollView.bounds) * index, 0)];
 }
 
@@ -111,8 +127,12 @@
     if (self.delegate &&
         [self.delegate respondsToSelector:@selector(pageView:didScrollToIndex:)]) {
         NSInteger index = scrollView.contentOffset.x / CGRectGetWidth(scrollView.bounds);
+        if (index == self.currentIndex) {
+            return;
+        }
         [self.delegate pageView:self didScrollToIndex:index];
         [self showViewAtIndex:index];
+        self.currentIndex = index;
     }
 }
 
