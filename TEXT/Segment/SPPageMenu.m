@@ -44,7 +44,6 @@
 @property (nonatomic, strong) NSArray *items;
 @property (nonatomic, strong) UIImageView *tracker;
 @property (nonatomic, assign) CGFloat trackerHeight;
-@property (nonatomic, weak) UIView *backgroundView;
 @property (nonatomic, weak) UIScrollView *itemScrollView;
 @property (nonatomic, strong) NSMutableArray *buttons;
 @property (nonatomic, strong) UIButton *selectedButton;
@@ -157,16 +156,10 @@
     _trackerHeight = 3;
     _contentInset = UIEdgeInsetsZero;
     _selectedItemIndex = 0;
-
-    UIView *backgroundView = [[UIView alloc] init];
-    backgroundView.layer.masksToBounds = YES;
-    [self addSubview:backgroundView];
-    _backgroundView = backgroundView;
-
     UIScrollView *itemScrollView = [[UIScrollView alloc] init];
     itemScrollView.showsVerticalScrollIndicator = NO;
     itemScrollView.showsHorizontalScrollIndicator = NO;
-    [backgroundView addSubview:itemScrollView];
+    [self addSubview:itemScrollView];
     _itemScrollView = itemScrollView;
     [self layoutIfNeeded];
 }
@@ -198,13 +191,12 @@
 
 // 点击button让itemScrollView发生偏移
 - (void)moveItemScrollViewWithSelectedButton:(UIButton *)selectedButton {
-    if (CGRectEqualToRect(self.backgroundView.frame, CGRectZero)) {
+    if (CGRectEqualToRect(self.itemScrollView.frame, CGRectZero)) {
         return;
     }
-    // 转换点的坐标位置
-    CGPoint centerInPageMenu = [self.backgroundView convertPoint:selectedButton.center toView:self];
+    CGPoint centerInPageMenu = selectedButton.center;
     // CGRectGetMidX(self.backgroundView.frame)指的是屏幕水平中心位置，它的值是固定不变的
-    CGFloat offSetX = centerInPageMenu.x - CGRectGetMidX(self.backgroundView.frame);
+    CGFloat offSetX = centerInPageMenu.x - CGRectGetMidX(self.itemScrollView.frame);
     
     // itemScrollView的容量宽与自身宽之差(难点)
     CGFloat maxOffsetX = self.itemScrollView.contentSize.width - self.itemScrollView.frame.size.width;
@@ -457,7 +449,6 @@
     CGFloat backgroundViewY = self.bounds.origin.y+_contentInset.top;
     CGFloat backgroundViewW = self.bounds.size.width-(_contentInset.left+_contentInset.right);
     CGFloat backgroundViewH = self.bounds.size.height-(_contentInset.top+_contentInset.bottom);
-    self.backgroundView.frame = CGRectMake(backgroundViewX, backgroundViewY, backgroundViewW, backgroundViewH);
 
     CGFloat itemScrollViewX = 0;
     CGFloat itemScrollViewY = 0;
