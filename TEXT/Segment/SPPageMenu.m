@@ -398,8 +398,7 @@
 
 // 按钮点击方法
 - (void)buttonInPageMenuClicked:(UIButton *)sender {
-    [self.selectedButton setTitleColor:_unSelectedItemTitleColor forState:UIControlStateNormal];
-    [sender setTitleColor:_selectedItemTitleColor forState:UIControlStateNormal];
+   
     
     CGFloat fromIndex = self.selectedButton ? self.selectedButton.tag-tagBaseValue : sender.tag - tagBaseValue;
     CGFloat toIndex = sender.tag - tagBaseValue;
@@ -407,14 +406,20 @@
     _selectedItemIndex = toIndex;
     [self delegatePerformMethodWithFromIndex:fromIndex toIndex:toIndex];
 
-    [self moveItemScrollViewWithSelectedButton:sender];
 
     if (fromIndex != toIndex) { // 如果相等，说明是第一次进来，或者2次点了同一个，此时不需要动画
         [self moveTrackerWithSelectedButton:sender];
     }
-    
+    [self handleSelecedSender:sender];
+
+}
+
+- (void)handleSelecedSender:(UIButton *)sender
+{
+    [self.selectedButton setTitleColor:_unSelectedItemTitleColor forState:UIControlStateNormal];
+    [sender setTitleColor:_selectedItemTitleColor forState:UIControlStateNormal];
     self.selectedButton = sender;
-    
+    [self moveItemScrollViewWithSelectedButton:sender];
 }
 
 // 点击button让itemScrollView发生偏移
@@ -528,10 +533,10 @@
         // 要return，点击了按钮，跟踪器自然会跟着被点击的按钮走
         return;
     }
-    // 没有关闭跟踪模式
-//    if (!self.closeTrackerFollowingMode) {
-//        [self moveTrackerWithProgress:progress fromIndex:fromIndex toIndex:toIndex currentOffsetX:currentOffSetX beginOffsetX:_beginOffsetX];
-//    }
+//     没有关闭跟踪模式
+    if (!self.closeTrackerFollowingMode) {
+        [self moveTrackerWithProgress:progress fromIndex:fromIndex toIndex:toIndex currentOffsetX:currentOffSetX beginOffsetX:_beginOffsetX];
+    }
 }
 
 - (void)moveTrackerWithProgress:(CGFloat)progress fromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex currentOffsetX:(CGFloat)currentOffsetX beginOffsetX:(CGFloat)beginOffsetX {
@@ -626,7 +631,7 @@
     _selectedItemIndex = selectedItemIndex;
     if (self.buttons.count) {
         UIButton *button = [self.buttons objectAtIndex:selectedItemIndex];
-        [self buttonInPageMenuClicked:button];
+        [self handleSelecedSender:button];
     }
 }
 

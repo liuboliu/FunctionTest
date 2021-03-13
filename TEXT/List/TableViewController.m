@@ -21,6 +21,10 @@
 #import "KeyValueViewController.h"
 #import "AnimationViewController.h"
 #import "ScaleViewController.h"
+#import "ViewControllerSegment.h"
+#import "ListModel.h"
+
+typedef void (^block) (void);
 
 @interface TableViewController ()
 
@@ -79,6 +83,7 @@
     [self setNilValueForKk];
     [self configAnimcation];
     [self cofigScaleanimation];
+    [self configSegment];
 }
 
 - (void)configDecoration
@@ -87,7 +92,7 @@
         ViewControllerDecorationView *vc = [[ViewControllerDecorationView alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     };
-    [self.blockArray addObject:pushDecoration];
+    [self modelWithTitle:@"装饰视图" block:pushDecoration];
 }
 
 - (void)configAutoSize
@@ -96,7 +101,8 @@
         CollectionViewAutoLayoutController *vc = [[CollectionViewAutoLayoutController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     };
-    [self.blockArray addObject:autoSize];
+    
+    [self modelWithTitle:@"collectionView自适应宽度" block:autoSize];
 }
 
 - (void)configLayoutSubviews
@@ -105,7 +111,7 @@
         ViewControllerLayoutSubViews *vc = [[ViewControllerLayoutSubViews alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     };
-    [self.blockArray addObject:layoutSubViews];
+    [self modelWithTitle:@"layoutsubviews调用时机" block:layoutSubViews];
 }
 
 - (void)configExpandHeader
@@ -114,7 +120,8 @@
         HeaderExpandViewController *expand = [[HeaderExpandViewController alloc] init];
         [self.navigationController pushViewController:expand animated:YES];
     };
-    [self.blockArray addObject:expand];
+    
+    [self modelWithTitle:@"collectionView头部放大" block:expand];
 }
 
 - (void)configExpandHeaderTable
@@ -123,7 +130,7 @@
         HeaderExpandViewControllerTableView *vc = [[HeaderExpandViewControllerTableView alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     };
-    [self.blockArray addObject:expand];
+    [self modelWithTitle:@"tableview头部放大" block:expand];
 }
 
 - (void)configExpandScrollView
@@ -132,7 +139,7 @@
         HeaderExpandViewControllerSrollview *vc = [[HeaderExpandViewControllerSrollview alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     };
-    [self.blockArray addObject:expand];
+    [self modelWithTitle:@"scrollview头部放大" block:expand];
 }
 
 - (void)configCardCourse
@@ -141,7 +148,8 @@
         CardCourseViewController *card = [[CardCourseViewController alloc] init];
         [self.navigationController pushViewController:card animated:YES];
     };
-    [self.blockArray addObject:cardCourse];
+    
+    [self modelWithTitle:@"卡片轮播" block:cardCourse];
 }
 
 - (void)configBlock
@@ -150,7 +158,7 @@
         WeakStrongController *vc = [[WeakStrongController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     };
-    [self.blockArray addObject:block];
+    [self modelWithTitle:@"weakStrong" block:block];
 }
 
 - (void)configMultiThread
@@ -159,7 +167,7 @@
         MultiThreadViewController *VC = [[MultiThreadViewController alloc] init];
         [self.navigationController pushViewController:VC animated:YES];
     };
-    [self.blockArray addObject:block];
+    [self modelWithTitle:@"多线程" block:block];
 }
 
 - (void)configTransition
@@ -168,7 +176,7 @@
         TransitionViewController *vc = [[TransitionViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     };
-    [self.blockArray addObject:block];
+    [self modelWithTitle:@"转场动画" block:block];
 }
 
 - (void)setNilValueForKk
@@ -177,7 +185,7 @@
         KeyValueViewController *vc = [[KeyValueViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     };
-    [self.blockArray addObject:block];
+    [self modelWithTitle:@"keyvalue" block:block];
 }
 
 - (void)configAnimcation
@@ -186,7 +194,7 @@
         AnimationViewController *vc = [[AnimationViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     };
-    [self.blockArray addObject:block];
+    [self modelWithTitle:@"位移动画" block:block];
 
 }
 
@@ -196,7 +204,16 @@
         ScaleViewController *vc = [[ScaleViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     };
-    [self.blockArray addObject:block];
+    [self modelWithTitle:@"放大动画" block:block];
+}
+
+- (void)configSegment
+{
+    block block = ^void (void){
+        ViewControllerSegment  *segmet = [[ViewControllerSegment alloc] init];
+        [self.navigationController pushViewController:segmet animated:YES];
+    };
+    [self modelWithTitle:@"分页控制" block:block];
 }
 
 #pragma mark - Table view data source
@@ -209,14 +226,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
    // NSLog(@"苏亮数量数量%ld",self.dataSource.count);
-    return self.dataSource.count;
+    return self.blockArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
-    NSString *text = self.dataSource[indexPath.row];
-        
-    cell.textLabel.text = text;
+    ListModel *model = self.blockArray[indexPath.row];
+    cell.textLabel.text = model.title;
     cell.textLabel.userInteractionEnabled = YES;
     cell.backgroundColor = [UIColor redColor];
     return cell;
@@ -225,7 +241,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"点击");
-    void (^block) (void) = self.blockArray[indexPath.row];
+    ListModel *model = self.blockArray[indexPath.row];
+    block block = model.block;
     if (block) {
         block();
     }
@@ -281,6 +298,16 @@
         _blockArray = [NSMutableArray array];
     }
     return _blockArray;
+}
+
+#pragma mark - util
+- (ListModel *)modelWithTitle:(NSString *)title block:(void (^)(void))block
+{
+    ListModel *model = [[ListModel alloc] init];
+    model.title = title;
+    model.block = block;
+    [self.blockArray addObject:model];
+    return model;
 }
 
 @end
