@@ -21,6 +21,7 @@
 #import "KeyValueViewController.h"
 #import "AnimationViewController.h"
 #import "ScaleViewController.h"
+#import "FadeViewController.h"
 
 @interface TableViewController ()
 

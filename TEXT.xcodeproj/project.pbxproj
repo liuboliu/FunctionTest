@@ -15,6 +15,7 @@
 		104AFC7625FAFE170024E2CC /* ScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 104AFC7525FAFE170024E2CC /* ScaleViewController.m */; };
 		10832A0525F5F867008F64A1 /* KeyValueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10832A0425F5F867008F64A1 /* KeyValueViewController.m */; };
 		10832A0E25F5F878008F64A1 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 10832A0D25F5F878008F64A1 /* Student.m */; };
+		10F102B825FF3CF1003A6C28 /* FadeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F102B725FF3CF1003A6C28 /* FadeViewController.m */; };
 		182CB0A525BC648C0069E613 /* CardCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB0A425BC648B0069E613 /* CardCourseViewController.m */; };
 		182CB0A825BC707F0069E613 /* HittestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB0A725BC707F0069E613 /* HittestView.m */; };
 		182CB0AB25BCFE400069E613 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB0AA25BCFE400069E613 /* TestView.m */; };
@@ -124,6 +125,8 @@
 		10832A0425F5F867008F64A1 /* KeyValueViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyValueViewController.m; sourceTree = "<group>"; };
 		10832A0C25F5F878008F64A1 /* Student.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
 		10832A0D25F5F878008F64A1 /* Student.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		10F102B625FF3CF1003A6C28 /* FadeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FadeViewController.h; sourceTree = "<group>"; };
+		10F102B725FF3CF1003A6C28 /* FadeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FadeViewController.m; sourceTree = "<group>"; };
 		182CB0A325BC648B0069E613 /* CardCourseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardCourseViewController.h; sourceTree = "<group>"; };
 		182CB0A425BC648B0069E613 /* CardCourseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardCourseViewController.m; sourceTree = "<group>"; };
 		182CB0A625BC707F0069E613 /* HittestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HittestView.h; sourceTree = "<group>"; };
@@ -341,6 +344,15 @@
 			path = SetvalueForKey;
 			sourceTree = "<group>";
 		};
+		10F102B525FF3CD9003A6C28 /* 淡入淡出效果 */ = {
+			isa = PBXGroup;
+			children = (
+				10F102B625FF3CF1003A6C28 /* FadeViewController.h */,
+				10F102B725FF3CF1003A6C28 /* FadeViewController.m */,
+			);
+			path = "淡入淡出效果";
+			sourceTree = "<group>";
+		};
 		182CB0A225BC64650069E613 /* cardCourse */ = {
 			isa = PBXGroup;
 			children = (
@@ -550,6 +562,7 @@
 		FA6748CD2358A4A0003A268A /* TEXT */ = {
 			isa = PBXGroup;
 			children = (
+				10F102B525FF3CD9003A6C28 /* 淡入淡出效果 */,
 				104AFC6A25F9E2EA0024E2CC /* Animation */,
 				10832A0225F5F853008F64A1 /* SetvalueForKey */,
 				1033B3A325F1E16400B15E21 /* Transition */,
@@ -854,6 +867,7 @@
 				FA6748D02358A4A0003A268A /* AppDelegate.m in Sources */,
 				FA5745AE2429FAE800D36D28 /* SCSpec.m in Sources */,
 				182CB0BB25D17EB20069E613 /* __BlockViewController.m in Sources */,
+				10F102B825FF3CF1003A6C28 /* FadeViewController.m in Sources */,
 				FA5A65C4251DD5F000A183E2 /* ViewController5.m in Sources */,
 				1033B3B825F1FEED00B15E21 /* UIViewController+TDSafePresent.m in Sources */,
 				FA0E30DF257F9C1200BB9501 /* ViewControllerSpec.m in Sources */,

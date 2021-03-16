@@ -43,7 +43,14 @@ typedef NS_ENUM(NSUInteger, Mytype) {
     if (type == (Mytype1 | Mytype1)) {
         NSLog(@"打印打印");
     }
+    
+    NSDictionary *dic = @{@"nihao":@"哈哈哈",
+                          @"kkkk" :@{}
+    };
+    NSString *tid = [dic valueForKeyPath:@"kkkk.pp"];
 
+    NSAttributedString *attribued = [[NSAttributedString alloc] initWithString:@""];
+    
     // Do any additional setup after loading the view.
 }
 
