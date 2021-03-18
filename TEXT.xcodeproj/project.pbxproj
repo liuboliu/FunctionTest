@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		101D63F72603547000D4CC01 /* VVNoticeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 101D63F42603547000D4CC01 /* VVNoticeViewCell.m */; };
+		101D63F82603547000D4CC01 /* VVRollingNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 101D63F52603547000D4CC01 /* VVRollingNoticeView.m */; };
+		101D63FE2603549D00D4CC01 /* NSTimer+TDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 101D63FC2603549D00D4CC01 /* NSTimer+TDTimer.m */; };
+		101D640C2603560500D4CC01 /* RollingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 101D640B2603560500D4CC01 /* RollingViewController.m */; };
+		101D64122603569500D4CC01 /* RollingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 101D64112603569500D4CC01 /* RollingCell.m */; };
 		1033B3A625F1E17100B15E21 /* TDViewControllerPresentAndDismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = 1033B3A525F1E17100B15E21 /* TDViewControllerPresentAndDismiss.m */; };
 		1033B3AC25F1E19700B15E21 /* TransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1033B3AB25F1E19700B15E21 /* TransitionViewController.m */; };
 		1033B3B225F1E1ED00B15E21 /* PresentedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1033B3B125F1E1ED00B15E21 /* PresentedViewController.m */; };
@@ -114,6 +119,18 @@
 
 /* Begin PBXFileReference section */
 		046BE94170FA33979A4AA72B /* Pods-TEXT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TEXT.debug.xcconfig"; path = "Target Support Files/Pods-TEXT/Pods-TEXT.debug.xcconfig"; sourceTree = "<group>"; };
+		101D63F32603547000D4CC01 /* VVNoticeViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVNoticeViewCell.h; sourceTree = "<group>"; };
+		101D63F42603547000D4CC01 /* VVNoticeViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVNoticeViewCell.m; sourceTree = "<group>"; };
+		101D63F52603547000D4CC01 /* VVRollingNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVRollingNoticeView.m; sourceTree = "<group>"; };
+		101D63F62603547000D4CC01 /* VVRollingNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVRollingNoticeView.h; sourceTree = "<group>"; };
+		101D63FC2603549D00D4CC01 /* NSTimer+TDTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+TDTimer.m"; sourceTree = "<group>"; };
+		101D63FD2603549D00D4CC01 /* NSTimer+TDTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+TDTimer.h"; sourceTree = "<group>"; };
+		101D64022603556600D4CC01 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		101D6406260355CF00D4CC01 /* TDMetamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDMetamacros.h; sourceTree = "<group>"; };
+		101D640A2603560500D4CC01 /* RollingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RollingViewController.h; sourceTree = "<group>"; };
+		101D640B2603560500D4CC01 /* RollingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RollingViewController.m; sourceTree = "<group>"; };
+		101D64102603569500D4CC01 /* RollingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RollingCell.h; sourceTree = "<group>"; };
+		101D64112603569500D4CC01 /* RollingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RollingCell.m; sourceTree = "<group>"; };
 		1033B3A425F1E17100B15E21 /* TDViewControllerPresentAndDismiss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDViewControllerPresentAndDismiss.h; sourceTree = "<group>"; };
 		1033B3A525F1E17100B15E21 /* TDViewControllerPresentAndDismiss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDViewControllerPresentAndDismiss.m; sourceTree = "<group>"; };
 		1033B3AA25F1E19700B15E21 /* TransitionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransitionViewController.h; sourceTree = "<group>"; };
@@ -313,6 +330,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		101D63F22603546300D4CC01 /* rolling */ = {
+			isa = PBXGroup;
+			children = (
+				101D63F32603547000D4CC01 /* VVNoticeViewCell.h */,
+				101D63F42603547000D4CC01 /* VVNoticeViewCell.m */,
+				101D64102603569500D4CC01 /* RollingCell.h */,
+				101D64112603569500D4CC01 /* RollingCell.m */,
+				101D63F62603547000D4CC01 /* VVRollingNoticeView.h */,
+				101D63F52603547000D4CC01 /* VVRollingNoticeView.m */,
+				101D640A2603560500D4CC01 /* RollingViewController.h */,
+				101D640B2603560500D4CC01 /* RollingViewController.m */,
+			);
+			path = rolling;
+			sourceTree = "<group>";
+		};
 		1033B3A325F1E16400B15E21 /* Transition */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,13 +398,17 @@
 				10F102B725FF3CF1003A6C28 /* FadeViewController.m */,
 			);
 			path = "淡入淡出效果";
-               sourceTree = "<group>";
-        };
+			sourceTree = "<group>";
+		};
 		18072C6125FC9900004AB992 /* lib */ = {
 			isa = PBXGroup;
 			children = (
 				18072C6225FC9909004AB992 /* UIColor+TDHelp.h */,
+				101D64022603556600D4CC01 /* Header.h */,
+				101D6406260355CF00D4CC01 /* TDMetamacros.h */,
 				18072C6325FC9909004AB992 /* UIColor+TDHelp.m */,
+				101D63FD2603549D00D4CC01 /* NSTimer+TDTimer.h */,
+				101D63FC2603549D00D4CC01 /* NSTimer+TDTimer.m */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -588,6 +624,7 @@
 		FA6748CD2358A4A0003A268A /* TEXT */ = {
 			isa = PBXGroup;
 			children = (
+				101D63F22603546300D4CC01 /* rolling */,
 				10F102B525FF3CD9003A6C28 /* 淡入淡出效果 */,
 				18072C6125FC9900004AB992 /* lib */,
 				104AFC6A25F9E2EA0024E2CC /* Animation */,
@@ -854,6 +891,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				101D63F72603547000D4CC01 /* VVNoticeViewCell.m in Sources */,
 				FA0A8CD8259737F800226E0E /* ViewControllerLayoutSubViews.m in Sources */,
 				FA5135062591CC8000B6D611 /* TableViewController.m in Sources */,
 				FA64B06325B6D5B200E048AD /* NSObject+Swizzle.m in Sources */,
@@ -880,6 +918,8 @@
 				18072C6725FC9B38004AB992 /* SubViewController.m in Sources */,
 				FA4ECC9C25B6BCB10015E5A8 /* HeaderExpandViewController.m in Sources */,
 				FAB4D21923C6FF5D00EAC732 /* ScrolllView.m in Sources */,
+				101D64122603569500D4CC01 /* RollingCell.m in Sources */,
+				101D640C2603560500D4CC01 /* RollingViewController.m in Sources */,
 				FA9965E7258C7B7A004FCF10 /* ViewControllerNotification.m in Sources */,
 				FA4ECCAF25B6BF840015E5A8 /* NSArray+DataProtect.m in Sources */,
 				1033B3B225F1E1ED00B15E21 /* PresentedViewController.m in Sources */,
@@ -907,7 +947,9 @@
 				10F102B825FF3CF1003A6C28 /* FadeViewController.m in Sources */,
 				FA5A65C4251DD5F000A183E2 /* ViewController5.m in Sources */,
 				1033B3B825F1FEED00B15E21 /* UIViewController+TDSafePresent.m in Sources */,
+				101D63FE2603549D00D4CC01 /* NSTimer+TDTimer.m in Sources */,
 				FA0E30DF257F9C1200BB9501 /* ViewControllerSpec.m in Sources */,
+				101D63F82603547000D4CC01 /* VVRollingNoticeView.m in Sources */,
 				FA1CC66A2479133400906BFA /* ViewController3.m in Sources */,
 				FA6E7BF624FE355B00B05096 /* VVCell.m in Sources */,
 				FA1932BA24C45F62000A8B8A /* ViewController4.m in Sources */,

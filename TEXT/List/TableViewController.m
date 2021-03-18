@@ -24,6 +24,7 @@
 #import "FadeViewController.h"
 #import "ViewControllerSegment.h"
 #import "ListModel.h"
+#import "RollingViewController.h"
 
 typedef void (^block) (void);
 
@@ -85,6 +86,7 @@ typedef void (^block) (void);
     [self configAnimcation];
     [self cofigScaleanimation];
     [self configSegment];
+    [self configRolling];
 }
 
 - (void)configDecoration
@@ -215,6 +217,15 @@ typedef void (^block) (void);
         [self.navigationController pushViewController:segmet animated:YES];
     };
     [self modelWithTitle:@"分页控制" block:block];
+}
+
+- (void)configRolling
+{
+    block block = ^void (void){
+        RollingViewController  *segmet = [[RollingViewController alloc] init];
+        [self.navigationController pushViewController:segmet animated:YES];
+    };
+    [self modelWithTitle:@"轮播" block:block];
 }
 
 #pragma mark - Table view data source
