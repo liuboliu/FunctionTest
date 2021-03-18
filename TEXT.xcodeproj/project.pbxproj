@@ -16,6 +16,11 @@
 		10832A0525F5F867008F64A1 /* KeyValueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10832A0425F5F867008F64A1 /* KeyValueViewController.m */; };
 		10832A0E25F5F878008F64A1 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 10832A0D25F5F878008F64A1 /* Student.m */; };
 		10F102B825FF3CF1003A6C28 /* FadeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F102B725FF3CF1003A6C28 /* FadeViewController.m */; };
+		18072C5725FC4ED9004AB992 /* ListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18072C5625FC4ED9004AB992 /* ListModel.m */; };
+		18072C5A25FC5362004AB992 /* PageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18072C5925FC5362004AB992 /* PageView.m */; };
+		18072C5D25FC726B004AB992 /* SubPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18072C5C25FC726B004AB992 /* SubPageView.m */; };
+		18072C6425FC9909004AB992 /* UIColor+TDHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 18072C6325FC9909004AB992 /* UIColor+TDHelp.m */; };
+		18072C6725FC9B38004AB992 /* SubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18072C6625FC9B38004AB992 /* SubViewController.m */; };
 		182CB0A525BC648C0069E613 /* CardCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB0A425BC648B0069E613 /* CardCourseViewController.m */; };
 		182CB0A825BC707F0069E613 /* HittestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB0A725BC707F0069E613 /* HittestView.m */; };
 		182CB0AB25BCFE400069E613 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB0AA25BCFE400069E613 /* TestView.m */; };
@@ -127,6 +132,16 @@
 		10832A0D25F5F878008F64A1 /* Student.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		10F102B625FF3CF1003A6C28 /* FadeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FadeViewController.h; sourceTree = "<group>"; };
 		10F102B725FF3CF1003A6C28 /* FadeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FadeViewController.m; sourceTree = "<group>"; };
+		18072C5525FC4ED9004AB992 /* ListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListModel.h; sourceTree = "<group>"; };
+		18072C5625FC4ED9004AB992 /* ListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListModel.m; sourceTree = "<group>"; };
+		18072C5825FC5362004AB992 /* PageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageView.h; sourceTree = "<group>"; };
+		18072C5925FC5362004AB992 /* PageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageView.m; sourceTree = "<group>"; };
+		18072C5B25FC726B004AB992 /* SubPageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubPageView.h; sourceTree = "<group>"; };
+		18072C5C25FC726B004AB992 /* SubPageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubPageView.m; sourceTree = "<group>"; };
+		18072C6225FC9909004AB992 /* UIColor+TDHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TDHelp.h"; sourceTree = "<group>"; };
+		18072C6325FC9909004AB992 /* UIColor+TDHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TDHelp.m"; sourceTree = "<group>"; };
+		18072C6525FC9B38004AB992 /* SubViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubViewController.h; sourceTree = "<group>"; };
+		18072C6625FC9B38004AB992 /* SubViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubViewController.m; sourceTree = "<group>"; };
 		182CB0A325BC648B0069E613 /* CardCourseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardCourseViewController.h; sourceTree = "<group>"; };
 		182CB0A425BC648B0069E613 /* CardCourseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardCourseViewController.m; sourceTree = "<group>"; };
 		182CB0A625BC707F0069E613 /* HittestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HittestView.h; sourceTree = "<group>"; };
@@ -351,6 +366,15 @@
 				10F102B725FF3CF1003A6C28 /* FadeViewController.m */,
 			);
 			path = "淡入淡出效果";
+               sourceTree = "<group>";
+        };
+		18072C6125FC9900004AB992 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				18072C6225FC9909004AB992 /* UIColor+TDHelp.h */,
+				18072C6325FC9909004AB992 /* UIColor+TDHelp.m */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 		182CB0A225BC64650069E613 /* cardCourse */ = {
@@ -483,6 +507,8 @@
 			isa = PBXGroup;
 			children = (
 				FA5135042591CC8000B6D611 /* TableViewController.h */,
+				18072C5525FC4ED9004AB992 /* ListModel.h */,
+				18072C5625FC4ED9004AB992 /* ListModel.m */,
 				FA5135052591CC8000B6D611 /* TableViewController.m */,
 				FA6748D12358A4A1003A268A /* ViewController2.h */,
 				FA6748D22358A4A1003A268A /* ViewController2.m */,
@@ -563,6 +589,7 @@
 			isa = PBXGroup;
 			children = (
 				10F102B525FF3CD9003A6C28 /* 淡入淡出效果 */,
+				18072C6125FC9900004AB992 /* lib */,
 				104AFC6A25F9E2EA0024E2CC /* Animation */,
 				10832A0225F5F853008F64A1 /* SetvalueForKey */,
 				1033B3A325F1E16400B15E21 /* Transition */,
@@ -623,8 +650,14 @@
 			children = (
 				FA9965F1258C886A004FCF10 /* SPPageMenu.h */,
 				FA9965EC258C8861004FCF10 /* SPPageMenu.m */,
+				18072C5825FC5362004AB992 /* PageView.h */,
+				18072C5925FC5362004AB992 /* PageView.m */,
 				FA9965F2258C8891004FCF10 /* ViewControllerSegment.h */,
 				FA9965F3258C8891004FCF10 /* ViewControllerSegment.m */,
+				18072C5B25FC726B004AB992 /* SubPageView.h */,
+				18072C5C25FC726B004AB992 /* SubPageView.m */,
+				18072C6525FC9B38004AB992 /* SubViewController.h */,
+				18072C6625FC9B38004AB992 /* SubViewController.m */,
 			);
 			path = Segment;
 			sourceTree = "<group>";
@@ -829,6 +862,7 @@
 				FA9965ED258C8861004FCF10 /* SPPageMenu.m in Sources */,
 				FA9965DD258B054F004FCF10 /* ViewControllerEnumObject.m in Sources */,
 				FA64B05C25B6D4FF00E048AD /* VVKVOItemManager.m in Sources */,
+				18072C5D25FC726B004AB992 /* SubPageView.m in Sources */,
 				104AFC7625FAFE170024E2CC /* ScaleViewController.m in Sources */,
 				FA64B05D25B6D4FF00E048AD /* VVKVOObserver.m in Sources */,
 				104AFC6D25F9E3010024E2CC /* AnimationViewController.m in Sources */,
@@ -836,12 +870,14 @@
 				FA33AF0E2577B6670004B876 /* ViewController8.m in Sources */,
 				182CB0B525D114800069E613 /* WeakStrongController.m in Sources */,
 				FA6748D32358A4A1003A268A /* ViewController2.m in Sources */,
+				18072C5725FC4ED9004AB992 /* ListModel.m in Sources */,
 				FA64B05B25B6D4FF00E048AD /* NSObject+VVKVOHelper.m in Sources */,
 				10832A0E25F5F878008F64A1 /* Student.m in Sources */,
 				FA6748DE2358A4A4003A268A /* main.m in Sources */,
 				182CB0A525BC648C0069E613 /* CardCourseViewController.m in Sources */,
 				10832A0525F5F867008F64A1 /* KeyValueViewController.m in Sources */,
 				182CB0A825BC707F0069E613 /* HittestView.m in Sources */,
+				18072C6725FC9B38004AB992 /* SubViewController.m in Sources */,
 				FA4ECC9C25B6BCB10015E5A8 /* HeaderExpandViewController.m in Sources */,
 				FAB4D21923C6FF5D00EAC732 /* ScrolllView.m in Sources */,
 				FA9965E7258C7B7A004FCF10 /* ViewControllerNotification.m in Sources */,
@@ -863,6 +899,7 @@
 				FA4ECCA925B6BE480015E5A8 /* VVCustomCollectionViewLayout.m in Sources */,
 				FA6B42DE24CABC3D00D291AD /* ViewController6.m in Sources */,
 				182CB0AE25BCFE570069E613 /* BigTestView.m in Sources */,
+				18072C5A25FC5362004AB992 /* PageView.m in Sources */,
 				182CB10325D2B3A30069E613 /* MyOperation.m in Sources */,
 				FA6748D02358A4A0003A268A /* AppDelegate.m in Sources */,
 				FA5745AE2429FAE800D36D28 /* SCSpec.m in Sources */,
@@ -877,6 +914,7 @@
 				1033B3A625F1E17100B15E21 /* TDViewControllerPresentAndDismiss.m in Sources */,
 				FA51351B2591CED400B6D611 /* VVCategoryBannerDecorationView.m in Sources */,
 				FA64B07D25B82F0F00E048AD /* HeaderExpandViewControllerSrollview.m in Sources */,
+				18072C6425FC9909004AB992 /* UIColor+TDHelp.m in Sources */,
 				FA51351A2591CED400B6D611 /* VVCategoryDecorationView.m in Sources */,
 				FA5135122591CEB600B6D611 /* VVBaseCollectionDecorationView.m in Sources */,
 				182CB0AB25BCFE400069E613 /* TestView.m in Sources */,
