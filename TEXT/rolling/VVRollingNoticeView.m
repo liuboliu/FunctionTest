@@ -64,11 +64,6 @@
     [self.cellClsDict setObject:NSStringFromClass(cellClass) forKey:identifier];
 }
 
-- (void)registerNib:(UINib *)nib forCellReuseIdentifier:(NSString *)identifier
-{
-    [self.cellClsDict setObject:nib forKey:identifier];
-}
-
 - (__kindof VVNoticeViewCell *)dequeueReusableCellWithIdentifier:(NSString *)identifier
 {
     for (VVNoticeViewCell *cell in self.reuseCells)
@@ -78,32 +73,13 @@
         }
     }
     
-    id cellClass = self.cellClsDict[identifier];
-    if ([cellClass isKindOfClass:[UINib class]]) {
-        UINib *nib = (UINib *)cellClass;
-        
-        NSArray *arr = [nib instantiateWithOwner:nil options:nil];
-        VVNoticeViewCell *cell = [arr firstObject];
-        [cell setValue:identifier forKeyPath:@"reuseIdentifier"];
-        return cell;
-    } else {
-        Class cellCls = NSClassFromString(self.cellClsDict[identifier]);
-        VVNoticeViewCell *cell = [[cellCls alloc] initWithReuseIdentifier:identifier];
-        return cell;
-    }
+    Class cellCls = NSClassFromString(self.cellClsDict[identifier]);
+    VVNoticeViewCell *cell = [[cellCls alloc] initWithReuseIdentifier:identifier];
+    return cell;
 }
 
 #pragma mark- rolling
 - (void)layoutCurrentCellAndWillShowCell
-{
-    if (self.style == RollingStyleDefault) {
-        [self defaultLayoutCurrentCellAndWillShowCell];
-    } else if (self.style == RollingStyleFade) {
-        [self fadeLayoutCurrentCellAndWillShowCell];
-    }
-}
-
-- (void)defaultLayoutCurrentCellAndWillShowCell
 {
     int count = (int)[self.dataSource numberOfRowsForRollingNoticeView:self];
     if (_currentIndex > count - 1) {
@@ -122,49 +98,26 @@
         _currentCell = [self.dataSource rollingNoticeView:self cellAtIndex:_currentIndex];
         _currentCell.frame = CGRectMake(0, 0, w, h);
         [self addSubview:_currentCell];
-        return;
+        if (self.style == RollingStyleDefault) {
+            ///默认轮播滚动样式，首次展示不需要加载下一个
+            return;;
+        }
+    }
+    CGFloat willY = h + self.spaceOfItem;
+    if (self.style == RollingStyleFade) {
+        //淡入淡出的样式
+        willY = 4;
     }
     _willShowCell = [self.dataSource rollingNoticeView:self cellAtIndex:willShowIndex];
-    _willShowCell.frame = CGRectMake(0, h + self.spaceOfItem, w, h);
+    _willShowCell.frame = CGRectMake(0, willY, w, h);
+    if (self.style == RollingStyleFade) {
+        ///首次展示currentCell的时候，will 需要隐藏
+        _willShowCell.alpha = 0;
+    }
     if (![self.subviews containsObject:_willShowCell]) {
         [self addSubview:_willShowCell];
     }
-    if (GYRollingDebugLog) {
-        NSLog(@"_currentCell  %p", _currentCell);
-        NSLog(@"_willShowCell %p", _willShowCell);
-    }
-    [self.reuseCells removeObject:_currentCell];
-    [self.reuseCells removeObject:_willShowCell];
 
-}
-- (void)fadeLayoutCurrentCellAndWillShowCell
-{
-    int count = (int)[self.dataSource numberOfRowsForRollingNoticeView:self];
-    if (_currentIndex > count - 1) {
-        _currentIndex = 0;
-    }
-    int willShowIndex = _currentIndex + 1;
-    if (willShowIndex > count - 1) {
-        willShowIndex = 0;
-    }
-    
-    float w = self.frame.size.width;
-    float h = self.frame.size.height;
-    _currentCell = [self.dataSource rollingNoticeView:self cellAtIndex:_currentIndex];
-    if (![self.subviews containsObject:_currentCell]) {
-        _currentCell.frame = CGRectMake(0, 0, w, h);
-        [self addSubview:_currentCell];
-    }
-    _willShowCell = [self.dataSource rollingNoticeView:self cellAtIndex:willShowIndex];
-    _willShowCell.frame = CGRectMake(0, 4, w, h);
-    _willShowCell.alpha = 0;
-    if (![self.subviews containsObject:_willShowCell]) {
-        [self addSubview:_willShowCell];
-    }
-    if (GYRollingDebugLog) {
-        NSLog(@"_currentCell  %p", _currentCell);
-        NSLog(@"_willShowCell %p", _willShowCell);
-    }
     [self.reuseCells removeObject:_currentCell];
     [self.reuseCells removeObject:_willShowCell];
 }
@@ -214,6 +167,9 @@
 
 - (void)timerHandle
 {
+    if (self.isAnimating) {
+        return;
+    }
     if (self.style == RollingStyleDefault) {
         [self defaultTimeHandler];
     } else if (self.style == RollingStyleFade) {
@@ -254,10 +210,6 @@
     
 - (void)fadeTimeHandler
 {
-    if (self.isAnimating) {
-        return;
-    }
-    
     float w = self.frame.size.width;
     float h = self.frame.size.height;
     

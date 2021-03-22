@@ -8,14 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-// 调试cell内存地址log
-static BOOL GYRollingDebugLog = NO;
-
 @interface VVNoticeViewCell : UIView
 
 @property (nonatomic, readonly, copy) NSString *reuseIdentifier;
 
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier NS_DESIGNATED_INITIALIZER;
-- (instancetype)initWithCoder:(NSCoder *)aDecoder NS_DESIGNATED_INITIALIZER;
+
+- (instancetype)initWithCoder:(NSCoder *)coder NS_UNAVAILABLE;
 
 @end

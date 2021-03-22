@@ -20,17 +20,6 @@
     return self;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        if (GYRollingDebugLog) {
-            NSLog(@"init a cell from xib");
-        }
-    }
-    return self;
-}
-
 - (instancetype)initWithFrame:(CGRect)frame
 {
     return [self initWithReuseIdentifier:@""];

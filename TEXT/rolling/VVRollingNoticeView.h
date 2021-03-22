@@ -47,7 +47,6 @@ typedef NS_ENUM(NSUInteger, RollingStyle) {
 @property (nonatomic, assign) RollingStyle style;
 
 - (void)registerClass:(Class)cellClass forCellReuseIdentifier:(NSString *)identifier;
-- (void)registerNib:(UINib *)nib forCellReuseIdentifier:(NSString *)identifier;
 - (__kindof VVNoticeViewCell *)dequeueReusableCellWithIdentifier:(NSString *)identifier;
 
 - (void)reloadDataAndStartRoll;

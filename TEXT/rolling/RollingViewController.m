@@ -23,14 +23,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor lightGrayColor];
-    self.array = @[@"截屏2021-03-22 下午3.46.45", @"啦啦啦啦2", @"哒哒哒哒3"];
+    self.array = @[@"哈哈哈哈1", @"啦啦啦啦2", @"哒哒哒哒3"];
     self.imageArray = @[@"截屏2021-03-22 下午3.46.45", @"product_detail_skeleton_screen", @"product_detail_spike_bubble"];
     VVRollingNoticeView *vc = [[VVRollingNoticeView alloc] initWithFrame:CGRectMake(20, 100, 200, 60)];
     [vc registerClass:[RollingCell class] forCellReuseIdentifier:@"kkk"];
     vc.style = RollingStyleFade;
     vc.backgroundColor = [UIColor whiteColor];
     vc.stayInterval = 3.6;
-    vc.animationDuration = 0.3;
+    vc.animationDuration = 0.4;
     [self.view addSubview:vc];
     vc.delegate = self;
     vc.dataSource = self;
@@ -50,6 +50,11 @@
 - (NSInteger)numberOfRowsForRollingNoticeView:(VVRollingNoticeView *)rollingView
 {
     return self.array.count;
+}
+
+- (void)didClickRollingNoticeView:(VVRollingNoticeView *)rollingView forIndex:(NSUInteger)index
+{
+    NSLog(@"哈哈哈哈滴滴滴滴滴%@",self.array[index]);
 }
 
 /*
