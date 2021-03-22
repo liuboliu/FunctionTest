@@ -21,9 +21,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor yellowColor];
-    self.array = @[@"哈哈哈", @"啦啦啦啦", @"哒哒哒哒"];
+    self.array = @[@"哈哈哈1", @"啦啦啦啦2", @"哒哒哒哒3"];
     VVRollingNoticeView *vc = [[VVRollingNoticeView alloc] initWithFrame:CGRectMake(20, 100, 200, 60)];
     [vc registerClass:[RollingCell class] forCellReuseIdentifier:@"kkk"];
+    vc.style = RollingStyleFade;
     vc.backgroundColor = [UIColor cyanColor];
     vc.stayInterval = 3.6;
     vc.animationDuration = 0.15;

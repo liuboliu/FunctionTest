@@ -10,6 +10,11 @@
 #import "VVNoticeViewCell.h"
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSUInteger, RollingStyle) {
+    RollingStyleDefault = 0, ///默认样式，滚动轮播
+    RollingStyleFade = 1, /// 渐变轮播
+};
+
 @class VVRollingNoticeView;
 
 @protocol VVRollingNoticeViewDataSource <NSObject>
@@ -37,6 +42,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSTimeInterval animationDuration ; //动画时间，默认0.66秒
 @property (nonatomic, assign, readonly) int currentIndex;
 @property (nonatomic, assign) CGFloat spaceOfItem;//Item之间的距离，默认为零
+
+///录播风格
+@property (nonatomic, assign) RollingStyle style;
 
 - (void)registerClass:(Class)cellClass forCellReuseIdentifier:(NSString *)identifier;
 - (void)registerNib:(UINib *)nib forCellReuseIdentifier:(NSString *)identifier;

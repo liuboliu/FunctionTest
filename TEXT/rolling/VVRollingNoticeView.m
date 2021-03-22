@@ -96,6 +96,15 @@
 #pragma mark- rolling
 - (void)layoutCurrentCellAndWillShowCell
 {
+    if (self.style == RollingStyleDefault) {
+        [self defaultLayoutCurrentCellAndWillShowCell];
+    } else if (self.style == RollingStyleFade) {
+        [self fadeLayoutCurrentCellAndWillShowCell];
+    }
+}
+
+- (void)defaultLayoutCurrentCellAndWillShowCell
+{
     int count = (int)[self.dataSource numberOfRowsForRollingNoticeView:self];
     if (_currentIndex > count - 1) {
         _currentIndex = 0;
@@ -117,8 +126,40 @@
     }
     _willShowCell = [self.dataSource rollingNoticeView:self cellAtIndex:willShowIndex];
     _willShowCell.frame = CGRectMake(0, h + self.spaceOfItem, w, h);
+    if (![self.subviews containsObject:_willShowCell]) {
+        [self addSubview:_willShowCell];
+    }
+    if (GYRollingDebugLog) {
+        NSLog(@"_currentCell  %p", _currentCell);
+        NSLog(@"_willShowCell %p", _willShowCell);
+    }
+    [self.reuseCells removeObject:_currentCell];
+    [self.reuseCells removeObject:_willShowCell];
+
+}
+- (void)fadeLayoutCurrentCellAndWillShowCell
+{
+    int count = (int)[self.dataSource numberOfRowsForRollingNoticeView:self];
+    if (_currentIndex > count - 1) {
+        _currentIndex = 0;
+    }
+    int willShowIndex = _currentIndex + 1;
+    if (willShowIndex > count - 1) {
+        willShowIndex = 0;
+    }
+    
+    float w = self.frame.size.width;
+    float h = self.frame.size.height;
+    _currentCell = [self.dataSource rollingNoticeView:self cellAtIndex:_currentIndex];
+    if (![self.subviews containsObject:_currentCell]) {
+        [self addSubview:_currentCell];
+    }
+    _willShowCell = [self.dataSource rollingNoticeView:self cellAtIndex:willShowIndex];
+    _willShowCell.frame = CGRectMake(0, 4, w, h);
     _willShowCell.alpha = 0;
-    [self addSubview:_willShowCell];
+    if (![self.subviews containsObject:_willShowCell]) {
+        [self addSubview:_willShowCell];
+    }
     if (GYRollingDebugLog) {
         NSLog(@"_currentCell  %p", _currentCell);
         NSLog(@"_willShowCell %p", _willShowCell);
@@ -172,9 +213,15 @@
 
 - (void)timerHandle
 {
-    if (self.isAnimating) {
-        return;
+    if (self.style == RollingStyleDefault) {
+        [self defaultTimeHandler];
+    } else if (self.style == RollingStyleFade) {
+        [self fadeTimeHandler];
     }
+}
+    
+- (void)defaultTimeHandler
+{
     [self layoutCurrentCellAndWillShowCell];
     _currentIndex++;
     int count = (int)[self.dataSource numberOfRowsForRollingNoticeView:self];
@@ -185,30 +232,83 @@
     float h = self.frame.size.height;
     
     self.isAnimating = YES;
-    [UIView animateWithDuration:.05 animations:^{
-        self.currentCell.alpha = 0;
-    } completion:^(BOOL finished) {
-        
-    }];
     
     @weakify(self);
     [UIView animateWithDuration:_animationDuration animations:^{
         @strongify(self);
-        self.willShowCell.alpha = 1;
         self.currentCell.frame = CGRectMake(0, - h - self.spaceOfItem, w, h);
         self.willShowCell.frame = CGRectMake(0, 0, w, h);
     }
                      completion:^(BOOL finished) {
-                         @strongify(self);
-                         // fixed bug: reload data when animate running
-                         if (self.currentCell && self.willShowCell) {
-                             [self.reuseCells addObject:self.currentCell];
-                             [self.currentCell removeFromSuperview];
-                             self.currentCell.alpha = 1;
-                             self.currentCell = self.willShowCell;
-                         }
-                         self.isAnimating = NO;
-                     }];
+        @strongify(self);
+        // fixed bug: reload data when animate running
+        if (self.currentCell && self.willShowCell) {
+            [self.reuseCells addObject:self.currentCell];
+            [self.currentCell removeFromSuperview];
+            self.currentCell = self.willShowCell;
+        }
+        self.isAnimating = NO;
+    }];
+}
+    
+- (void)fadeTimeHandler
+{
+    if (self.isAnimating) {
+        return;
+    }
+    
+    float w = self.frame.size.width;
+    float h = self.frame.size.height;
+    
+    self.isAnimating = YES;
+    [self.reuseCells removeObject:_currentCell];
+    [self.reuseCells removeObject:_willShowCell];
+    @weakify(self);
+    [UIView animateWithDuration:0.4 animations:^{
+        @strongify(self);
+        self.currentCell.alpha = 0;
+    }
+                     completion:^(BOOL finished) {
+    }];
+    [UIView animateWithDuration:0.3 delay:0.1 options:UIViewAnimationOptionCurveLinear animations:^{
+        self.currentCell.frame = CGRectMake(0, -4, w, h);
+    } completion:^(BOOL finished) {
+        [self showNext];
+        self.currentCell.frame = CGRectMake(0, 0, w, h);
+    }];
+}
+
+- (void)showNext
+{
+    [UIView animateWithDuration:0.4 animations:^{
+        self.willShowCell.alpha = 1;
+    } completion:^(BOOL finished) {
+    }] ;
+    float w = self.frame.size.width;
+    float h = self.frame.size.height;
+    
+    [UIView animateWithDuration:0.3 delay:0.1 options:UIViewAnimationOptionCurveLinear animations:^{
+        self.willShowCell.frame = CGRectMake(0, 0, w, h);
+    } completion:^(BOOL finished) {
+        self->_currentIndex++;
+        int count = (int)[self.dataSource numberOfRowsForRollingNoticeView:self];
+        if (self->_currentIndex > count - 1) {
+            self->_currentIndex = 0;
+        }
+        if (self.currentCell && self.willShowCell) {
+            [self.reuseCells addObject:self.currentCell];
+        }
+        self.isAnimating = NO;
+        int willShowIndex = self->_currentIndex + 1;
+        if (willShowIndex > count - 1) {
+            willShowIndex = 0;
+        }
+        self->_currentCell = self->_willShowCell;
+        self->_willShowCell = [self.dataSource rollingNoticeView:self cellAtIndex:willShowIndex];
+        self->_willShowCell.frame = CGRectMake(0, 4, w, h);
+        self->_willShowCell.alpha = 0;
+        [self addSubview:self.willShowCell];
+    }];
 }
 
 #pragma mark - gesture

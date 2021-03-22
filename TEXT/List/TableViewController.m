@@ -25,6 +25,8 @@
 #import "ViewControllerSegment.h"
 #import "ListModel.h"
 #import "RollingViewController.h"
+#import "AttributedStringViewController.h"
+#import "AnimationGroupController.h"
 
 typedef void (^block) (void);
 
@@ -53,7 +55,8 @@ typedef void (^block) (void);
         @"转场动画",
         @"setvalueForkey",
         @"位移动画",
-        @"放大动画"
+        @"放大动画",
+        @"RollingViewController",
     ];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     [self configActions];
@@ -87,6 +90,8 @@ typedef void (^block) (void);
     [self cofigScaleanimation];
     [self configSegment];
     [self configRolling];
+    [self configAtrributedstring];
+    [self confiGroup];
 }
 
 - (void)configDecoration
@@ -228,6 +233,24 @@ typedef void (^block) (void);
     [self modelWithTitle:@"轮播" block:block];
 }
 
+- (void)configAtrributedstring
+{
+    block block = ^void (void) {
+        AttributedStringViewController *vc = [[AttributedStringViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self modelWithTitle:@"富文本" block:block];
+}
+
+- (void)confiGroup
+{
+    block block = ^void (void) {
+        AnimationGroupController *vc = [[AnimationGroupController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self modelWithTitle:@"动画组" block:block];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -246,7 +269,7 @@ typedef void (^block) (void);
     ListModel *model = self.blockArray[indexPath.row];
     cell.textLabel.text = model.title;
     cell.textLabel.userInteractionEnabled = YES;
-    cell.backgroundColor = [UIColor redColor];
+    cell.backgroundColor = [UIColor grayColor];
     return cell;
 }
 

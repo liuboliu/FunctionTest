@@ -12,6 +12,8 @@
 		101D63FE2603549D00D4CC01 /* NSTimer+TDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 101D63FC2603549D00D4CC01 /* NSTimer+TDTimer.m */; };
 		101D640C2603560500D4CC01 /* RollingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 101D640B2603560500D4CC01 /* RollingViewController.m */; };
 		101D64122603569500D4CC01 /* RollingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 101D64112603569500D4CC01 /* RollingCell.m */; };
+		1030441F2604472E00B56DC0 /* AttributedStringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1030441E2604472E00B56DC0 /* AttributedStringViewController.m */; };
+		103044282604547100B56DC0 /* AnimationGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 103044272604547100B56DC0 /* AnimationGroupController.m */; };
 		1033B3A625F1E17100B15E21 /* TDViewControllerPresentAndDismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = 1033B3A525F1E17100B15E21 /* TDViewControllerPresentAndDismiss.m */; };
 		1033B3AC25F1E19700B15E21 /* TransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1033B3AB25F1E19700B15E21 /* TransitionViewController.m */; };
 		1033B3B225F1E1ED00B15E21 /* PresentedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1033B3B125F1E1ED00B15E21 /* PresentedViewController.m */; };
@@ -131,6 +133,10 @@
 		101D640B2603560500D4CC01 /* RollingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RollingViewController.m; sourceTree = "<group>"; };
 		101D64102603569500D4CC01 /* RollingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RollingCell.h; sourceTree = "<group>"; };
 		101D64112603569500D4CC01 /* RollingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RollingCell.m; sourceTree = "<group>"; };
+		1030441D2604472E00B56DC0 /* AttributedStringViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AttributedStringViewController.h; sourceTree = "<group>"; };
+		1030441E2604472E00B56DC0 /* AttributedStringViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AttributedStringViewController.m; sourceTree = "<group>"; };
+		103044262604547100B56DC0 /* AnimationGroupController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationGroupController.h; sourceTree = "<group>"; };
+		103044272604547100B56DC0 /* AnimationGroupController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationGroupController.m; sourceTree = "<group>"; };
 		1033B3A425F1E17100B15E21 /* TDViewControllerPresentAndDismiss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDViewControllerPresentAndDismiss.h; sourceTree = "<group>"; };
 		1033B3A525F1E17100B15E21 /* TDViewControllerPresentAndDismiss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDViewControllerPresentAndDismiss.m; sourceTree = "<group>"; };
 		1033B3AA25F1E19700B15E21 /* TransitionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransitionViewController.h; sourceTree = "<group>"; };
@@ -345,6 +351,15 @@
 			path = rolling;
 			sourceTree = "<group>";
 		};
+		1030441C260446F900B56DC0 /* attributedstring */ = {
+			isa = PBXGroup;
+			children = (
+				1030441D2604472E00B56DC0 /* AttributedStringViewController.h */,
+				1030441E2604472E00B56DC0 /* AttributedStringViewController.m */,
+			);
+			path = attributedstring;
+			sourceTree = "<group>";
+		};
 		1033B3A325F1E16400B15E21 /* Transition */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +391,8 @@
 				104AFC6C25F9E3010024E2CC /* AnimationViewController.m */,
 				104AFC7425FAFE170024E2CC /* ScaleViewController.h */,
 				104AFC7525FAFE170024E2CC /* ScaleViewController.m */,
+				103044262604547100B56DC0 /* AnimationGroupController.h */,
+				103044272604547100B56DC0 /* AnimationGroupController.m */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -624,6 +641,7 @@
 		FA6748CD2358A4A0003A268A /* TEXT */ = {
 			isa = PBXGroup;
 			children = (
+				1030441C260446F900B56DC0 /* attributedstring */,
 				101D63F22603546300D4CC01 /* rolling */,
 				10F102B525FF3CD9003A6C28 /* 淡入淡出效果 */,
 				18072C6125FC9900004AB992 /* lib */,
@@ -948,6 +966,7 @@
 				FA5A65C4251DD5F000A183E2 /* ViewController5.m in Sources */,
 				1033B3B825F1FEED00B15E21 /* UIViewController+TDSafePresent.m in Sources */,
 				101D63FE2603549D00D4CC01 /* NSTimer+TDTimer.m in Sources */,
+				1030441F2604472E00B56DC0 /* AttributedStringViewController.m in Sources */,
 				FA0E30DF257F9C1200BB9501 /* ViewControllerSpec.m in Sources */,
 				101D63F82603547000D4CC01 /* VVRollingNoticeView.m in Sources */,
 				FA1CC66A2479133400906BFA /* ViewController3.m in Sources */,
@@ -960,6 +979,7 @@
 				FA51351A2591CED400B6D611 /* VVCategoryDecorationView.m in Sources */,
 				FA5135122591CEB600B6D611 /* VVBaseCollectionDecorationView.m in Sources */,
 				182CB0AB25BCFE400069E613 /* TestView.m in Sources */,
+				103044282604547100B56DC0 /* AnimationGroupController.m in Sources */,
 				FA513641259595B800B6D611 /* SIZECollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
