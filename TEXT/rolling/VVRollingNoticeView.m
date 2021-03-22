@@ -24,27 +24,10 @@
 
 @implementation VVRollingNoticeView
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        [self setupNoticeViews];
-    }
-    return self;
-}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    if (self) {
-        [self setupNoticeViews];
-    }
-    return self;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
     if (self) {
         [self setupNoticeViews];
     }
