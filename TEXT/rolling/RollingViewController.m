@@ -30,7 +30,7 @@
     vc.style = RollingStyleFade;
     vc.backgroundColor = [UIColor whiteColor];
     vc.stayInterval = 3.6;
-    vc.animationDuration = 0.15;
+    vc.animationDuration = 0.3;
     [self.view addSubview:vc];
     vc.delegate = self;
     vc.dataSource = self;

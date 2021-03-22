@@ -265,13 +265,13 @@
     [self.reuseCells removeObject:_currentCell];
     [self.reuseCells removeObject:_willShowCell];
     @weakify(self);
-    [UIView animateWithDuration:0.4 animations:^{
+    [UIView animateWithDuration:self.animationDuration animations:^{
         @strongify(self);
         self.currentCell.alpha = 0;
     }
                      completion:^(BOOL finished) {
     }];
-    [UIView animateWithDuration:0.3 delay:0.1 options:UIViewAnimationOptionCurveLinear animations:^{
+    [UIView animateWithDuration:self.animationDuration - 0.1 delay:0.1 options:UIViewAnimationOptionCurveLinear animations:^{
         self.currentCell.frame = CGRectMake(0, -4, w, h);
     } completion:^(BOOL finished) {
         [self showNext];
@@ -281,14 +281,14 @@
 
 - (void)showNext
 {
-    [UIView animateWithDuration:0.4 animations:^{
+    [UIView animateWithDuration:self.animationDuration animations:^{
         self.willShowCell.alpha = 1;
     } completion:^(BOOL finished) {
     }] ;
     float w = self.frame.size.width;
     float h = self.frame.size.height;
     
-    [UIView animateWithDuration:0.3 delay:0.1 options:UIViewAnimationOptionCurveLinear animations:^{
+    [UIView animateWithDuration:self.animationDuration - 0.1 delay:0.1 options:UIViewAnimationOptionCurveLinear animations:^{
         self.willShowCell.frame = CGRectMake(0, 0, w, h);
     } completion:^(BOOL finished) {
         self->_currentIndex++;
