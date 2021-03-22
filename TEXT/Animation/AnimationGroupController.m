@@ -33,7 +33,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.button = [UIButton buttonWithType:UIButtonTypeCustom];
     self.button.frame = CGRectMake(10, 200, 100, 40);
-    [self.button setTitle:@"标题哈哈哈" forState:UIControlStateNormal];
+    [self.button setTitle:self.titles[0] forState:UIControlStateNormal];
     [self.view addSubview:self.button];
     [self.button addTarget:self action:@selector(animation2) forControlEvents:UIControlEventTouchUpInside];
     self.button.backgroundColor = [UIColor whiteColor];
@@ -41,7 +41,7 @@
     
     self.button2 = [UIButton buttonWithType:UIButtonTypeCustom];
     self.button2.frame = CGRectMake(10, 204, 100, 40);
-    [self.button2 setTitle:@"标题哈哈哈" forState:UIControlStateNormal];
+    [self.button2 setTitle:self.titles[1] forState:UIControlStateNormal];
     self.button2.backgroundColor = [UIColor whiteColor];
     self.button2.alpha = 0;
     [self.button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];

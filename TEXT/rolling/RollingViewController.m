@@ -14,18 +14,21 @@
 
 @property (nonatomic, strong) NSArray *array;
 
+@property (nonatomic, strong) NSArray *imageArray;
+
 @end
 
 @implementation RollingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor yellowColor];
-    self.array = @[@"哈哈哈1", @"啦啦啦啦2", @"哒哒哒哒3"];
+    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.array = @[@"截屏2021-03-22 下午3.46.45", @"啦啦啦啦2", @"哒哒哒哒3"];
+    self.imageArray = @[@"截屏2021-03-22 下午3.46.45", @"product_detail_skeleton_screen", @"product_detail_spike_bubble"];
     VVRollingNoticeView *vc = [[VVRollingNoticeView alloc] initWithFrame:CGRectMake(20, 100, 200, 60)];
     [vc registerClass:[RollingCell class] forCellReuseIdentifier:@"kkk"];
     vc.style = RollingStyleFade;
-    vc.backgroundColor = [UIColor cyanColor];
+    vc.backgroundColor = [UIColor whiteColor];
     vc.stayInterval = 3.6;
     vc.animationDuration = 0.15;
     [self.view addSubview:vc];
@@ -40,6 +43,7 @@
     RollingCell *cel = [rollingView dequeueReusableCellWithIdentifier:@"kkk"];
     NSString *title = self.array[index];
     cel.titleText = title;
+    cel.imageName = self.imageArray[index];
     return cel;
 }
 

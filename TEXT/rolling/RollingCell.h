@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString *titleText;
 
+@property (nonatomic, strong) NSString *imageName;
+
 @end
 
 NS_ASSUME_NONNULL_END

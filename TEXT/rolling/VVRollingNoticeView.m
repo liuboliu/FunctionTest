@@ -152,6 +152,7 @@
     float h = self.frame.size.height;
     _currentCell = [self.dataSource rollingNoticeView:self cellAtIndex:_currentIndex];
     if (![self.subviews containsObject:_currentCell]) {
+        _currentCell.frame = CGRectMake(0, 0, w, h);
         [self addSubview:_currentCell];
     }
     _willShowCell = [self.dataSource rollingNoticeView:self cellAtIndex:willShowIndex];
