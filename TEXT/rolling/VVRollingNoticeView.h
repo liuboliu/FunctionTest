@@ -42,6 +42,7 @@ typedef NS_ENUM(NSUInteger, RollingStyle) {
 @property (nonatomic, assign) NSTimeInterval animationDuration ; //动画时间，默认0.66秒
 @property (nonatomic, assign, readonly) int currentIndex;
 @property (nonatomic, assign) CGFloat spaceOfItem;//Item之间的距离，默认为零
+@property (nonatomic, assign) CGFloat fadeTranslationY; ///  淡入淡出样式下的位移移动量
 
 ///录播风格
 @property (nonatomic, assign) RollingStyle style;

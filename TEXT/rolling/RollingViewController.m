@@ -31,6 +31,7 @@
     vc.backgroundColor = [UIColor whiteColor];
     vc.stayInterval = 3.6;
     vc.animationDuration = 0.4;
+    vc.fadeTranslationY = 7;
     [self.view addSubview:vc];
     vc.delegate = self;
     vc.dataSource = self;

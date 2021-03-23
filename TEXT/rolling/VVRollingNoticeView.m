@@ -83,7 +83,7 @@
         [self addSubview:_currentCell];
         if (self.style == RollingStyleDefault) {
             ///默认轮播滚动样式，首次展示不需要加载下一个
-            return;;
+            return;
         }
     }
     CGFloat willY = h + self.spaceOfItem;
@@ -207,7 +207,7 @@
                      completion:^(BOOL finished) {
     }];
     [UIView animateWithDuration:self.animationDuration - 0.1 delay:0.1 options:UIViewAnimationOptionCurveLinear animations:^{
-        self.currentCell.frame = CGRectMake(0, -4, w, h);
+        self.currentCell.frame = CGRectMake(0, - self.fadeTranslationY, w, h);
     } completion:^(BOOL finished) {
         [self showNext];
         self.currentCell.frame = CGRectMake(0, 0, w, h);
@@ -241,7 +241,7 @@
         }
         self->_currentCell = self->_willShowCell;
         self->_willShowCell = [self.dataSource rollingNoticeView:self cellAtIndex:willShowIndex];
-        self->_willShowCell.frame = CGRectMake(0, 4, w, h);
+        self->_willShowCell.frame = CGRectMake(0, self.fadeTranslationY, w, h);
         self->_willShowCell.alpha = 0;
         [self addSubview:self.willShowCell];
     }];
