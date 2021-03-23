@@ -173,14 +173,10 @@
     
     self.isAnimating = YES;
     
-    @weakify(self);
     [UIView animateWithDuration:_animationDuration animations:^{
-        @strongify(self);
         self.currentCell.frame = CGRectMake(0, - h - self.spaceOfItem, w, h);
         self.willShowCell.frame = CGRectMake(0, 0, w, h);
-    }
-                     completion:^(BOOL finished) {
-        @strongify(self);
+    } completion:^(BOOL finished) {
         // fixed bug: reload data when animate running
         if (self.currentCell && self.willShowCell) {
             [self.reuseCells addObject:self.currentCell];
@@ -199,18 +195,18 @@
     self.isAnimating = YES;
     [self.reuseCells removeObject:_currentCell];
     [self.reuseCells removeObject:_willShowCell];
-    @weakify(self);
+    ///动画隐藏当前的cell
     [UIView animateWithDuration:self.animationDuration animations:^{
-        @strongify(self);
         self.currentCell.alpha = 0;
-    }
-                     completion:^(BOOL finished) {
+    } completion:^(BOOL finished) {
     }];
     [UIView animateWithDuration:self.animationDuration - 0.1 delay:0.1 options:UIViewAnimationOptionCurveLinear animations:^{
         self.currentCell.frame = CGRectMake(0, - self.fadeTranslationY, w, h);
     } completion:^(BOOL finished) {
+        ///动画展示下一个cell
         [self showNext];
-        self.currentCell.frame = CGRectMake(0, 0, w, h);
+        ///展示过需要移除
+        [self.currentCell removeFromSuperview];
     }];
 }
 
