@@ -20,6 +20,8 @@
 		1033B3B825F1FEED00B15E21 /* UIViewController+TDSafePresent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1033B3B725F1FEED00B15E21 /* UIViewController+TDSafePresent.m */; };
 		104AFC6D25F9E3010024E2CC /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 104AFC6C25F9E3010024E2CC /* AnimationViewController.m */; };
 		104AFC7625FAFE170024E2CC /* ScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 104AFC7525FAFE170024E2CC /* ScaleViewController.m */; };
+		10730FAA261326E4002FFFD0 /* RollingTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10730FA9261326E4002FFFD0 /* RollingTextViewController.m */; };
+		10730FB0261326EB002FFFD0 /* LMJHorizontalScrollText.m in Sources */ = {isa = PBXBuildFile; fileRef = 10730FAF261326EB002FFFD0 /* LMJHorizontalScrollText.m */; };
 		10832A0525F5F867008F64A1 /* KeyValueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10832A0425F5F867008F64A1 /* KeyValueViewController.m */; };
 		10832A0E25F5F878008F64A1 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 10832A0D25F5F878008F64A1 /* Student.m */; };
 		10972962260882B500DD61D8 /* 截屏.png in Resources */ = {isa = PBXBuildFile; fileRef = 10972961260882B500DD61D8 /* 截屏.png */; };
@@ -150,6 +152,10 @@
 		104AFC6C25F9E3010024E2CC /* AnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationViewController.m; sourceTree = "<group>"; };
 		104AFC7425FAFE170024E2CC /* ScaleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScaleViewController.h; sourceTree = "<group>"; };
 		104AFC7525FAFE170024E2CC /* ScaleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScaleViewController.m; sourceTree = "<group>"; };
+		10730FA8261326E4002FFFD0 /* RollingTextViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RollingTextViewController.h; sourceTree = "<group>"; };
+		10730FA9261326E4002FFFD0 /* RollingTextViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RollingTextViewController.m; sourceTree = "<group>"; };
+		10730FAE261326EB002FFFD0 /* LMJHorizontalScrollText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMJHorizontalScrollText.h; sourceTree = "<group>"; };
+		10730FAF261326EB002FFFD0 /* LMJHorizontalScrollText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMJHorizontalScrollText.m; sourceTree = "<group>"; };
 		10832A0325F5F867008F64A1 /* KeyValueViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyValueViewController.h; sourceTree = "<group>"; };
 		10832A0425F5F867008F64A1 /* KeyValueViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyValueViewController.m; sourceTree = "<group>"; };
 		10832A0C25F5F878008F64A1 /* Student.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
@@ -399,6 +405,17 @@
 			path = Animation;
 			sourceTree = "<group>";
 		};
+		10730FA7261326B6002FFFD0 /* HorizontalRollText */ = {
+			isa = PBXGroup;
+			children = (
+				10730FAE261326EB002FFFD0 /* LMJHorizontalScrollText.h */,
+				10730FAF261326EB002FFFD0 /* LMJHorizontalScrollText.m */,
+				10730FA8261326E4002FFFD0 /* RollingTextViewController.h */,
+				10730FA9261326E4002FFFD0 /* RollingTextViewController.m */,
+			);
+			path = HorizontalRollText;
+			sourceTree = "<group>";
+		};
 		10832A0225F5F853008F64A1 /* SetvalueForKey */ = {
 			isa = PBXGroup;
 			children = (
@@ -643,6 +660,7 @@
 		FA6748CD2358A4A0003A268A /* TEXT */ = {
 			isa = PBXGroup;
 			children = (
+				10730FA7261326B6002FFFD0 /* HorizontalRollText */,
 				1030441C260446F900B56DC0 /* attributedstring */,
 				101D63F22603546300D4CC01 /* rolling */,
 				10F102B525FF3CD9003A6C28 /* 淡入淡出效果 */,
@@ -948,6 +966,7 @@
 				FA64B07125B80FB700E048AD /* HeaderExpandViewControllerTableView.m in Sources */,
 				1033B3AC25F1E19700B15E21 /* TransitionViewController.m in Sources */,
 				FA3DB15B258DF55900994962 /* ViewControllerUserSaveModel.m in Sources */,
+				10730FB0261326EB002FFFD0 /* LMJHorizontalScrollText.m in Sources */,
 				FA5134FD2591CC2F00B6D611 /* ViewControllerDecorationView.m in Sources */,
 				FA51363B2595952500B6D611 /* CollectionViewAutoLayoutController.m in Sources */,
 				FA64B05A25B6D4FF00E048AD /* NSMutableArray+VVKVOHelper.m in Sources */,
@@ -970,6 +989,7 @@
 				FA5A65C4251DD5F000A183E2 /* ViewController5.m in Sources */,
 				1033B3B825F1FEED00B15E21 /* UIViewController+TDSafePresent.m in Sources */,
 				101D63FE2603549D00D4CC01 /* NSTimer+TDTimer.m in Sources */,
+				10730FAA261326E4002FFFD0 /* RollingTextViewController.m in Sources */,
 				1030441F2604472E00B56DC0 /* AttributedStringViewController.m in Sources */,
 				FA0E30DF257F9C1200BB9501 /* ViewControllerSpec.m in Sources */,
 				101D63F82603547000D4CC01 /* VVRollingNoticeView.m in Sources */,

@@ -27,6 +27,7 @@
 #import "RollingViewController.h"
 #import "AttributedStringViewController.h"
 #import "AnimationGroupController.h"
+#import "RollingTextViewController.h"
 
 typedef void (^block) (void);
 
@@ -92,6 +93,7 @@ typedef void (^block) (void);
     [self configRolling];
     [self configAtrributedstring];
     [self confiGroup];
+    [self configHorizontal];
 }
 
 - (void)configDecoration
@@ -249,6 +251,15 @@ typedef void (^block) (void);
         [self.navigationController pushViewController:vc animated:YES];
     };
     [self modelWithTitle:@"动画组" block:block];
+}
+
+- (void)configHorizontal
+{
+    block block = ^ void (void) {
+        RollingTextViewController *vc = [[RollingTextViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self modelWithTitle:@"水平轮播" block:block];
 }
 
 #pragma mark - Table view data source

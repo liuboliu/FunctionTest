@@ -31,6 +31,9 @@ typedef NS_ENUM(NSUInteger, Mytype) {
     [student setValue:nil forKey:@"name"];
     Mytype type = Mytype2;
     
+    NSDictionary *dicx = [NSDictionary dictionary];
+    NSString *string = dicx[@"kkk"];
+    
     NSLog(@"哈哈哈哈%ld",(Mytype2 | MytypeO));
     NSLog(@"哈哈哈哈%ld",(Mytype1 | Mytype1));
     NSLog(@"哈哈哈哈%ld",(Mytype2 | Mytype1));
