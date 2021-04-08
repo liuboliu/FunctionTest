@@ -29,6 +29,7 @@
 #import "AnimationGroupController.h"
 #import "RollingTextViewController.h"
 #import "TransitionPushTopController.h"
+#import "KKTableViewController.h"
 
 typedef void (^block) (void);
 
@@ -96,6 +97,7 @@ typedef void (^block) (void);
     [self confiGroup];
     [self configHorizontal];
     [self configTransitinRolling];
+    [self configUILIst];
 }
 
 - (void)configDecoration
@@ -271,6 +273,16 @@ typedef void (^block) (void);
         [self.navigationController pushViewController:vc animated:YES];
     };
     [self modelWithTitle:@"转场实现轮播" block:block];
+
+}
+
+- (void)configUILIst
+{
+    block block = ^ void (void) {
+        KKTableViewController *vc = [[KKTableViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self modelWithTitle:@"UI" block:block];
 
 }
 
