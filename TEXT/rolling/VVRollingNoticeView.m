@@ -115,6 +115,11 @@
         return;
     }
     self.timer = [NSTimer td_timerWithTimeInterval:_stayInterval + _animationDuration target:self selector:@selector(timerHandle) userInfo:nil repeats:YES];
+    __weak typeof (self) weak = self;
+    self.timer = [NSTimer timerWithTimeInterval:4 repeats:YES block:^(NSTimer * _Nonnull timer) {
+        NSLog(@"哈哈哈哈blockblock");
+        
+    }];
     NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
     [runLoop addTimer:_timer forMode:NSRunLoopCommonModes];
 }
@@ -276,6 +281,11 @@
         _reuseCells = [[NSMutableArray alloc]init];
     }
     return _reuseCells;
+}
+
+- (void)dealloc
+{
+    
 }
 
 @end
