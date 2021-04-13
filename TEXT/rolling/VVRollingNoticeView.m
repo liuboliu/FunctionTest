@@ -1,9 +1,9 @@
 //
-//  GYRollingNoticeView.m
-//  RollingNotice
+//  RollingCell.m
+//  TEXT
 //
-//  Created by qm on 2017/12/4.
-//  Copyright © 2017年 qm. All rights reserved.
+//  Created by 朱家乐 on 2021/3/18.
+//  Copyright © 2021 刘博. All rights reserved.
 //
 
 #import "VVNoticeViewCell.h"
@@ -115,13 +115,8 @@
         return;
     }
     self.timer = [NSTimer td_timerWithTimeInterval:_stayInterval + _animationDuration target:self selector:@selector(timerHandle) userInfo:nil repeats:YES];
-    __weak typeof (self) weak = self;
-    self.timer = [NSTimer timerWithTimeInterval:4 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        NSLog(@"哈哈哈哈blockblock");
-        
-    }];
     NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
-    [runLoop addTimer:_timer forMode:NSRunLoopCommonModes];
+    [runLoop addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
 - (void)stopTimer
@@ -285,7 +280,10 @@
 
 - (void)dealloc
 {
-    
+    if (self.timer) {
+        [self.timer invalidate];
+        self.timer  = nil;
+    }
 }
 
 @end

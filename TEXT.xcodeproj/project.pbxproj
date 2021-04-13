@@ -20,6 +20,9 @@
 		1033B3B825F1FEED00B15E21 /* UIViewController+TDSafePresent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1033B3B725F1FEED00B15E21 /* UIViewController+TDSafePresent.m */; };
 		104AFC6D25F9E3010024E2CC /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 104AFC6C25F9E3010024E2CC /* AnimationViewController.m */; };
 		104AFC7625FAFE170024E2CC /* ScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 104AFC7525FAFE170024E2CC /* ScaleViewController.m */; };
+		105B2955261D5E0800C37304 /* TransitionPushTopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105B2954261D5E0800C37304 /* TransitionPushTopController.m */; };
+		105B2968261DBBB100C37304 /* KKTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105B2967261DBBB100C37304 /* KKTableViewController.m */; };
+		105B296F261DBC5D00C37304 /* GradientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105B296E261DBC5D00C37304 /* GradientViewController.m */; };
 		10730FAA261326E4002FFFD0 /* RollingTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10730FA9261326E4002FFFD0 /* RollingTextViewController.m */; };
 		10730FB0261326EB002FFFD0 /* LMJHorizontalScrollText.m in Sources */ = {isa = PBXBuildFile; fileRef = 10730FAF261326EB002FFFD0 /* LMJHorizontalScrollText.m */; };
 		10832A0525F5F867008F64A1 /* KeyValueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10832A0425F5F867008F64A1 /* KeyValueViewController.m */; };
@@ -152,6 +155,12 @@
 		104AFC6C25F9E3010024E2CC /* AnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationViewController.m; sourceTree = "<group>"; };
 		104AFC7425FAFE170024E2CC /* ScaleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScaleViewController.h; sourceTree = "<group>"; };
 		104AFC7525FAFE170024E2CC /* ScaleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScaleViewController.m; sourceTree = "<group>"; };
+		105B2953261D5E0800C37304 /* TransitionPushTopController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransitionPushTopController.h; sourceTree = "<group>"; };
+		105B2954261D5E0800C37304 /* TransitionPushTopController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransitionPushTopController.m; sourceTree = "<group>"; };
+		105B2966261DBBB100C37304 /* KKTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKTableViewController.h; sourceTree = "<group>"; };
+		105B2967261DBBB100C37304 /* KKTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKTableViewController.m; sourceTree = "<group>"; };
+		105B296D261DBC5D00C37304 /* GradientViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GradientViewController.h; sourceTree = "<group>"; };
+		105B296E261DBC5D00C37304 /* GradientViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GradientViewController.m; sourceTree = "<group>"; };
 		10730FA8261326E4002FFFD0 /* RollingTextViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RollingTextViewController.h; sourceTree = "<group>"; };
 		10730FA9261326E4002FFFD0 /* RollingTextViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RollingTextViewController.m; sourceTree = "<group>"; };
 		10730FAE261326EB002FFFD0 /* LMJHorizontalScrollText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMJHorizontalScrollText.h; sourceTree = "<group>"; };
@@ -347,10 +356,10 @@
 		101D63F22603546300D4CC01 /* rolling */ = {
 			isa = PBXGroup;
 			children = (
-				101D63F32603547000D4CC01 /* VVNoticeViewCell.h */,
-				101D63F42603547000D4CC01 /* VVNoticeViewCell.m */,
 				101D64102603569500D4CC01 /* RollingCell.h */,
 				101D64112603569500D4CC01 /* RollingCell.m */,
+				101D63F32603547000D4CC01 /* VVNoticeViewCell.h */,
+				101D63F42603547000D4CC01 /* VVNoticeViewCell.m */,
 				101D63F62603547000D4CC01 /* VVRollingNoticeView.h */,
 				101D63F52603547000D4CC01 /* VVRollingNoticeView.m */,
 				101D640A2603560500D4CC01 /* RollingViewController.h */,
@@ -399,10 +408,31 @@
 				104AFC6C25F9E3010024E2CC /* AnimationViewController.m */,
 				104AFC7425FAFE170024E2CC /* ScaleViewController.h */,
 				104AFC7525FAFE170024E2CC /* ScaleViewController.m */,
+				105B2953261D5E0800C37304 /* TransitionPushTopController.h */,
+				105B2954261D5E0800C37304 /* TransitionPushTopController.m */,
 				103044262604547100B56DC0 /* AnimationGroupController.h */,
 				103044272604547100B56DC0 /* AnimationGroupController.m */,
 			);
 			path = Animation;
+			sourceTree = "<group>";
+		};
+		105B2959261DBB6500C37304 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				105B2966261DBBB100C37304 /* KKTableViewController.h */,
+				105B2967261DBBB100C37304 /* KKTableViewController.m */,
+				105B296C261DBC4300C37304 /* 渐变 */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		105B296C261DBC4300C37304 /* 渐变 */ = {
+			isa = PBXGroup;
+			children = (
+				105B296D261DBC5D00C37304 /* GradientViewController.h */,
+				105B296E261DBC5D00C37304 /* GradientViewController.m */,
+			);
+			path = "渐变";
 			sourceTree = "<group>";
 		};
 		10730FA7261326B6002FFFD0 /* HorizontalRollText */ = {
@@ -660,6 +690,7 @@
 		FA6748CD2358A4A0003A268A /* TEXT */ = {
 			isa = PBXGroup;
 			children = (
+				105B2959261DBB6500C37304 /* UI */,
 				10730FA7261326B6002FFFD0 /* HorizontalRollText */,
 				1030441C260446F900B56DC0 /* attributedstring */,
 				101D63F22603546300D4CC01 /* rolling */,
@@ -950,6 +981,7 @@
 				FA6748D32358A4A1003A268A /* ViewController2.m in Sources */,
 				18072C5725FC4ED9004AB992 /* ListModel.m in Sources */,
 				FA64B05B25B6D4FF00E048AD /* NSObject+VVKVOHelper.m in Sources */,
+				105B2955261D5E0800C37304 /* TransitionPushTopController.m in Sources */,
 				10832A0E25F5F878008F64A1 /* Student.m in Sources */,
 				FA6748DE2358A4A4003A268A /* main.m in Sources */,
 				182CB0A525BC648C0069E613 /* CardCourseViewController.m in Sources */,
@@ -993,12 +1025,14 @@
 				1030441F2604472E00B56DC0 /* AttributedStringViewController.m in Sources */,
 				FA0E30DF257F9C1200BB9501 /* ViewControllerSpec.m in Sources */,
 				101D63F82603547000D4CC01 /* VVRollingNoticeView.m in Sources */,
+				105B2968261DBBB100C37304 /* KKTableViewController.m in Sources */,
 				FA1CC66A2479133400906BFA /* ViewController3.m in Sources */,
 				FA6E7BF624FE355B00B05096 /* VVCell.m in Sources */,
 				FA1932BA24C45F62000A8B8A /* ViewController4.m in Sources */,
 				1033B3A625F1E17100B15E21 /* TDViewControllerPresentAndDismiss.m in Sources */,
 				FA51351B2591CED400B6D611 /* VVCategoryBannerDecorationView.m in Sources */,
 				FA64B07D25B82F0F00E048AD /* HeaderExpandViewControllerSrollview.m in Sources */,
+				105B296F261DBC5D00C37304 /* GradientViewController.m in Sources */,
 				18072C6425FC9909004AB992 /* UIColor+TDHelp.m in Sources */,
 				FA51351A2591CED400B6D611 /* VVCategoryDecorationView.m in Sources */,
 				FA5135122591CEB600B6D611 /* VVBaseCollectionDecorationView.m in Sources */,

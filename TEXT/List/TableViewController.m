@@ -28,6 +28,8 @@
 #import "AttributedStringViewController.h"
 #import "AnimationGroupController.h"
 #import "RollingTextViewController.h"
+#import "TransitionPushTopController.h"
+#import "KKTableViewController.h"
 
 typedef void (^block) (void);
 
@@ -94,6 +96,8 @@ typedef void (^block) (void);
     [self configAtrributedstring];
     [self confiGroup];
     [self configHorizontal];
+    [self configTransitinRolling];
+    [self configUILIst];
 }
 
 - (void)configDecoration
@@ -260,6 +264,26 @@ typedef void (^block) (void);
         [self.navigationController pushViewController:vc animated:YES];
     };
     [self modelWithTitle:@"水平轮播" block:block];
+}
+
+- (void)configTransitinRolling
+{
+    block block = ^ void (void) {
+        TransitionPushTopController *vc = [[TransitionPushTopController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self modelWithTitle:@"转场实现轮播" block:block];
+
+}
+
+- (void)configUILIst
+{
+    block block = ^ void (void) {
+        KKTableViewController *vc = [[KKTableViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self modelWithTitle:@"UI" block:block];
+
 }
 
 #pragma mark - Table view data source
