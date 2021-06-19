@@ -37,7 +37,7 @@
 + (instancetype)colorWithCSS:(NSString *)css;
 
 //  颜色转换为背景图片
-+ (UIImage *)imageWithColor:(UIColor *)color __deprecated_msg("UIImage+TDHelp use + (UIImage *)vv_imageWithColor:(UIColor *)color");
++ (UIImage *)imageWithColor:(UIColor *)color;
 
 /**
  获取颜色的十六进制值

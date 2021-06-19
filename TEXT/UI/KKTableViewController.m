@@ -9,8 +9,13 @@
 #import "KKTableViewController.h"
 #import "ListModel.h"
 #import "GradientViewController.h"
+#import "ImageColorViewController.h"
+#import "VVVVV.h"
+#import <Masonry/Masonry.h>
+#import "TPImageTitleView.h"
 typedef void (^block) (void);
 @interface KKTableViewController ()
+
 
 @property (nonatomic, strong) NSMutableArray *blockArray;
 
@@ -25,6 +30,37 @@ typedef void (^block) (void);
     self.blockArray = [NSMutableArray array];
     [self configDatasource];
     [self.tableView reloadData];
+    NSDictionary *dic = @{@"kkk": @{@"jjjj":@"lllllalal"}};
+    NSString *kkk = [dic valueForKeyPath:@"kkk.jjjj"];
+    NSDictionary *dict1 = @{@"dic1":@{@"dic2":@{@"name":@"lisi",@"info":@{@"age":@"12"}}}};
+
+    NSString *res = [dict1 valueForKeyPath:@".dict1.dict2.name"];
+    NSMutableArray *kk = [@[@"fff", @"llll"] mutableCopy];
+    [kk removeObject:@"aaa"];
+
+    NSDictionary *kkkkk = @"kkkk";
+    
+    TPImageTitleView *label = [[TPImageTitleView alloc] init];
+    [self.view addSubview:label];
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.mas_equalTo(0);
+            make.height.mas_equalTo(40);
+        make.width.mas_lessThanOrEqualTo(100);
+    }];
+    label.backgroundColor = [UIColor redColor];
+    [label showTitle:@"u去哦我i饿入侵颇为如脾气哦i未如期颇为入伍前"];
+    //NSString *lll = [kkkkk objectForKey:@"lll"];
+    NSLog(@"hahahah888888");
+  //  NSString *啦啦啦 = kkkkk[@"lll"];
+//    NSString *string = [NSString stringWithFormat:@"%@%@","kk",[NSNull null]];
+//    NSDictionary *ccc = @{@"kkk":string};
+//    VVVVV *v  = [[VVVVV alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+//    v.tag
+//    = 1000;
+//    v.backgroundColor = [UIColor greenColor];
+////    [self.view addSubview:v];
+//    UIWindow *wond = [UIApplication sharedApplication].keyWindow;
+//    [wond addSubview:v];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -32,11 +68,18 @@ typedef void (^block) (void);
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+//{
+//    UIView *v = [self.view viewWithTag:1000];
+//    [v removeFromSuperview];
+//}
+
 - (void)configDatasource
 {
     [self configGraident];
+    [self configImgColor];
 }
-
+ 
 - (void)configGraident
 {
     void (^pushDecoration)(void) = ^(){
@@ -46,6 +89,16 @@ typedef void (^block) (void);
     [self modelWithTitle:@"渐变" block:pushDecoration];
 
 }
+
+- (void)configImgColor
+{
+    void (^pushImgColor) (void) = ^() {
+        ImageColorViewController *img = [[ImageColorViewController alloc] init];
+        [self.navigationController pushViewController:img animated:YES];
+    };
+    [self modelWithTitle:@"颜色生成图片" block:pushImgColor];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -55,7 +108,7 @@ typedef void (^block) (void);
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"点击");
+  
     ListModel *model = self.blockArray[indexPath.row];
     block block = model.block;
     if (block) {

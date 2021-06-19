@@ -69,7 +69,22 @@
     self.fadeButton = [self buttonWithTitle:@"淡入淡出" sele:@selector(faceClick)];
     self.fadeButton.frame = CGRectMake(200, 300, 100, 100);
     
-    // Do any additional se tup after loading the view.
+    NSLog(@"之前之前之前");
+    dispatch_after(0.5, dispatch_get_main_queue(), ^{
+        NSLog(@"执行执行执行执行");
+    });
+    NSLog(@"之后之后之后走之后");
+    
+//    NSLog(@"执行之前执行之前");
+//    [UIView animateWithDuration:4 delay:2 options:UIViewAnimationOptionCurveEaseIn animations:^{
+//        NSLog(@"执行动画执行动画");
+//
+//    } completion:^(BOOL finished) {
+//        NSLog(@"执行完毕执行完毕");
+//
+//    }];
+//    NSLog(@"这里这里这里这里");
+//    // Do any additional se tup after loading the view.
 }
 
 - (void)faceClick

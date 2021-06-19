@@ -80,7 +80,7 @@ return color;
 - (UIScrollView *)scrollView
 {
     if (!_scrollView) {
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width - 60, 100)];
+        _scrollView = [[HittestView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width - 60, 100)];
         _scrollView.backgroundColor = [UIColor greenColor];
         _scrollView.contentSize = CGSizeMake(CGRectGetWidth(_scrollView.frame) * 6, 100);
         _scrollView.pagingEnabled = YES;

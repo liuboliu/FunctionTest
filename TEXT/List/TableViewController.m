@@ -64,7 +64,7 @@ typedef void (^block) (void);
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     [self configActions];
     [self.tableView reloadData];
-    self.tableView.backgroundColor = [UIColor cyanColor];
+    self.view.backgroundColor = [UIColor colorNamed:@"kkk"];
 //    
 //    NSMutableArray *array = [NSMutableArray array];
 //    void (^block) (void) = ^(){

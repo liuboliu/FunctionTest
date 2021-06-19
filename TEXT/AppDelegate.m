@@ -22,6 +22,7 @@
 #import "ViewControllerDecorationView.h"
 #import "TableViewController.h"
 #import "HeaderExpandViewController.h"
+#import "VVVVV.h"
 
 @interface AppDelegate ()
 
@@ -36,7 +37,12 @@
     TableViewController *vc = [[TableViewController alloc] init];
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = navi;
+    VVVVV * v = [[VVVVV alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    v.backgroundColor = [UIColor cyanColor];
+    
+    [self.window addSubview:v];
     [self.window makeKeyAndVisible];
+    NSLog(@"央视央视央视%ld",self.window.traitCollection.userInterfaceStyle);
 
     // Override point for customization after application launch.
     return YES;
