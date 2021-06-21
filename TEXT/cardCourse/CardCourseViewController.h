@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LBBaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 NSString *const kk = @"FASDF";
 
-@interface CardCourseViewController : UIViewController
+@interface CardCourseViewController : LBBaseViewController
 
 @end
 

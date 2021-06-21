@@ -24,6 +24,8 @@
 
 @property (nonatomic, strong) UIButton *button6;
 
+@property (nonatomic, strong) UIButton *fadeButton;
+
 @end
 
 @implementation AnimationViewController
@@ -64,8 +66,43 @@
     self.button6 = [self buttonWithTitle:@"关键帧动画" sele:@selector(keyFrameAnimation)];
     self.button6.frame = CGRectMake(100, 100, 100, 100);
     
+    self.fadeButton = [self buttonWithTitle:@"淡入淡出" sele:@selector(faceClick)];
+    self.fadeButton.frame = CGRectMake(200, 300, 100, 100);
     
-    // Do any additional se tup after loading the view.
+    NSLog(@"之前之前之前");
+    dispatch_after(0.5, dispatch_get_main_queue(), ^{
+        NSLog(@"执行执行执行执行");
+    });
+    NSLog(@"之后之后之后走之后");
+    
+//    NSLog(@"执行之前执行之前");
+//    [UIView animateWithDuration:4 delay:2 options:UIViewAnimationOptionCurveEaseIn animations:^{
+//        NSLog(@"执行动画执行动画");
+//
+//    } completion:^(BOOL finished) {
+//        NSLog(@"执行完毕执行完毕");
+//
+//    }];
+//    NSLog(@"这里这里这里这里");
+//    // Do any additional se tup after loading the view.
+}
+
+- (void)faceClick
+{
+    CATransition *transition = [[CATransition alloc] init];
+    transition.duration = 3;
+    transition.fillMode = kCAFillModeForwards;
+    transition.type = kCATransitionFade;
+    [self.fadeButton.layer addAnimation:transition forKey:@"animation"];
+
+    self.fadeButton.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
+
+    [UIView transitionWithView:self.fadeButton duration:3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        self.fadeButton.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
+
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
 - (void)trancfrom

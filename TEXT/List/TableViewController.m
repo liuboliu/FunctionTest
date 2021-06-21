@@ -21,8 +21,15 @@
 #import "KeyValueViewController.h"
 #import "AnimationViewController.h"
 #import "ScaleViewController.h"
+#import "FadeViewController.h"
 #import "ViewControllerSegment.h"
 #import "ListModel.h"
+#import "RollingViewController.h"
+#import "AttributedStringViewController.h"
+#import "AnimationGroupController.h"
+#import "RollingTextViewController.h"
+#import "TransitionPushTopController.h"
+#import "KKTableViewController.h"
 
 typedef void (^block) (void);
 
@@ -51,12 +58,13 @@ typedef void (^block) (void);
         @"转场动画",
         @"setvalueForkey",
         @"位移动画",
-        @"放大动画"
+        @"放大动画",
+        @"RollingViewController",
     ];
     //[self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     [self configActions];
     [self.tableView reloadData];
-    self.tableView.backgroundColor = [UIColor cyanColor];
+    self.view.backgroundColor = [UIColor colorNamed:@"kkk"];
 //    
 //    NSMutableArray *array = [NSMutableArray array];
 //    void (^block) (void) = ^(){
@@ -84,6 +92,12 @@ typedef void (^block) (void);
     [self configAnimcation];
     [self cofigScaleanimation];
     [self configSegment];
+    [self configRolling];
+    [self configAtrributedstring];
+    [self confiGroup];
+    [self configHorizontal];
+    [self configTransitinRolling];
+    [self configUILIst];
 }
 
 - (void)configDecoration
@@ -216,6 +230,62 @@ typedef void (^block) (void);
     [self modelWithTitle:@"分页控制" block:block];
 }
 
+- (void)configRolling
+{
+    block block = ^void (void){
+        RollingViewController  *segmet = [[RollingViewController alloc] init];
+        [self.navigationController pushViewController:segmet animated:YES];
+    };
+    [self modelWithTitle:@"轮播" block:block];
+}
+
+- (void)configAtrributedstring
+{
+    block block = ^void (void) {
+        AttributedStringViewController *vc = [[AttributedStringViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self modelWithTitle:@"富文本" block:block];
+}
+
+- (void)confiGroup
+{
+    block block = ^void (void) {
+        AnimationGroupController *vc = [[AnimationGroupController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self modelWithTitle:@"动画组" block:block];
+}
+
+- (void)configHorizontal
+{
+    block block = ^ void (void) {
+        RollingTextViewController *vc = [[RollingTextViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self modelWithTitle:@"水平轮播" block:block];
+}
+
+- (void)configTransitinRolling
+{
+    block block = ^ void (void) {
+        TransitionPushTopController *vc = [[TransitionPushTopController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self modelWithTitle:@"转场实现轮播" block:block];
+
+}
+
+- (void)configUILIst
+{
+    block block = ^ void (void) {
+        KKTableViewController *vc = [[KKTableViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self modelWithTitle:@"UI" block:block];
+
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -240,7 +310,7 @@ typedef void (^block) (void);
     //cell.textLabel.text = model.title;
     cell.textLabel.text = @"kkk";
     cell.textLabel.userInteractionEnabled = YES;
-    cell.backgroundColor = [UIColor redColor];
+    cell.backgroundColor = [UIColor grayColor];
     return cell;
 }
 

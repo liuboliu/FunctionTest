@@ -31,6 +31,9 @@ typedef NS_ENUM(NSUInteger, Mytype) {
     [student setValue:nil forKey:@"name"];
     Mytype type = Mytype2;
     
+    NSDictionary *dicx = [NSDictionary dictionary];
+    NSString *string = dicx[@"kkk"];
+    
     NSLog(@"哈哈哈哈%ld",(Mytype2 | MytypeO));
     NSLog(@"哈哈哈哈%ld",(Mytype1 | Mytype1));
     NSLog(@"哈哈哈哈%ld",(Mytype2 | Mytype1));
@@ -43,7 +46,14 @@ typedef NS_ENUM(NSUInteger, Mytype) {
     if (type == (Mytype1 | Mytype1)) {
         NSLog(@"打印打印");
     }
+    
+    NSDictionary *dic = @{@"nihao":@"哈哈哈",
+                          @"kkkk" :@{}
+    };
+    NSString *tid = [dic valueForKeyPath:@"kkkk.pp"];
 
+    NSAttributedString *attribued = [[NSAttributedString alloc] initWithString:@""];
+    
     // Do any additional setup after loading the view.
 }
 
