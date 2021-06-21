@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"这里第三个页面";
     self.view.backgroundColor = [UIColor whiteColor];
     self.label = [[UILabel alloc] initWithFrame:CGRectMake(10, 100, 100, 120)];;
     self.label.numberOfLines = 0;

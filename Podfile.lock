@@ -1,5 +1,6 @@
 PODS:
   - Aspects (1.4.1)
+  - JLRoutes (2.1)
   - Kiwi (3.0.0)
   - LBRollingView (0.1.2)
   - LXBRollingView (0.1.2)
@@ -8,6 +9,7 @@ PODS:
 
 DEPENDENCIES:
   - Aspects (= 1.4.1)
+  - JLRoutes
   - Kiwi
   - LBRollingView
   - LXBRollingView
@@ -15,6 +17,8 @@ DEPENDENCIES:
   - MJRefresh (= 3.1.16)
 
 SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - JLRoutes
   https://github.com/liuboliu/LBRollingViewSpec.git:
     - LBRollingView
   https://github.com/liuboliu/LXBRollingViewSpec.git:
@@ -27,12 +31,13 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
+  JLRoutes: d755245322b94227662ea3e43492fdca94e05c5b
   Kiwi: fbeafef0f00e4d8f7dcb3420a4930afe70af77f7
   LBRollingView: bd06a4946a93bb3b5c7332c660b0a4d12fbdd5ef
   LXBRollingView: 68f01943fa3110add6a1f1201696b5cfd0faa9f9
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 7798e16e53a5ef7f332dd05b27664db4e29530fd
 
-PODFILE CHECKSUM: 98c8895827c1df8185385f6d9541b5a7a95d5677
+PODFILE CHECKSUM: a50546cde9a24855883f2355f91cc7a952a7c2c1
 
 COCOAPODS: 1.10.1

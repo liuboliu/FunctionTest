@@ -14,4 +14,5 @@ target 'TEXT' do
      pod 'Aspects','1.4.1'
      pod 'LBRollingView'
      pod 'LXBRollingView'
+     pod 'JLRoutes'
 end

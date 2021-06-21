@@ -32,6 +32,7 @@
     [self.contentView addSubview:self.scrollView];
     [self.view addSubview:self.bigTestView];
     [self.bigTestView addSubview:self.testView];
+    self.title = @"这是第二个页面";
     // Do any additional setup after loading the view.
 }
 

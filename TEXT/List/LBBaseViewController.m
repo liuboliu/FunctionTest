@@ -1,23 +1,21 @@
 //
-//  FadeViewController.m
+//  LBBaseViewController.m
 //  TEXT
 //
-//  Created by 朱家乐 on 2021/3/15.
+//  Created by liubo on 2021/6/19.
 //  Copyright © 2021 刘博. All rights reserved.
 //
 
-#import "FadeViewController.h"
+#import "LBBaseViewController.h"
 
-@interface FadeViewController ()
+@interface LBBaseViewController ()
 
 @end
 
-@implementation FadeViewController
+@implementation LBBaseViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"这是第一个页面";
-    self.view.backgroundColor = [UIColor cyanColor];
     // Do any additional setup after loading the view.
 }
 

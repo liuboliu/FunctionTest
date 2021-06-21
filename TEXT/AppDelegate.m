@@ -23,6 +23,9 @@
 #import "TableViewController.h"
 #import "HeaderExpandViewController.h"
 #import "VVVVV.h"
+#import <JLRoutes/JLRoutes.h>
+#import "LBBaseViewController.h"
+#import "AttributedStringViewController.h"
 
 @interface AppDelegate ()
 
@@ -42,8 +45,34 @@
     
     [self.window addSubview:v];
     [self.window makeKeyAndVisible];
-    NSLog(@"央视央视央视%ld",self.window.traitCollection.userInterfaceStyle);
 
+
+    [[JLRoutes routesForScheme:@"liubolink"] addRoute:@":vc" priority:0 handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
+        void (^compleBlock)(void) = parameters[@"completionBlock"];
+        if (compleBlock) {
+            compleBlock();
+        }
+        UINavigationController *navigationVC = (UINavigationController * )([UIApplication sharedApplication].keyWindow.rootViewController);
+        NSString *className = parameters[@"vc"];
+        LBBaseViewController *vc = [[NSClassFromString(className) alloc] init];
+        vc.parameter = parameters;
+        [navigationVC pushViewController:vc animated:YES];
+        return YES;
+    }];
+    
+    [[JLRoutes routesForScheme:@"liubolink"] addRoute:@"liubo" priority:1 handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
+        AttributedStringViewController *vc = [[AttributedStringViewController alloc] init];
+        UINavigationController *navigationVC = (UINavigationController * )([UIApplication sharedApplication].keyWindow.rootViewController);
+        [navigationVC pushViewController:vc animated:YES];
+        return YES;
+    }];
+    
+    [[JLRoutes routesForScheme:@"liubolink"] addRoute:@":vc" priority:0 handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
+        NSLog(@"哈哈哈执行执行执行");
+        return YES;
+    }];
+    
+ 
     // Override point for customization after application launch.
     return YES;
 }

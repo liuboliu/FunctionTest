@@ -13,6 +13,8 @@
 #import "VVVVV.h"
 #import <Masonry/Masonry.h>
 #import "TPImageTitleView.h"
+#import <JLRoutes/JLRoutes.h>
+
 typedef void (^block) (void);
 @interface KKTableViewController ()
 
@@ -78,6 +80,9 @@ typedef void (^block) (void);
 {
     [self configGraident];
     [self configImgColor];
+    [self configLinkPush];
+    [self configlinkCardPush];
+    [self configLinkThirdPush];
 }
  
 - (void)configGraident
@@ -97,6 +102,38 @@ typedef void (^block) (void);
         [self.navigationController pushViewController:img animated:YES];
     };
     [self modelWithTitle:@"颜色生成图片" block:pushImgColor];
+}
+
+- (void)configLinkPush
+{
+    void (^link ) (void) = ^() {
+        NSURL *url = [NSURL URLWithString:@"liubolink://FadeViewController"];
+        [JLRoutes routeURL:url withParameters:nil];
+    };
+    [self modelWithTitle:@"跳转第一个页面" block:link];
+}
+
+- (void)configlinkCardPush
+{
+    void (^link ) (void) = ^() {
+        void (^completionBlock) (void) = ^ (void) {
+            NSLog(@"回调回调回调回调");
+        };
+        NSURL *url = [NSURL URLWithString:@"liubolink://CardCourseViewController"];
+        NSDictionary *parameter = @{@"completionBlock":completionBlock};
+        [JLRoutes routeURL:url withParameters:parameter];
+    };
+    [self modelWithTitle:@"跳转到第二个页面" block:link];
+}
+
+- (void)configLinkThirdPush
+{
+    void (^link ) (void) = ^() {
+        NSURL *url = [NSURL URLWithString:@"liubolink://liubo"];
+        [JLRoutes routeURL:url withParameters:nil];
+    };
+    [self modelWithTitle:@"跳转到第三个页面" block:link];
+
 }
 
 #pragma mark - Table view data source

@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LBBaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FadeViewController : UIViewController
+@interface FadeViewController : LBBaseViewController
 
 @end
 
