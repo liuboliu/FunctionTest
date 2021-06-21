@@ -14,31 +14,6 @@
 //
 #define maxTextScale 0.3
 
-@interface SPPageMenuLine : UIImageView
-
-@property (nonatomic, copy) void(^hideBlock)(void);
-
-@end
-
-@implementation SPPageMenuLine
-
-// 当外界设置隐藏和alpha值时，让pageMenu重新布局
-- (void)setHidden:(BOOL)hidden {
-    [super setHidden:hidden];
-    if (self.hideBlock) {
-        self.hideBlock();
-    }
-}
-
-- (void)setAlpha:(CGFloat)alpha {
-    [super setAlpha:alpha];
-    if (self.hideBlock) {
-        self.hideBlock();
-    }
-}
-
-@end
-
 @interface SPPageMenu()
 
 @property (nonatomic, strong) NSArray *items;
@@ -47,7 +22,6 @@
 @property (nonatomic, weak) UIScrollView *itemScrollView;
 @property (nonatomic, strong) NSMutableArray *buttons;
 @property (nonatomic, strong) UIButton *selectedButton;
-@property (nonatomic, strong) NSMutableDictionary *setupWidths;
 // 起始偏移量,为了判断滑动方向
 @property (nonatomic, assign) CGFloat beginOffsetX;
 
@@ -86,7 +60,6 @@
     
         [self.itemScrollView insertSubview:self.tracker atIndex:0];
         [self resetSetupTrackerFrameWithSelectedButton:selectedButton];
-
     }
 }
 
@@ -105,15 +78,6 @@
     }
     return nil;
 }
-
-- (void)moveTrackerFollowScrollView:(UIScrollView *)scrollView {
-    
-    // 说明外界传进来了一个scrollView,如果外界传进来了，pageMenu会观察该scrollView的contentOffset自动处理跟踪器的跟踪
-    if (self.bridgeScrollView == scrollView) { return; }
-    
-    [self beginMoveTrackerFollowScrollView:scrollView];
-}
- 
 
 #pragma mark  - private
 
@@ -330,13 +294,11 @@
     }
 }
 
-
 #pragma mark - setter
 
 - (void)setBridgeScrollView:(UIScrollView *)bridgeScrollView {
     _bridgeScrollView = bridgeScrollView;
     if (bridgeScrollView) {
-        
         [bridgeScrollView addObserver:self forKeyPath:scrollViewContentOffset options:NSKeyValueObservingOptionNew context:nil];
     } else {
         NSLog(@"你传了一个空的scrollView");
@@ -391,7 +353,6 @@
         UIButton *button = [self.buttons objectAtIndex:_selectedItemIndex];
         [self delegatePerformMethodWithFromIndex:button.tag-tagBaseValue toIndex:button.tag-tagBaseValue];
         [self moveItemScrollViewWithSelectedButton:button];
-        //[self buttonInPageMenuClicked:button];
     }
 }
 
@@ -421,14 +382,6 @@
     return _buttons;
 }
 
-- (NSMutableDictionary *)setupWidths {
-    
-    if (!_setupWidths) {
-        _setupWidths = [NSMutableDictionary dictionary];
-    }
-    return _setupWidths;
-}
-
 - (UIImageView *)tracker {
     
     if (!_tracker) {
@@ -445,8 +398,6 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    CGFloat backgroundViewX = self.bounds.origin.x+_contentInset.left;
-    CGFloat backgroundViewY = self.bounds.origin.y+_contentInset.top;
     CGFloat backgroundViewW = self.bounds.size.width-(_contentInset.left+_contentInset.right);
     CGFloat backgroundViewH = self.bounds.size.height-(_contentInset.top+_contentInset.bottom);
 
@@ -466,7 +417,6 @@
     for (int i= 0 ; i < self.buttons.count; i++) {
         UIButton *button = self.buttons[i];
         
-        CGFloat setupButtonW = [[self.setupWidths objectForKey:[NSString stringWithFormat:@"%d",i]] floatValue];
         CGFloat textW = [button.titleLabel.text boundingRectWithSize:CGSizeMake(MAXFLOAT, itemScrollViewH) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:_itemTitleFont} context:nil].size.width + 10;
         CGFloat imageW = button.currentImage.size.width;
         if (button.currentTitle && !button.currentImage) {
@@ -480,13 +430,9 @@
         if (self.configuration.titleWidth) {
             contentW = self.configuration.titleWidth;
         }
-        if (setupButtonW) {
-            contentW_sum += setupButtonW;
-            [buttonWidths addObject:@(setupButtonW)];
-        } else {
-            contentW_sum += contentW;
-            [buttonWidths addObject:@(contentW)];
-        }
+       
+        contentW_sum += contentW;
+        [buttonWidths addObject:@(contentW)];
     }
     
     [self.buttons enumerateObjectsUsingBlock:^(UIButton *button, NSUInteger idx, BOOL * _Nonnull stop) {

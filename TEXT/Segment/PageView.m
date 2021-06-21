@@ -83,7 +83,6 @@
         numberOfSubpage = [self.dataSource numberOfViewForPageview:self];
     }
     self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds) * numberOfSubpage, CGRectGetHeight(self.scrollView.bounds) - segmentHeight);
-    
 }
 
 #pragma mark - public

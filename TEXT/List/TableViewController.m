@@ -53,7 +53,7 @@ typedef void (^block) (void);
         @"位移动画",
         @"放大动画"
     ];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
+    //[self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     [self configActions];
     [self.tableView reloadData];
     self.tableView.backgroundColor = [UIColor cyanColor];
@@ -226,13 +226,19 @@ typedef void (^block) (void);
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
    // NSLog(@"苏亮数量数量%ld",self.dataSource.count);
-    return self.blockArray.count;
+    return 100;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
-    ListModel *model = self.blockArray[indexPath.row];
-    cell.textLabel.text = model.title;
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
+   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ff"];
+    NSLog(@"吱吱吱%@",cell);
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ff"];
+    }
+   // ListModel *model = self.blockArray[indexPath.row];
+    //cell.textLabel.text = model.title;
+    cell.textLabel.text = @"kkk";
     cell.textLabel.userInteractionEnabled = YES;
     cell.backgroundColor = [UIColor redColor];
     return cell;
