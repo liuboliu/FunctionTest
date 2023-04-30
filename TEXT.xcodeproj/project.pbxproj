@@ -42,6 +42,7 @@
 		182CB0BB25D17EB20069E613 /* __BlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB0BA25D17EB20069E613 /* __BlockViewController.m */; };
 		182CB10025D2AF780069E613 /* MultiThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB0FF25D2AF780069E613 /* MultiThreadViewController.m */; };
 		182CB10325D2B3A30069E613 /* MyOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB10225D2B3A30069E613 /* MyOperation.m */; };
+		3A08D9E229FE21EA0093FFD2 /* TPLockController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A08D9E029FE21EA0093FFD2 /* TPLockController.m */; };
 		3A5486A1267DE436004A8BB4 /* LBBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5486A0267DE436004A8BB4 /* LBBaseViewController.m */; };
 		3A611B502631886100B58DC2 /* VVVVV.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A611B4F2631886100B58DC2 /* VVVVV.m */; };
 		3A7E6E7F265514E100F8F4A0 /* TPImageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7E6E7E265514E100F8F4A0 /* TPImageTitleView.m */; };
@@ -203,6 +204,8 @@
 		182CB10125D2B3A30069E613 /* MyOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyOperation.h; sourceTree = "<group>"; };
 		182CB10225D2B3A30069E613 /* MyOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyOperation.m; sourceTree = "<group>"; };
 		2A4C0AB2B40F00DA5DB886D7 /* Pods-TEXT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TEXT.release.xcconfig"; path = "Target Support Files/Pods-TEXT/Pods-TEXT.release.xcconfig"; sourceTree = "<group>"; };
+		3A08D9E029FE21EA0093FFD2 /* TPLockController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLockController.m; sourceTree = "<group>"; };
+		3A08D9E129FE21EA0093FFD2 /* TPLockController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLockController.h; sourceTree = "<group>"; };
 		3A54869F267DE436004A8BB4 /* LBBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBBaseViewController.h; sourceTree = "<group>"; };
 		3A5486A0267DE436004A8BB4 /* LBBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LBBaseViewController.m; sourceTree = "<group>"; };
 		3A611B4E2631886100B58DC2 /* VVVVV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VVVVV.h; sourceTree = "<group>"; };
@@ -540,6 +543,15 @@
 			path = NSThread;
 			sourceTree = "<group>";
 		};
+		3A08D9DF29FE21EA0093FFD2 /* Lock */ = {
+			isa = PBXGroup;
+			children = (
+				3A08D9E029FE21EA0093FFD2 /* TPLockController.m */,
+				3A08D9E129FE21EA0093FFD2 /* TPLockController.h */,
+			);
+			path = Lock;
+			sourceTree = "<group>";
+		};
 		3AE1485D262D5524008E8119 /* 颜色生成图片暗黑适配 */ = {
 			isa = PBXGroup;
 			children = (
@@ -718,6 +730,7 @@
 		FA6748CD2358A4A0003A268A /* TEXT */ = {
 			isa = PBXGroup;
 			children = (
+				3A08D9DF29FE21EA0093FFD2 /* Lock */,
 				105B2959261DBB6500C37304 /* UI */,
 				10730FA7261326B6002FFFD0 /* HorizontalRollText */,
 				1030441C260446F900B56DC0 /* attributedstring */,
@@ -1062,6 +1075,7 @@
 				FA1932BA24C45F62000A8B8A /* ViewController4.m in Sources */,
 				1033B3A625F1E17100B15E21 /* TDViewControllerPresentAndDismiss.m in Sources */,
 				FA51351B2591CED400B6D611 /* VVCategoryBannerDecorationView.m in Sources */,
+				3A08D9E229FE21EA0093FFD2 /* TPLockController.m in Sources */,
 				3A5486A1267DE436004A8BB4 /* LBBaseViewController.m in Sources */,
 				FA64B07D25B82F0F00E048AD /* HeaderExpandViewControllerSrollview.m in Sources */,
 				105B296F261DBC5D00C37304 /* GradientViewController.m in Sources */,

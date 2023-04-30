@@ -30,6 +30,8 @@
 #import "RollingTextViewController.h"
 #import "TransitionPushTopController.h"
 #import "KKTableViewController.h"
+#import "TPLockController.h"
+
 
 typedef void (^block) (void);
 
@@ -98,6 +100,7 @@ typedef void (^block) (void);
     [self configHorizontal];
     [self configTransitinRolling];
     [self configUILIst];
+    [self configLock];
 }
 
 - (void)configDecoration
@@ -285,6 +288,16 @@ typedef void (^block) (void);
     [self modelWithTitle:@"UI" block:block];
 
 }
+
+- (void)configLock
+{
+    block block = ^ void (void) {
+        TPLockController *vc = [[TPLockController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self modelWithTitle:@"同步锁" block:block];
+}
+
 
 #pragma mark - Table view data source
 

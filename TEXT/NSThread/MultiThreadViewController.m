@@ -22,6 +22,7 @@
     [self operationDepency];
    // [self operationPriority];
    //[self operationprioritytest];
+    [self testSemophore];
     // Do any additional setup after loading the view.
 }
 
@@ -157,6 +158,30 @@
     [o3 addDependency:o4];
              [queue addOperation:o4];
     [queue addOperation:o2];
+}
+
+- (void)testSemophore
+{
+    dispatch_semaphore_t semaphore= dispatch_semaphore_create(0); // 创建信号量
+   [self getuserId:semaphore];//获取用户useid
+   dispatch_semaphore_wait(semaphore,DISPATCH_TIME_FOREVER);//当前信号量为0，一直等待阻塞线程
+       [self requestwithuserid:@"hahha "];
+}
+
+- (void)getuserId:(dispatch_semaphore_t)semaphore{
+
+    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        NSLog(@"开始请求");
+        sleep(3);
+        dispatch_semaphore_signal(semaphore);
+        NSLog(@"模拟请求成功");
+    });
+
+}
+
+- (void)requestwithuserid:(NSString *)userid{
+   NSDictionary *parms=[NSMutableDictionary dictionary];
+    NSLog(@"使用userid请求数据啊啦啦啦");
 }
 
 /*
