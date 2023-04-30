@@ -34,31 +34,24 @@
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
         make.top.mas_equalTo(100);
+        
     }];
     
     [self.contentView addSubview:self.contentTitle];
     [self.contentView addSubview:self.descTitle];
     
-        [self.contentTitle mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.top.right.mas_equalTo(0);
-        }];
-        [self.descTitle mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.right.mas_equalTo(0);
-                make.top.equalTo(self.contentTitle.mas_bottom).with.offset(30);
-                make.bottom.mas_equalTo(-10);
-        }];
+    [self.contentTitle mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.mas_equalTo(0);
+            make.top.mas_equalTo(0);
+    }];
     
-//    [self.contentView addSubview:self.titleLabel];
-//    [self.contentView addSubview:self.contentLabel];
-//    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.top.right.mas_equalTo(0);
-//    }];
-//    [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.right.mas_equalTo(0);
-//            make.top.equalTo(self.titleLabel.mas_bottom).with.offset(30);
-//            make.bottom.mas_equalTo(-10);
-//    }];
-    // Do any additional setup after loading the view.
+    [self.descTitle mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.top.equalTo(self.contentTitle.mas_bottom).with.offset(30);
+        make.bottom.mas_equalTo(-10);
+    }];
+    
+    
 }
 
 #pragma mark - lazy load
