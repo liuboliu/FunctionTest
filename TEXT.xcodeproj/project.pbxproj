@@ -43,6 +43,8 @@
 		182CB10025D2AF780069E613 /* MultiThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB0FF25D2AF780069E613 /* MultiThreadViewController.m */; };
 		182CB10325D2B3A30069E613 /* MyOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB10225D2B3A30069E613 /* MyOperation.m */; };
 		3A08D9E229FE21EA0093FFD2 /* TPLockController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A08D9E029FE21EA0093FFD2 /* TPLockController.m */; };
+		3A08D9E729FE57170093FFD2 /* LBAutoHeightController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A08D9E629FE57170093FFD2 /* LBAutoHeightController.m */; };
+		3A08D9EA29FE5FFC0093FFD2 /* ContentLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A08D9E929FE5FFC0093FFD2 /* ContentLabel.m */; };
 		3A5486A1267DE436004A8BB4 /* LBBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5486A0267DE436004A8BB4 /* LBBaseViewController.m */; };
 		3A611B502631886100B58DC2 /* VVVVV.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A611B4F2631886100B58DC2 /* VVVVV.m */; };
 		3A7E6E7F265514E100F8F4A0 /* TPImageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7E6E7E265514E100F8F4A0 /* TPImageTitleView.m */; };
@@ -206,6 +208,10 @@
 		2A4C0AB2B40F00DA5DB886D7 /* Pods-TEXT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TEXT.release.xcconfig"; path = "Target Support Files/Pods-TEXT/Pods-TEXT.release.xcconfig"; sourceTree = "<group>"; };
 		3A08D9E029FE21EA0093FFD2 /* TPLockController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLockController.m; sourceTree = "<group>"; };
 		3A08D9E129FE21EA0093FFD2 /* TPLockController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLockController.h; sourceTree = "<group>"; };
+		3A08D9E529FE57170093FFD2 /* LBAutoHeightController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBAutoHeightController.h; sourceTree = "<group>"; };
+		3A08D9E629FE57170093FFD2 /* LBAutoHeightController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LBAutoHeightController.m; sourceTree = "<group>"; };
+		3A08D9E829FE5FFC0093FFD2 /* ContentLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentLabel.h; sourceTree = "<group>"; };
+		3A08D9E929FE5FFC0093FFD2 /* ContentLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentLabel.m; sourceTree = "<group>"; };
 		3A54869F267DE436004A8BB4 /* LBBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBBaseViewController.h; sourceTree = "<group>"; };
 		3A5486A0267DE436004A8BB4 /* LBBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LBBaseViewController.m; sourceTree = "<group>"; };
 		3A611B4E2631886100B58DC2 /* VVVVV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VVVVV.h; sourceTree = "<group>"; };
@@ -437,6 +443,7 @@
 				3AE1485D262D5524008E8119 /* 颜色生成图片暗黑适配 */,
 				105B2966261DBBB100C37304 /* KKTableViewController.h */,
 				105B2967261DBBB100C37304 /* KKTableViewController.m */,
+				3A08D9E429FE56E70093FFD2 /* AutoHeightView */,
 				3A7E6E7D265514E100F8F4A0 /* TPImageTitleView.h */,
 				3A7E6E7E265514E100F8F4A0 /* TPImageTitleView.m */,
 				3A611B4E2631886100B58DC2 /* VVVVV.h */,
@@ -550,6 +557,17 @@
 				3A08D9E129FE21EA0093FFD2 /* TPLockController.h */,
 			);
 			path = Lock;
+			sourceTree = "<group>";
+		};
+		3A08D9E429FE56E70093FFD2 /* AutoHeightView */ = {
+			isa = PBXGroup;
+			children = (
+				3A08D9E529FE57170093FFD2 /* LBAutoHeightController.h */,
+				3A08D9E629FE57170093FFD2 /* LBAutoHeightController.m */,
+				3A08D9E829FE5FFC0093FFD2 /* ContentLabel.h */,
+				3A08D9E929FE5FFC0093FFD2 /* ContentLabel.m */,
+			);
+			path = AutoHeightView;
 			sourceTree = "<group>";
 		};
 		3AE1485D262D5524008E8119 /* 颜色生成图片暗黑适配 */ = {
@@ -1033,7 +1051,9 @@
 				182CB0A825BC707F0069E613 /* HittestView.m in Sources */,
 				18072C6725FC9B38004AB992 /* SubViewController.m in Sources */,
 				FA4ECC9C25B6BCB10015E5A8 /* HeaderExpandViewController.m in Sources */,
+				3A08D9E729FE57170093FFD2 /* LBAutoHeightController.m in Sources */,
 				FAB4D21923C6FF5D00EAC732 /* ScrolllView.m in Sources */,
+				3A08D9EA29FE5FFC0093FFD2 /* ContentLabel.m in Sources */,
 				101D64122603569500D4CC01 /* RollingCell.m in Sources */,
 				101D640C2603560500D4CC01 /* RollingViewController.m in Sources */,
 				FA9965E7258C7B7A004FCF10 /* ViewControllerNotification.m in Sources */,

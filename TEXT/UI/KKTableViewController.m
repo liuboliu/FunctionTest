@@ -14,6 +14,7 @@
 #import <Masonry/Masonry.h>
 #import "TPImageTitleView.h"
 #import <JLRoutes/JLRoutes.h>
+#import "LBAutoHeightController.h"
 
 typedef void (^block) (void);
 @interface KKTableViewController ()
@@ -83,6 +84,7 @@ typedef void (^block) (void);
     [self configLinkPush];
     [self configlinkCardPush];
     [self configLinkThirdPush];
+    [self configAutoHeight];
 }
  
 - (void)configGraident
@@ -134,6 +136,15 @@ typedef void (^block) (void);
     };
     [self modelWithTitle:@"跳转到第三个页面" block:link];
 
+}
+
+- (void)configAutoHeight
+{
+    void (^autoHeight) (void) = ^(void) {
+        LBAutoHeightController *vc = [[LBAutoHeightController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self modelWithTitle:@"自动撑起来高度" block:autoHeight];
 }
 
 #pragma mark - Table view data source

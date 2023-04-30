@@ -285,7 +285,7 @@ typedef void (^block) (void);
         KKTableViewController *vc = [[KKTableViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     };
-    [self modelWithTitle:@"UI" block:block];
+    [self modelWithTitle:@"UI效果" block:block];
 
 }
 
@@ -309,7 +309,7 @@ typedef void (^block) (void);
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
    // NSLog(@"苏亮数量数量%ld",self.dataSource.count);
-    return 100;
+    return self.blockArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -319,9 +319,9 @@ typedef void (^block) (void);
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ff"];
     }
-   // ListModel *model = self.blockArray[indexPath.row];
-    //cell.textLabel.text = model.title;
-    cell.textLabel.text = @"kkk";
+    ListModel *model = self.blockArray[indexPath.row];
+    cell.textLabel.text = model.title;
+ //   cell.textLabel.text = @"kkk";
     cell.textLabel.userInteractionEnabled = YES;
     cell.backgroundColor = [UIColor grayColor];
     return cell;

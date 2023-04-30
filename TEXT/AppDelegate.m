@@ -40,10 +40,10 @@
     TableViewController *vc = [[TableViewController alloc] init];
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = navi;
-    VVVVV * v = [[VVVVV alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-    v.backgroundColor = [UIColor cyanColor];
-    
-    [self.window addSubview:v];
+//    VVVVV * v = [[VVVVV alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+//    v.backgroundColor = [UIColor cyanColor];
+//
+//    [self.window addSubview:v];
     [self.window makeKeyAndVisible];
 
 
