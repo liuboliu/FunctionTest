@@ -31,7 +31,7 @@
 #import "TransitionPushTopController.h"
 #import "KKTableViewController.h"
 #import "TPLockController.h"
-
+#import "SemaphoneViewController.h"
 
 typedef void (^block) (void);
 
@@ -101,6 +101,7 @@ typedef void (^block) (void);
     [self configTransitinRolling];
     [self configUILIst];
     [self configLock];
+    [self configSemaphore];
 }
 
 - (void)configDecoration
@@ -298,6 +299,15 @@ typedef void (^block) (void);
     [self modelWithTitle:@"同步锁" block:block];
 }
 
+
+- (void)configSemaphore
+{
+    block block = ^ void (void) {
+        SemaphoneViewController *vc = [[SemaphoneViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self modelWithTitle:@"Semaphone" block:block];
+}
 
 #pragma mark - Table view data source
 

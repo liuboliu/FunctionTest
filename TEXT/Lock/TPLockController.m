@@ -21,8 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-       // [self forTest];
-        [self testLock];
+        [self forTest];
+//        [self testLock];
     });
     // Do any additional setup after loading the view.
 }
@@ -52,7 +52,8 @@
 -(void)soldTicket
 {
     //加锁
-  //  [self.lock lock];
+    [self.lock lock];
+
     if (self.soldCount == self.tickets.count) {
         NSLog(@"=====%@ 剩余票数：%lu",[[NSThread currentThread] name],self.tickets.count-self.soldCount);
         //解锁
@@ -64,7 +65,8 @@
     self.soldCount++;
     NSLog(@"=====%@ %@ 剩%lu",[[NSThread currentThread] name],self.tickets[self.soldCount-1],self.tickets.count-self.soldCount);
     //解锁
-   // [self.lock unlock];
+    [self.lock unlock];
+
     //一直卖票
     [self soldTicket];
 }
