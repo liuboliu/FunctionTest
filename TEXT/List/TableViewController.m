@@ -32,6 +32,7 @@
 #import "KKTableViewController.h"
 #import "TPLockController.h"
 #import "SemaphoneViewController.h"
+#import "ThreadSafeController.h"
 
 typedef void (^block) (void);
 
@@ -102,6 +103,7 @@ typedef void (^block) (void);
     [self configUILIst];
     [self configLock];
     [self configSemaphore];
+    [self configThreadSafe];
 }
 
 - (void)configDecoration
@@ -307,6 +309,15 @@ typedef void (^block) (void);
         [self.navigationController pushViewController:vc animated:YES];
     };
     [self modelWithTitle:@"Semaphone" block:block];
+}
+
+- (void)configThreadSafe
+{
+    block block = ^ void (void) {
+        ThreadSafeController *vc = [[ThreadSafeController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self modelWithTitle:@"线程安全" block:block];
 }
 
 #pragma mark - Table view data source

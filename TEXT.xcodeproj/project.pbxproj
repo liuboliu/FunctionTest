@@ -49,6 +49,7 @@
 		3A5486A1267DE436004A8BB4 /* LBBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5486A0267DE436004A8BB4 /* LBBaseViewController.m */; };
 		3A611B502631886100B58DC2 /* VVVVV.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A611B4F2631886100B58DC2 /* VVVVV.m */; };
 		3A7E6E7F265514E100F8F4A0 /* TPImageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7E6E7E265514E100F8F4A0 /* TPImageTitleView.m */; };
+		3AD184652A047E6F00E6AC5C /* ThreadSafeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD184642A047E6F00E6AC5C /* ThreadSafeController.m */; };
 		3AE14860262D5554008E8119 /* ImageColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1485F262D5554008E8119 /* ImageColorViewController.m */; };
 		FA0A8CD8259737F800226E0E /* ViewControllerLayoutSubViews.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0A8CD7259737F800226E0E /* ViewControllerLayoutSubViews.m */; };
 		FA0A8CDE259738FC00226E0E /* KKScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0A8CDD259738FC00226E0E /* KKScrollView.m */; };
@@ -221,6 +222,8 @@
 		3A611B4F2631886100B58DC2 /* VVVVV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VVVVV.m; sourceTree = "<group>"; };
 		3A7E6E7D265514E100F8F4A0 /* TPImageTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPImageTitleView.h; sourceTree = "<group>"; };
 		3A7E6E7E265514E100F8F4A0 /* TPImageTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPImageTitleView.m; sourceTree = "<group>"; };
+		3AD184632A047E6F00E6AC5C /* ThreadSafeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadSafeController.h; sourceTree = "<group>"; };
+		3AD184642A047E6F00E6AC5C /* ThreadSafeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadSafeController.m; sourceTree = "<group>"; };
 		3AE1485E262D5554008E8119 /* ImageColorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageColorViewController.h; sourceTree = "<group>"; };
 		3AE1485F262D5554008E8119 /* ImageColorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageColorViewController.m; sourceTree = "<group>"; };
 		EC04E0C96FC3FFD9C8BE3A0D /* libPods-TEXT.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TEXT.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -549,6 +552,8 @@
 				182CB0FF25D2AF780069E613 /* MultiThreadViewController.m */,
 				182CB10125D2B3A30069E613 /* MyOperation.h */,
 				182CB10225D2B3A30069E613 /* MyOperation.m */,
+				3AD184632A047E6F00E6AC5C /* ThreadSafeController.h */,
+				3AD184642A047E6F00E6AC5C /* ThreadSafeController.m */,
 			);
 			path = NSThread;
 			sourceTree = "<group>";
@@ -1086,6 +1091,7 @@
 				FAB21687256FB1C700AD338F /* ViewController7.m in Sources */,
 				FA546F9B24C3E45A005D9E07 /* NSTimer+_9.m in Sources */,
 				FA0A8CDE259738FC00226E0E /* KKScrollView.m in Sources */,
+				3AD184652A047E6F00E6AC5C /* ThreadSafeController.m in Sources */,
 				FA51350C2591CE8000B6D611 /* VVCollectionDecorationLayout.m in Sources */,
 				FA4ECCA925B6BE480015E5A8 /* VVCustomCollectionViewLayout.m in Sources */,
 				FA6B42DE24CABC3D00D291AD /* ViewController6.m in Sources */,
