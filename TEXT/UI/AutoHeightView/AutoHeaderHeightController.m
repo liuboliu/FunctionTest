@@ -22,109 +22,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view addSubview:self.tableView];
     self.view.backgroundColor = [UIColor whiteColor];
     TableHederView *headerView = [[TableHederView alloc] init];
+    headerView.backgroundColor = [UIColor cyanColor];
     [self.view addSubview:headerView];
-    self.array = @[@"upsaifaskdjf;askldjf;alksdjf;aklsjfasdlkfja;sdklfja;skdlfj;aksdjf;aksldjf;aklsjdf;aklsdjf;klasjdf;klajdsf;alksdfj",
-    @"e二二二二二二二二二二二二二二二二二二二二二二二二二二二二二二二二二二二二二额二二二二二二二二二二额二二二二二二二二",
-                       @"三三三三是哪三是哪三年三三三三三是哪三三三是哪三三三三三三阿森纳三三三三三安萨是哪是哪是哪三年三三三三三三是哪三男撒三三三三三三",
-    @"丝丝丝丝丝丝丝丝丝丝上丝丝丝丝丝丝丝丝丝丝上丝丝丝丝丝丝丝丝丝丝上丝丝丝丝丝丝丝丝丝丝上丝丝丝丝丝丝丝丝丝丝上v丝丝丝丝丝丝丝丝丝丝上丝丝丝丝丝丝丝丝丝丝上"];
-    [headerView refreshWithArray:self.array];
-    
-    NSLog(@"这里的大小这里的frame%@", NSStringFromCGRect(headerView.frame));
-    
-    UIView *view = [[UIView alloc] init];
-    view.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-    [self.view addSubview:view];
-    [view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.mas_equalTo(0);
-            make.top.mas_equalTo(100);
+    [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.top.mas_equalTo(100);
     }];
-  //  [self refreshWithArray:self.array v:view];
-    view.backgroundColor = [UIColor cyanColor];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        UIView *lastView ;
-
-        for (int i = 0; i < self.array.count; i ++) {
-            NSString *title = @"akdsjf;alskdjf;alksjdf;alkjdsf;alkjdf;lakjdfs;lkajsdf;lkajsdf;lkajdsf;lkjasd";
-            UILabel *label = [[UILabel alloc] init];
-            label.text = title;
-            label.textColor = [UIColor redColor];
-            label.backgroundColor = [UIColor magentaColor];
-            [view addSubview:label];
-            if (i == 0) {
-                [label mas_makeConstraints:^(MASConstraintMaker *make) {
-                    make.left.mas_equalTo(10);
-                    make.right.mas_equalTo(- 10);
-                    make.top.mas_equalTo(10);
-                    make.height.mas_equalTo(40);
-                }];
-            } else {
-                
-                if (i == self.array.count - 1) {
-                    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-                        make.left.mas_equalTo(10);
-                        make.right.mas_equalTo(-10);
-                        make.top.equalTo(lastView.mas_bottom).with.offset(10);
-                        make.bottom.mas_equalTo(-10);
-                    }];
-                } else {
-                    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-                        make.left.mas_equalTo(10);
-                        make.right.mas_equalTo(-10);
-                        make.top.equalTo(lastView.mas_bottom).with.offset(10);
-                    }];
-                }
-            }
-            lastView = label;
-            
-        }
-        
-
-    });
-    // Do any additional setup after loading the view.
+    self.array = @[@"upsaifaskdjf;askldjf;alksdjf;aklsjfasdlkfja;sdklfja;skdlfj;aksdjf;aksldjf;aklsjdf;aklsdjf;klasjdf;klajdsf;alksdfj",
+                   @"e二二二二二二二二二二二二二二二二二二二二二二二二二二二二二二二二二二二二二额二二二二二二二二二二额二二二二二二二二",
+                   @"三三三三是哪三是哪三年三三三三三是哪三三三是哪三三三三三三阿森纳三三三三三安萨是哪是哪是哪三年三三三三三三是哪三男撒三三三三三三",
+                   @"丝丝丝丝丝丝丝丝丝丝上丝丝丝丝丝丝丝丝丝丝上丝丝丝丝丝丝丝丝丝丝上丝丝丝丝丝丝丝丝丝丝上丝丝丝丝丝丝丝丝丝丝上v丝丝丝丝丝丝丝丝丝丝上丝丝丝丝丝丝丝丝丝丝上"];
+    [headerView refreshWithArray:self.array];
 }
-
-- (void)refreshWithArray:(NSArray *)array v :(UIView  *)superview
-{
-    UIView *view ;
-    for (int i = 0; i < array.count; i ++) {
-        NSString *title = array[i];
-        UILabel *label = [[UILabel alloc] init];
-        label.text = title;
-        label.textColor = [UIColor redColor];
-        label.backgroundColor = [UIColor magentaColor];
-        [superview addSubview:label];
-        if (i == 0) {
-            [label mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.mas_equalTo(10);
-                make.right.mas_equalTo(- 10);
-                make.top.mas_equalTo(10);
-            }];
-        } else {
-            
-            if (i == array.count - 1) {
-                [label mas_makeConstraints:^(MASConstraintMaker *make) {
-                    make.left.mas_equalTo(10);
-                    make.right.mas_equalTo(-10);
-                    make.top.equalTo(view.mas_bottom).with.offset(10);
-                    make.bottom.mas_equalTo(-10);
-                }];
-            } else {
-                [label mas_makeConstraints:^(MASConstraintMaker *make) {
-                    make.left.mas_equalTo(10);
-                    make.right.mas_equalTo(-10);
-                    make.top.equalTo(view.mas_bottom).with.offset(10);
-                }];
-            }
-        }
-        view = label;
-        
-    }
-}
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
