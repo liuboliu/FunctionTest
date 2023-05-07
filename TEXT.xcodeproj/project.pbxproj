@@ -46,7 +46,9 @@
 		3A08D9E729FE57170093FFD2 /* LBAutoHeightController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A08D9E629FE57170093FFD2 /* LBAutoHeightController.m */; };
 		3A08D9EA29FE5FFC0093FFD2 /* ContentLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A08D9E929FE5FFC0093FFD2 /* ContentLabel.m */; };
 		3A08D9EE2A032CC00093FFD2 /* SemaphoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A08D9ED2A032CC00093FFD2 /* SemaphoneViewController.m */; };
+		3A4BAE5C2A0751650037FDA6 /* TableHederView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4BAE5B2A0751650037FDA6 /* TableHederView.m */; };
 		3A5486A1267DE436004A8BB4 /* LBBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5486A0267DE436004A8BB4 /* LBBaseViewController.m */; };
+		3A567DB82A07464C00A178FD /* AutoHeaderHeightController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A567DB72A07464C00A178FD /* AutoHeaderHeightController.m */; };
 		3A611B502631886100B58DC2 /* VVVVV.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A611B4F2631886100B58DC2 /* VVVVV.m */; };
 		3A7E6E7F265514E100F8F4A0 /* TPImageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7E6E7E265514E100F8F4A0 /* TPImageTitleView.m */; };
 		3AD184652A047E6F00E6AC5C /* ThreadSafeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD184642A047E6F00E6AC5C /* ThreadSafeController.m */; };
@@ -216,8 +218,12 @@
 		3A08D9E929FE5FFC0093FFD2 /* ContentLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentLabel.m; sourceTree = "<group>"; };
 		3A08D9EC2A032CC00093FFD2 /* SemaphoneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SemaphoneViewController.h; sourceTree = "<group>"; };
 		3A08D9ED2A032CC00093FFD2 /* SemaphoneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SemaphoneViewController.m; sourceTree = "<group>"; };
+		3A4BAE5A2A0751650037FDA6 /* TableHederView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableHederView.h; sourceTree = "<group>"; };
+		3A4BAE5B2A0751650037FDA6 /* TableHederView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableHederView.m; sourceTree = "<group>"; };
 		3A54869F267DE436004A8BB4 /* LBBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBBaseViewController.h; sourceTree = "<group>"; };
 		3A5486A0267DE436004A8BB4 /* LBBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LBBaseViewController.m; sourceTree = "<group>"; };
+		3A567DB62A07464C00A178FD /* AutoHeaderHeightController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoHeaderHeightController.h; sourceTree = "<group>"; };
+		3A567DB72A07464C00A178FD /* AutoHeaderHeightController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoHeaderHeightController.m; sourceTree = "<group>"; };
 		3A611B4E2631886100B58DC2 /* VVVVV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VVVVV.h; sourceTree = "<group>"; };
 		3A611B4F2631886100B58DC2 /* VVVVV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VVVVV.m; sourceTree = "<group>"; };
 		3A7E6E7D265514E100F8F4A0 /* TPImageTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPImageTitleView.h; sourceTree = "<group>"; };
@@ -574,6 +580,10 @@
 				3A08D9E629FE57170093FFD2 /* LBAutoHeightController.m */,
 				3A08D9E829FE5FFC0093FFD2 /* ContentLabel.h */,
 				3A08D9E929FE5FFC0093FFD2 /* ContentLabel.m */,
+				3A567DB62A07464C00A178FD /* AutoHeaderHeightController.h */,
+				3A567DB72A07464C00A178FD /* AutoHeaderHeightController.m */,
+				3A4BAE5A2A0751650037FDA6 /* TableHederView.h */,
+				3A4BAE5B2A0751650037FDA6 /* TableHederView.m */,
 			);
 			path = AutoHeightView;
 			sourceTree = "<group>";
@@ -1066,6 +1076,7 @@
 				FA6748DE2358A4A4003A268A /* main.m in Sources */,
 				182CB0A525BC648C0069E613 /* CardCourseViewController.m in Sources */,
 				10832A0525F5F867008F64A1 /* KeyValueViewController.m in Sources */,
+				3A567DB82A07464C00A178FD /* AutoHeaderHeightController.m in Sources */,
 				182CB0A825BC707F0069E613 /* HittestView.m in Sources */,
 				3A08D9EE2A032CC00093FFD2 /* SemaphoneViewController.m in Sources */,
 				18072C6725FC9B38004AB992 /* SubViewController.m in Sources */,
@@ -1124,6 +1135,7 @@
 				FA5135122591CEB600B6D611 /* VVBaseCollectionDecorationView.m in Sources */,
 				182CB0AB25BCFE400069E613 /* TestView.m in Sources */,
 				103044282604547100B56DC0 /* AnimationGroupController.m in Sources */,
+				3A4BAE5C2A0751650037FDA6 /* TableHederView.m in Sources */,
 				FA513641259595B800B6D611 /* SIZECollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

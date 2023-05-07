@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, readonly) BOOL valid;
 
 + (instancetype)new NS_UNAVAILABLE;
-- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)init ;
 
 /// 非数组的监听
 + (instancetype)initWith_kvoObserver:(nonnull VVKVOObserver *)kvoObserver

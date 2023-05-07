@@ -15,6 +15,7 @@
 #import "TPImageTitleView.h"
 #import <JLRoutes/JLRoutes.h>
 #import "LBAutoHeightController.h"
+#import "AutoHeaderHeightController.h"
 
 typedef void (^block) (void);
 @interface KKTableViewController ()
@@ -85,6 +86,7 @@ typedef void (^block) (void);
     [self configlinkCardPush];
     [self configLinkThirdPush];
     [self configAutoHeight];
+    [self configAutoTableHeight];
 }
  
 - (void)configGraident
@@ -145,6 +147,15 @@ typedef void (^block) (void);
         [self.navigationController pushViewController:vc animated:YES];
     };
     [self modelWithTitle:@"自动撑起来高度" block:autoHeight];
+}
+
+- (void)configAutoTableHeight
+{
+    void (^autoHeight) (void) = ^(void) {
+        AutoHeaderHeightController *vc = [[AutoHeaderHeightController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self modelWithTitle:@"TableView头部自动撑起来高度" block:autoHeight];
 }
 
 #pragma mark - Table view data source
