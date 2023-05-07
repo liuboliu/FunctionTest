@@ -51,6 +51,8 @@
 		3A567DB82A07464C00A178FD /* AutoHeaderHeightController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A567DB72A07464C00A178FD /* AutoHeaderHeightController.m */; };
 		3A611B502631886100B58DC2 /* VVVVV.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A611B4F2631886100B58DC2 /* VVVVV.m */; };
 		3A7E6E7F265514E100F8F4A0 /* TPImageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7E6E7E265514E100F8F4A0 /* TPImageTitleView.m */; };
+		3AAD4B492A07D9A7003795BD /* ImageScanDescViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AAD4B482A07D9A7003795BD /* ImageScanDescViewController.m */; };
+		3AAD4B4C2A07D9CB003795BD /* DescView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AAD4B4B2A07D9CB003795BD /* DescView.m */; };
 		3AD184652A047E6F00E6AC5C /* ThreadSafeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD184642A047E6F00E6AC5C /* ThreadSafeController.m */; };
 		3AE14860262D5554008E8119 /* ImageColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1485F262D5554008E8119 /* ImageColorViewController.m */; };
 		FA0A8CD8259737F800226E0E /* ViewControllerLayoutSubViews.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0A8CD7259737F800226E0E /* ViewControllerLayoutSubViews.m */; };
@@ -228,6 +230,10 @@
 		3A611B4F2631886100B58DC2 /* VVVVV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VVVVV.m; sourceTree = "<group>"; };
 		3A7E6E7D265514E100F8F4A0 /* TPImageTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPImageTitleView.h; sourceTree = "<group>"; };
 		3A7E6E7E265514E100F8F4A0 /* TPImageTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPImageTitleView.m; sourceTree = "<group>"; };
+		3AAD4B472A07D9A7003795BD /* ImageScanDescViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageScanDescViewController.h; sourceTree = "<group>"; };
+		3AAD4B482A07D9A7003795BD /* ImageScanDescViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageScanDescViewController.m; sourceTree = "<group>"; };
+		3AAD4B4A2A07D9CB003795BD /* DescView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DescView.h; sourceTree = "<group>"; };
+		3AAD4B4B2A07D9CB003795BD /* DescView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescView.m; sourceTree = "<group>"; };
 		3AD184632A047E6F00E6AC5C /* ThreadSafeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadSafeController.h; sourceTree = "<group>"; };
 		3AD184642A047E6F00E6AC5C /* ThreadSafeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadSafeController.m; sourceTree = "<group>"; };
 		3AE1485E262D5554008E8119 /* ImageColorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageColorViewController.h; sourceTree = "<group>"; };
@@ -452,6 +458,7 @@
 		105B2959261DBB6500C37304 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				3AAD4B462A07D987003795BD /* ImageScanDescView */,
 				3AE1485D262D5524008E8119 /* 颜色生成图片暗黑适配 */,
 				105B2966261DBBB100C37304 /* KKTableViewController.h */,
 				105B2967261DBBB100C37304 /* KKTableViewController.m */,
@@ -595,6 +602,17 @@
 				3A08D9ED2A032CC00093FFD2 /* SemaphoneViewController.m */,
 			);
 			path = Semaphone;
+			sourceTree = "<group>";
+		};
+		3AAD4B462A07D987003795BD /* ImageScanDescView */ = {
+			isa = PBXGroup;
+			children = (
+				3AAD4B4A2A07D9CB003795BD /* DescView.h */,
+				3AAD4B4B2A07D9CB003795BD /* DescView.m */,
+				3AAD4B472A07D9A7003795BD /* ImageScanDescViewController.h */,
+				3AAD4B482A07D9A7003795BD /* ImageScanDescViewController.m */,
+			);
+			path = ImageScanDescView;
 			sourceTree = "<group>";
 		};
 		3AE1485D262D5524008E8119 /* 颜色生成图片暗黑适配 */ = {
@@ -1110,6 +1128,7 @@
 				18072C5A25FC5362004AB992 /* PageView.m in Sources */,
 				182CB10325D2B3A30069E613 /* MyOperation.m in Sources */,
 				FA6748D02358A4A0003A268A /* AppDelegate.m in Sources */,
+				3AAD4B4C2A07D9CB003795BD /* DescView.m in Sources */,
 				FA5745AE2429FAE800D36D28 /* SCSpec.m in Sources */,
 				182CB0BB25D17EB20069E613 /* __BlockViewController.m in Sources */,
 				10F102B825FF3CF1003A6C28 /* FadeViewController.m in Sources */,
@@ -1130,6 +1149,7 @@
 				3A5486A1267DE436004A8BB4 /* LBBaseViewController.m in Sources */,
 				FA64B07D25B82F0F00E048AD /* HeaderExpandViewControllerSrollview.m in Sources */,
 				105B296F261DBC5D00C37304 /* GradientViewController.m in Sources */,
+				3AAD4B492A07D9A7003795BD /* ImageScanDescViewController.m in Sources */,
 				18072C6425FC9909004AB992 /* UIColor+TDHelp.m in Sources */,
 				FA51351A2591CED400B6D611 /* VVCategoryDecorationView.m in Sources */,
 				FA5135122591CEB600B6D611 /* VVBaseCollectionDecorationView.m in Sources */,

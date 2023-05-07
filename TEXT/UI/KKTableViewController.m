@@ -16,6 +16,7 @@
 #import <JLRoutes/JLRoutes.h>
 #import "LBAutoHeightController.h"
 #import "AutoHeaderHeightController.h"
+#import "ImageScanDescViewController.h"
 
 typedef void (^block) (void);
 @interface KKTableViewController ()
@@ -87,6 +88,7 @@ typedef void (^block) (void);
     [self configLinkThirdPush];
     [self configAutoHeight];
     [self configAutoTableHeight];
+    [self configImagescanDesc];
 }
  
 - (void)configGraident
@@ -156,6 +158,15 @@ typedef void (^block) (void);
         [self.navigationController pushViewController:vc animated:YES];
     };
     [self modelWithTitle:@"TableView头部自动撑起来高度" block:autoHeight];
+}
+
+- (void)configImagescanDesc
+{
+    void (^autoHeight) (void) = ^(void) {
+        ImageScanDescViewController *vc = [[ImageScanDescViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self modelWithTitle:@"查看图片底部描述" block:autoHeight];
 }
 
 #pragma mark - Table view data source
